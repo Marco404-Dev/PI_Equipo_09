@@ -4,7 +4,7 @@
 
 ---
 <p align="center">
-  <img src="Recursos/Imagenes/ods14.gif" alt="ODS 12 - Producción y consumo responsables" width="1000"/>
+  <img src="recursos/imagenes/ods14.gif" alt="ODS 12 - Producción y consumo responsables" width="1000"/>
 </p>
 
 ---
@@ -23,7 +23,7 @@ Nos interesa trabajar en los siguientes **Objetivos de Desarrollo Sostenible (OD
 
 ## 📸 Fotografía del Equipo  
 <p align="center">
-  <img src="/Recursos/Imagenes/equipo.png" alt="Foto grupal del equipo" width="500"/><br>
+  <img src="/recursos/imagenes/equipo.png" alt="Foto grupal del equipo" width="500"/><br>
   <em>Figura 1. Fotografía del equipo 06</em>
 </p>
 
@@ -33,7 +33,7 @@ Nos interesa trabajar en los siguientes **Objetivos de Desarrollo Sostenible (OD
 
 | Foto | Nombre | Rol | Intereses |
 |------|--------|-----|-----------|
-| <img src="/Recursos/Imagenes/result_RUTH.png" width="90"/> | **Ruth Elizabeth Atiro Cobeñas** | Líder del equipo | Innovación social, sostenibilidad |
-| <img src="/Recursos/Imagenes/result_SHEY.png" width="90"/> | **Sheila Rocío Calla Mamani** | Responsable de investigación | Gestión ambiental, desarrollo comunitario |
-| <img src="/Recursos/Imagenes/result_BENEDICT.png" width="90"/> | **Benedict Mattew Quispe Paniagua** | Integración de Hardware y Software | Computación en la nube, desarrollo web, redes, desarrollo de software |
-| <img src="/Recursos/Imagenes/result_MARCO.png" width="90"/> | **Marco Antonio Ancco Quispe** | Programador/a - Modelador/a | Programación, análisis de datos, simulación |
+| <img src="/recursos/imagenes/result_RUTH.png" width="90"/> | **Ruth Elizabeth Atiro Cobeñas** | Líder del equipo | Innovación social, sostenibilidad |
+| <img src="/recursos/imagenes/result_SHEY.png" width="90"/> | **Sheila Rocío Calla Mamani** | Responsable de investigación | Gestión ambiental, desarrollo comunitario |
+| <img src="/recursos/imagenes/result_BENEDICT.png" width="90"/> | **Benedict Mattew Quispe Paniagua** | Integración de Hardware y Software | Computación en la nube, desarrollo web, redes, desarrollo de software |
+| <img src="/recursos/imagenes/result_MARCO.png" width="90"/> | **Marco Antonio Ancco Quispe** | Programador/a - Modelador/a | Programación, análisis de datos, simulación |
