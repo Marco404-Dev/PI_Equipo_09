@@ -1,4 +1,4 @@
-# Equipo 06 - Fundamentos de Diseño 2025-2  
+# Equipo 09 - Proyecto Integrador 2026-II  
 ### Carrera de Ingeniería Ambiental / Informática
 **Universidad Peruana Cayetano Heredia**
 
