@@ -37,4 +37,4 @@ Nos interesa trabajar en los siguientes **Objetivos de Desarrollo Sostenible (OD
 | <img src="/recursos/imagenes/result_SHEY.png" width="90"/> | **Sheila Rocío Calla Mamani** | Responsable de investigación | Gestión ambiental, desarrollo comunitario |
 | <img src="/recursos/imagenes/result_BENEDICT.png" width="90"/> | **Benedict Mattew Quispe Paniagua** | Integración de Hardware y Software | Computación en la nube, desarrollo web, redes, desarrollo de software |
 | <img src="/recursos/imagenes/result_MARCO.png" width="90"/> | **Marco Antonio Ancco Quispe** | Programador/a - Modelador/a | Programación, análisis de datos, simulación |
-| <img src="/recursos/imagenes/result_Ivana.png" width="90"/> | **Ivana** | Programador/a - Modelador/a | Programación, análisis de datos, simulación |
+| <img src="/recursos/imagenes/result_Ivana.png" width="90"/> | **Ivana Francesca Gygax Malca** | Investigadora | Documentación y validación |
