@@ -1,6 +1,6 @@
 # Análisis estructural de la Base Superior
 
-![3D Benedict Quispe.png](https://upch.blackboard.com/bbcswebdav/internal/courses/C8921-20262_G_1/messages/_92687_1/embedded/3D%20Benedict%20Quispe.png)
+<img width="1917" height="902" alt="image" src="https://github.com/user-attachments/assets/45524f92-9867-4c96-96f4-7cf98d8311db" />
 
 ## Material
 
