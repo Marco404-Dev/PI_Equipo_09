@@ -1,3 +1,4 @@
+<img width="827" height="712" alt="image" src="https://github.com/user-attachments/assets/7a43fb64-a36d-40e5-a19f-4cd385103083" />
 
 
 ## Próposito y funciones:
