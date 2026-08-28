@@ -1,6 +1,6 @@
 # Resultado de la simulación estructural
 
-![Resultado de la simulación](../../../recursos/imagenes/Screenshot%202026-08-27%20193305.png)
+![Resultado de la simulación](../../../recursos/imagenes/marco_simscale.png)
 
 ## Simulación realizada
 
