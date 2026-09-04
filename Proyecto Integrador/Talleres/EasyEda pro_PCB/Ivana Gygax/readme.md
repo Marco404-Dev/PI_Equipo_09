@@ -2,12 +2,12 @@ Sensor de conductividad
 Códigos TDS y DHT22
 
 Schematic:
-<img width="2362" height="1675" alt="SCH_Schematic1_1-P1_2026-09-03" src="https://github.com/user-attachments/assets/df5a5241-98ec-4149-a6de-e762cfc5e94f" />
+<img width="2362" height="1675" alt="SCH_Schematic1_1-P1_2026-09-03" src="https://github.com/user-attachments/assets/126a4b7b-f641-4c96-8b67-78f840e9441c" />
 
 
 
 PCB 2D:
-<img width="2160" height="1989" alt="PCB_PCB1_2026-09-03" src="https://github.com/user-attachments/assets/0f72a483-7f75-4386-9f76-1f9aa43a7923" />
+<img width="2160" height="1996" alt="PCB_PCB1_2026-09-03" src="https://github.com/user-attachments/assets/fcdc67c3-17ce-4b5e-a575-eedfef85fa5a" />
 
 
 
