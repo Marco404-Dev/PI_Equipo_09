@@ -2,9 +2,6 @@
 
 PCB para la conexión y lectura de un sensor de conductividad eléctrica del agua.
 
-## Código
-
-Programa para la lectura y procesamiento de los datos del sensor de conductividad.
 
 ## Esquema eléctrico
 <img width="1145" height="802" alt="Screenshot 2026-09-03 233711" src="https://github.com/user-attachments/assets/5bd4ee98-c137-46b1-849e-8689e2d1b6bc" />
