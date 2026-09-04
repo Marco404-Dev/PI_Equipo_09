@@ -27,5 +27,5 @@ Placa para conectar sensores de conductividad eléctrica, temperatura del agua y
 
 ## Medidas
 
-- **Alto:** 2320.6 mil | 58.94 mm
-- **Ancho:** 2848.2 mil | 72.34 mm
+- **Alto:** 2350.0 mil | 70.0 mm
+- **Ancho:** 2900.0 mil | 70.0 mm
