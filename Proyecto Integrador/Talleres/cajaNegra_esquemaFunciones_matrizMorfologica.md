@@ -94,3 +94,120 @@ La matriz comprende **14 funciones**. La siguiente tabla transcribe las opciones
 | F03 | Regular o adaptar voltaje | Módulo de alimentación |
 | F04 | Medir temperatura | DS18B20 |
 | F05 | Medir pH | Electrodo de pH de vidrio, potenciométrico |
+
+
+
+
+### 1.3.4. Configuración de los caminos de solución
+
+Para desarrollar la comparación ponderada se toma la selección verde de la matriz como **Camino A** y se proponen dos configuraciones adicionales: **Camino B**, orientado a una prueba local, y **Camino C**, orientado a comunicación de campo mediante red celular.
+
+> **Evaluación preliminar propuesta:** los caminos B y C, los pesos y las calificaciones siguientes se plantean para discusión del equipo. No corresponden a resultados experimentales, cotizaciones ni a tres caminos ya aprobados en la matriz. Las puntuaciones permiten mostrar el procedimiento de selección y deberán actualizarse con evidencia del prototipo.
+
+| Función | Camino A: selección inicial | Camino B: prueba local propuesta | Camino C: comunicación de campo propuesta |
+|---|---|---|---|
+| Energizar | Panel solar | Batería recargable con recarga externa | Panel solar |
+| Almacenar energía | Baterías de litio | Batería de litio recargable, compartida con la función anterior | Baterías de litio |
+| Regular voltaje | Módulo de alimentación | Módulo de alimentación | Módulo de alimentación |
+| Medir temperatura | DS18B20 | DS18B20 | DS18B20 |
+| Medir pH | Electrodo de vidrio | Electrodo de vidrio | Electrodo de vidrio |
+| Medir conductividad | Sensor de conductividad eléctrica | Sensor de conductividad eléctrica | Sensor de conductividad eléctrica |
+| Procesar datos | ESP32 | ESP32 | ESP32 |
+| Estimar oxígeno disuelto | ML con temperatura, pH y conductividad | Mismo enfoque de ML | Mismo enfoque de ML |
+| Cuantificar confiabilidad | Intervalo de predicción | Intervalo de predicción | Intervalo de predicción |
+| Evaluar condición del agua | Rangos y variación temporal | Rangos y variación temporal | Rangos y variación temporal |
+| Comunicar datos | Wi-Fi | Wi-Fi en una red local | GSM/4G mediante módulo adicional |
+| Almacenar datos | AWS / nube | PostgreSQL en un equipo local | AWS / nube |
+| Visualizar información | Aplicación Android | Streamlit local | Aplicación Android |
+| Notificar riesgos | Indicador en dashboard | Indicador en dashboard | Notificación web/app |
+
+*Tabla 4. Configuraciones utilizadas en la evaluación preliminar. Las alternativas se combinan por función; no se equiparan automáticamente con las columnas CS1, CS2 y CS3.*
+
+En B se requiere un equipo local para ejecutar PostgreSQL y Streamlit. En C se requiere un módulo celular y un servicio de datos. Estos recursos deben incluirse en el presupuesto. Los tres caminos mantienen la misma cadena de medición y el mismo enfoque predictivo para comparar principalmente alimentación, comunicación e implementación.
+
+### 1.3.5. Criterios, pesos y valoración de los caminos
+
+Los pesos representan la importancia relativa de cada criterio para el proyecto y suman **100 %**. Cada camino recibe una calificación de 1 a 5; una calificación mayor siempre representa una condición más favorable. Por ello, menor costo y menor dificultad de integración reciben puntuaciones mayores.
+
+| Puntaje | Interpretación |
+|---|---|
+| 1 | Muy desfavorable |
+| 2 | Desfavorable |
+| 3 | Aceptable |
+| 4 | Bueno |
+| 5 | Muy bueno |
+
+| Criterio | Peso propuesto | Justificación de su importancia |
+|---|---:|---|
+| Calidad de medición y validación de la estimación | 25 % | Las decisiones dependen de lecturas calibradas y de una estimación contrastada con mediciones de referencia. |
+| Autonomía energética | 20 % | Se busca sostener el monitoreo y reducir intervenciones para recarga. |
+| Conectividad en el lugar de uso | 15 % | Determina la posibilidad de consultar datos y recibir información a distancia. |
+| Costo total del prototipo | 15 % | Considera sensores, alimentación, comunicaciones, equipo auxiliar y servicios durante un mismo período de comparación. |
+| Facilidad de integración | 10 % | Considera el esfuerzo de montaje, programación, configuración y puesta en funcionamiento. |
+| Acceso e historial de datos | 10 % | Considera la disponibilidad del historial y la consulta fuera del equipo local. |
+| Visualización y avisos | 5 % | Considera la facilidad de consulta y la forma de presentar cambios al usuario. |
+| **Total** | **100 %** | |
+
+*Tabla 5. Criterios y ponderaciones propuestos para ManglarLab.*
+
+#### Valoración preliminar
+
+| Criterio | Camino A | Camino B | Camino C |
+|---|---:|---:|---:|
+| Calidad de medición y validación de la estimación | 3 | 3 | 3 |
+| Autonomía energética | 4 | 2 | 3 |
+| Conectividad en el lugar de uso | 2 | 2 | 4 |
+| Costo total del prototipo | 3 | 4 | 2 |
+| Facilidad de integración | 3 | 4 | 2 |
+| Acceso e historial de datos | 4 | 3 | 4 |
+| Visualización y avisos | 4 | 3 | 4 |
+
+*Tabla 6. Calificaciones de trabajo, sujetas a confirmación. El valor 3 en medición es una asignación neutral para la comparación, no una declaración de precisión aceptable demostrada.*
+
+Las calificaciones se basan en los siguientes supuestos explícitos:
+
+- **Medición:** se asigna el mismo valor a los tres caminos porque comparten sensores y enfoque de estimación. No existe evidencia aquí para atribuir mayor precisión a alguno.
+- **Autonomía:** se supone que A dispone de un sistema solar correctamente dimensionado. B depende de recargas externas. Para C se supone una mayor demanda por transmisión celular sin aumentar inicialmente el almacenamiento energético. Estos supuestos deben comprobarse con un balance de energía.
+- **Conectividad:** se supone que el sitio no dispone de Wi-Fi permanente, pero sí de cobertura celular utilizable. Si no se confirma esta condición, la ventaja asignada a C deja de estar sustentada.
+- **Costo:** se supone que B reutiliza un equipo local disponible y evita el sistema solar y los servicios remotos; C incorpora módulo celular y servicio de datos. Sin esta disponibilidad o sin cotizaciones, la comparación puede cambiar.
+- **Integración:** se supone que el equipo puede desarrollar una prueba local con menor esfuerzo que integrar nube y aplicación móvil; C añade la integración celular.
+- **Historial:** se valora favorablemente la consulta remota prevista en A y C. No se presume que almacenar en la nube garantice por sí solo respaldo o ausencia de pérdidas.
+- **Visualización:** se asigna una valoración favorable a la consulta móvil de A y C. No se atribuye una ventaja adicional a las notificaciones de C hasta definir y probar su funcionamiento.
+
+### 1.3.6. Evaluación ponderada y selección preliminar
+
+La evaluación ponderada combina el peso de cada criterio con la calificación asignada a cada camino. Para cada fila se calcula:
+
+**Puntaje ponderado = (peso porcentual / 100) × calificación del camino.**
+
+La suma de los resultados proporciona un puntaje global de hasta **5 puntos**. Por ejemplo, el aporte de autonomía energética para A es **0,20 × 4 = 0,80 puntos**.
+
+| Criterio | Peso | A | B | C | Peso × A | Peso × B | Peso × C |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Calidad de medición y validación de la estimación | 25 % | 3 | 3 | 3 | 0,75 | 0,75 | 0,75 |
+| Autonomía energética | 20 % | 4 | 2 | 3 | 0,80 | 0,40 | 0,60 |
+| Conectividad en el lugar de uso | 15 % | 2 | 2 | 4 | 0,30 | 0,30 | 0,60 |
+| Costo total del prototipo | 15 % | 3 | 4 | 2 | 0,45 | 0,60 | 0,30 |
+| Facilidad de integración | 10 % | 3 | 4 | 2 | 0,30 | 0,40 | 0,20 |
+| Acceso e historial de datos | 10 % | 4 | 3 | 4 | 0,40 | 0,30 | 0,40 |
+| Visualización y avisos | 5 % | 4 | 3 | 4 | 0,20 | 0,15 | 0,20 |
+| **Total ponderado** | **100 %** | | | | **3,20** | **2,90** | **3,05** |
+
+*Tabla 7. Evaluación ponderada preliminar de los caminos de solución.*
+
+| Camino | Puntaje final | Posición |
+|---|---:|---:|
+| **A — Selección inicial** | **3,20 / 5** | **1** |
+| C — Comunicación de campo | 3,05 / 5 | 2 |
+| B — Prueba local | 2,90 / 5 | 3 |
+
+Bajo los pesos y supuestos propuestos, el **Camino A obtiene el mayor puntaje y se conserva como candidato inicial para desarrollar el prototipo**. Su ventaja resulta de la valoración asignada a autonomía, costo e integración, frente a la conectividad prevista en C.
+
+La diferencia entre A y C es de **0,15 puntos**, por lo que la selección no es concluyente. Si el peso de conectividad aumenta de 15 % a 20 % y el de costo disminuye de 15 % a 10 %, ambos caminos obtienen **3,15 puntos**. Esto muestra que la prioridad de comunicación en campo puede modificar la decisión.
+
+Además, un requisito obligatorio no debe compensarse con una buena puntuación en otros criterios: si la transmisión remota es indispensable y no existe Wi-Fi ni un enlace adicional viable, A no cumple ese requisito aunque alcance el mayor total. La selección final deberá realizarse después de confirmar cobertura, presupuesto energético, costos y desempeño de medición.
+
+## 1.4. Decisiones pendientes de unificación
+
+No se asignan puntajes en este documento porque las figuras revisadas no contienen evidencia suficiente para sustentarlos.
+Los apartados 2.3.4 a 2.3.6 presentan una propuesta de caminos y una evaluación preliminar con supuestos explícitos. Antes de aprobar la selección final, el equipo deberá confirmar las configuraciones y reemplazar las calificaciones de trabajo por valoraciones sustentadas en pruebas, cotizaciones y requisitos del lugar de uso.
