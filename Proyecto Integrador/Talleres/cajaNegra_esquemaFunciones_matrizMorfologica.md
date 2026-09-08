@@ -1,4 +1,4 @@
-# 1. Diseño funcional del sistema — ManglarLab
+# 1. Diseño funcional del sistema 
 
 ManglarLab propone un sistema de monitoreo de la condición del agua en manglares mediante la adquisición de temperatura, pH y conductividad eléctrica. A partir de estas mediciones, se plantea procesar y almacenar información, estimar el oxígeno disuelto mediante un modelo de aprendizaje automático y presentar indicadores que apoyen la identificación de posibles condiciones de riesgo.
 
