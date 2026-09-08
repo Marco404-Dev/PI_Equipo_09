@@ -10,7 +10,7 @@ Esta sección describe el sistema mediante tres herramientas de diseño: la caja
 
 La caja negra representa a ManglarLab desde su interacción con el entorno, sin detallar los componentes internos. Su función global consiste en transformar energía y señales de entrada en información útil para el seguimiento de la condición del agua.
 
-![Caja negra de ManglarLab](https://github.com/Marco404-Dev/PI_Equipo_09/blob/main/Proyecto%20Integrador/Talleres/Caja%20negra.png?raw=true)
+![Caja negra de ManglarLab](https://github.com/Marco404-Dev/PI_Equipo_09/blob/main/Proyecto%20Integrador/Talleres/caja%20negra.png?raw=true)
 
 *Figura 1. Caja negra del sistema ManglarLab. Fuente: repositorio del Equipo 09.*
 
