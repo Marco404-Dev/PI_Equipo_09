@@ -98,8 +98,10 @@ Desarrollar un sistema IoT inteligente capaz de monitorear variables fisicoquím
 
 ## Objetivos Específicos
 
-### 🌡️ Modelamiento Ambiental: Establecer la correlación matemática y predictiva entre las variables fisicoquímicas base y la concentración de Oxígeno Disuelto, utilizando algoritmos de análisis de datos.
-### Gestión y Conservación: Proveer una herramienta de monitoreo accesible que permita a los gestores locales identificar zonas de estrés ecológico y proteger los bancos naturales de extracción hidrobiológica.
+## 🌡️ Modelamiento Ambiental: 
+Establecer la correlación matemática y predictiva entre las variables fisicoquímicas base y la concentración de Oxígeno Disuelto, utilizando algoritmos de análisis de datos.
+## Gestión y Conservación: 
+Proveer una herramienta de monitoreo accesible que permita a los gestores locales identificar zonas de estrés ecológico y proteger los bancos naturales de extracción hidrobiológica.
 
 Estas variables permitirán caracterizar las condiciones ambientales del ecosistema y generar información base para el análisis predictivo del Oxígeno Disuelto.
 
