@@ -82,7 +82,7 @@ Estas variables serán utilizadas para entrenar modelos predictivos capaces de e
 
 ### Flujo general del modelo
 
-```text
+
 Temperatura
       |
       |
