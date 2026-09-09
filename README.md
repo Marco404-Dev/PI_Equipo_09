@@ -34,10 +34,16 @@ Nuestro objetivo es aplicar metodologías de diseño e innovación para desarrol
 
 Nuestro proyecto se encuentra relacionado con los siguientes **Objetivos de Desarrollo Sostenible (ODS):**
 
-- 🌊 **ODS 14: Vida submarina**
-- 💧 **ODS 6: Agua limpia y saneamiento**
-- 🌎 **ODS 13: Acción por el clima**
-- 🌱 **ODS 15: Vida de ecosistemas terrestres**
+ODS 6: Agua limpia y saneamiento
+Meta 6.6: De aquí a 2030, proteger y restablecer los ecosistemas relacionados con el agua, incluidos los humedales y estuarios.
+ODS 9: Industria, innovación e infraestructura
+Meta 9.5: Aumentar la investigación científica y mejorar la capacidad tecnológica de los sectores industriales y de investigación.
+ODS 13: Acción por el clima
+Meta 13.1: Fortalecer la resiliencia y la capacidad de adaptación a los riesgos relacionados con el clima y los desastres naturales.
+ODS 14: Vida submarina
+Meta 14.2: De aquí a 2020, gestionar y proteger sosteniblemente los ecosistemas marinos y costeros para evitar efectos adversos significativos.
+ODS 15: Vida de ecosistemas terrestres
+Meta 15.1: Asegurar la conservación y el uso sostenible de los ecosistemas terrestres y los ecosistemas interiores de agua dulce.
 
 ---
 
