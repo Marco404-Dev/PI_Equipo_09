@@ -43,37 +43,50 @@ Nos interesa trabajar en los siguientes **Objetivos de Desarrollo Sostenible (OD
 | <img src="/recursos/imagenes/result_Ivana.png" width="90"/> | **Ivana Francesca Gygax Malca** | Investigadora | Documentación y validación |
 
 
-📌 Descripción del proyecto
-
-El Santuario Nacional Los Manglares de Tumbes representa uno de los ecosistemas estuarinos más importantes del Perú, debido a su alta biodiversidad, capacidad de almacenamiento de carbono y función como zona de reproducción y refugio para especies de importancia ecológica y socioeconómica, como la concha negra (Anadara tuberculosa).
-
-Sin embargo, este ecosistema se encuentra expuesto a diferentes amenazas ambientales, entre ellas descargas antropogénicas y variaciones climáticas extremas asociadas al Fenómeno El Niño, las cuales pueden alterar las condiciones fisicoquímicas del agua.
-
-Uno de los parámetros más importantes para evaluar la salud del ecosistema es el Oxígeno Disuelto (OD), debido a que niveles bajos pueden generar condiciones de hipoxia, afectando la supervivencia de organismos acuáticos y alterando el equilibrio ecológico.
-
-Actualmente, el monitoreo continuo del oxígeno disuelto presenta limitaciones debido al alto costo de sensores especializados, mantenimiento requerido y dificultades de operación en ambientes con alta salinidad, lodo y condiciones variables.
 
 
-💡 Propuesta del proyecto
 
-Este proyecto propone desarrollar un sistema IoT de vigilancia ambiental temprana capaz de monitorear variables fisicoquímicas del agua y estimar el oxígeno disuelto mediante modelos de Machine Learning.
+
+
+---
+
+# 📌 Descripción del Proyecto
+
+El **Santuario Nacional Los Manglares de Tumbes** representa uno de los ecosistemas estuarinos más importantes del Perú debido a su alta biodiversidad, capacidad de almacenamiento de carbono y función como zona de reproducción y refugio para especies de importancia ecológica y socioeconómica, como la **concha negra (*Anadara tuberculosa*)**.
+
+Sin embargo, este ecosistema se encuentra expuesto a diversas amenazas ambientales, entre ellas descargas antropogénicas y variaciones climáticas extremas asociadas al **Fenómeno El Niño**, las cuales pueden alterar las condiciones fisicoquímicas del agua.
+
+Uno de los parámetros más importantes para evaluar la salud del ecosistema es el **Oxígeno Disuelto (OD)**, debido a que niveles bajos pueden generar condiciones de **hipoxia**, afectando la supervivencia de organismos acuáticos y alterando el equilibrio ecológico.
+
+Actualmente, el monitoreo continuo del oxígeno disuelto presenta limitaciones debido al elevado costo de sensores especializados, requerimientos de mantenimiento y dificultades de operación en ambientes con alta salinidad, presencia de lodo y condiciones ambientales variables.
+
+---
+
+# 💡 Propuesta del Proyecto
+
+Este proyecto propone desarrollar un **sistema IoT de vigilancia ambiental temprana** capaz de monitorear variables fisicoquímicas del agua y estimar el nivel de **Oxígeno Disuelto (OD)** mediante modelos de **Machine Learning**.
 
 La propuesta busca reducir la dependencia de sensores especializados de oxígeno mediante la construcción de un:
 
-Sensor virtual de Oxígeno Disuelto
+## 🧠 Sensor Virtual de Oxígeno Disuelto
 
-El sistema utiliza variables ambientales accesibles:
+En lugar de medir directamente el oxígeno mediante sensores costosos, el sistema utiliza variables ambientales accesibles:
 
-🌡️ Temperatura.
-⚗️ pH.
-🌊 Conductividad eléctrica.
+| Variable | Descripción |
+|----------|-------------|
+| 🌡️ Temperatura | Influye en la solubilidad del oxígeno en el agua |
+| ⚗️ pH | Proporciona información sobre condiciones químicas y procesos biológicos |
+| 🌊 Conductividad eléctrica | Relacionada con la concentración iónica y salinidad |
 
-Estas variables serán utilizadas para entrenar modelos predictivos capaces de estimar el nivel de oxígeno disuelto presente en el agua.
+Estas variables serán utilizadas para entrenar modelos predictivos capaces de estimar la concentración de oxígeno disuelto presente en el agua.
 
-🎯 Objetivo general
+### Flujo general del modelo
 
-Desarrollar un sistema IoT inteligente capaz de monitorear variables fisicoquímicas del agua y estimar el oxígeno disuelto mediante Machine Learning como indicador de la calidad ambiental de ecosistemas de manglar.
-
-🎯 Objetivos específicos
-- Modelamiento Ambiental: Establecer la correlación matemática y predictiva entre las variables fisicoquímicas base y la concentración de Oxígeno Disuelto, utilizando algoritmos de análisis de datos.
-- Gestión y Conservación: Proveer una herramienta de monitoreo accesible que permita a los gestores locales identificar zonas de estrés ecológico y proteger los bancos naturales de extracción hidrobiológica.
+```text
+Temperatura
+      |
+      |
+pH ----|----> Modelo Machine Learning ----> Oxígeno Disuelto estimado
+      |
+      |
+Conductividad
