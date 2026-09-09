@@ -88,5 +88,35 @@ Temperatura
       |
 pH ----|----> Modelo Machine Learning ----> Oxígeno Disuelto estimado
       |
+# 🎯 Objetivos del Proyecto
+
+## Objetivo General
+
+Desarrollar un sistema IoT inteligente capaz de monitorear variables fisicoquímicas del agua y estimar el **Oxígeno Disuelto (OD)** mediante modelos de **Machine Learning**, con la finalidad de evaluar la calidad ambiental de ecosistemas de manglar.
+
+---
+
+## Objetivos Específicos
+
+### 🌡️ 1. Adquisición de datos ambientales
+
+Diseñar e implementar un sistema basado en **ESP32** capaz de obtener información fisicoquímica del agua mediante sensores accesibles de:
+
+- Temperatura.
+- pH.
+- Conductividad eléctrica.
+
+Estos datos permitirán caracterizar las condiciones ambientales del ecosistema monitoreado.
+
+---
+
+### 🤖 2. Modelamiento predictivo del Oxígeno Disuelto
+
+Establecer la relación entre las variables fisicoquímicas del agua y la concentración de **Oxígeno Disuelto (OD)** mediante modelos de **Machine Learning**.
+
+El modelo buscará estimar el OD utilizando como variables de entrada:
+
+```text
+Temperatura + pH + Conductividad eléctrica
       |
 Conductividad
