@@ -2,14 +2,15 @@
 
 
 ## Próposito y funciones:
-Comprobar si las roscas de la boya son resistentes y ver su comportamiento ante al ambiente de manglar. Evitamos que al aplicarlo en el campo de estudio se
-presenten dificultades en las uniones e identificamos las partes que necesitan alguna mejora.
+Comprobar la resistencia y el comportamiento de las roscas y uniones de la boya frente a las condiciones de carga que podrían presentarse en un entorno de manglar. La simulación nos permite identificar las zonas que presentan mayores esfuerzos y determinar si las uniones requieren modificaciones para mejorar la resistencia y estabilidad del prototipo de la boya antes de su implementación.
 
 ## Fuerzas aplicadas:
-Para las fuerzas de empuje y de oleaje se aplico una fuerza de 9,8 N en el eje **"z"** y **"y"**, respectivamente, y en la fuerza de arrastre una fuerza 5 N
-en el eje **"x"**.
+Con respecto a las condiciones a las que podría estar sometida la boya en el ambiente de manglar, se considero las fuerzas de empuje, oleaje, arrastre y de la gravedad.
+- Fuerza de empuje: Se utilizó una fuerza de 9,8 N en el eje Z, orientada hacia arriba, para representar el efecto de flotación producido por el desplazamiento de agua sobre la boya.
+- Fuerza del oleaje: Se utilizó una fuerza de 9,8 N en el eje Y, representando la acción lateral que pueden producir el movimiento del agua sobre la estructura.
+- Fuerza de arrastre: Se utilizó una fuerza de 5 N en el eje X, para representar la resistencia que experimenta la boya debido al movimiento del agua alrededor de su superficie.
+- Fuerza de gravedad: Se utilizó una aceleración de 9,81 m/s² en dirección negativa del eje Z, debido al peso propio de la boya y de sus componentes.
 
 ## Interpretación:
-Se observa que en el área de las rocas las fuerzas aplicadas no afectan a su estructura y son otros lugares como las partes laterales de la boya si se ven
-afectadas ya que se observa variaciones del color y en una de la uniones se puede observar que se ve mayor afectada.
+La distribución de esfuerzos en la boya de polietileno de alta densidad (PEAD) no es uniforme, concentrándose las fuerzas de mayor magnitud en los laterales, roscas y uniones por la transferencia de cargas. Como este valor está por debajo del límite de fluencia del material (aproximadamente 1,927 MPa), la estructura presenta un comportamiento mecánico favorable frente a las condiciones simuladas del manglar. Sin embargo, las zonas con mayor concentración de esfuerzo deben monitorearse como puntos críticos para optimizar el diseño frente al entorno de manglar.
 
