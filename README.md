@@ -416,32 +416,6 @@ Esta arquitectura permitirá:
 
 ---
 
-# 📂 Estructura del Repositorio
-
-```text
-ManglarSense/
-
-├── README.md
-
-├── documentación/
-
-├── hardware/
-
-├── firmware/
-
-├── machine-learning/
-
-├── cloud/
-
-├── simulaciones/
-
-├── dashboard/
-
-└── resultados/
-```
-
----
-
 # 📚 Referencias Científicas
 
 - [1] Instituto del Mar del Perú (IMARPE), Informes de evaluación poblacional de concha negra y calidad del medio acuático en la Región Tumbes, Callao, Perú: IMARPE, 2020.
