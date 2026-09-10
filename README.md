@@ -38,7 +38,7 @@ Nuestro proyecto se encuentra relacionado con los siguientes **Objetivos de Desa
 
 Nuestro proyecto se encuentra relacionado con los siguientes **Objetivos de Desarrollo Sostenible (ODS):**
 
-| DIRECTOR DE ODS / SECUNDARIAS | META ESPECÍFICA |
+| ODS | META ESPECÍFICA |
 | :--- | :--- |
 | 💧 **ODS 6: Agua Limpia** <br>*(Meta 6.6)* | De aquí a 2030, proteger y restablecer los ecosistemas relacionados con el agua, incluidos los humedales y estuarios. |
 | ⚙️ **ODS 9: Industria e Innovación** <br>*(Meta 9.5)* | Aumentar la investigación científica y mejorar la capacidad tecnológica de los sectores industriales y de investigación. |
