@@ -444,9 +444,9 @@ ManglarSense/
 
 # 📚 Referencias Científicas
 
-Los fundamentos del proyecto consideran investigaciones relacionadas con:
-
-- Relación entre temperatura, salinidad y Oxígeno Disuelto.
-- Calidad del agua en ecosistemas estuarinos.
-- Aplicación de Machine Learning en monitoreo ambiental.
-- Modelos predictivos de parámetros fisicoquímicos del agua.
+- [1] Instituto del Mar del Perú (IMARPE), Informes de evaluación poblacional de concha negra y calidad del medio acuático en la Región Tumbes, Callao, Perú: IMARPE, 2020.
+- [2] R. B. Baird, A. D. Eaton, and E. W. Rice, Eds., Standard Methods for the Examination of Water and Wastewater, 23rd ed. Washington, DC, USA: American Public Health Association (APHA), 2017.
+- [3] Ministerio del Ambiente (MINAM), Estándares de Calidad Ambiental (ECA) para Agua, Decreto Supremo N° 004-2017-MINAM, Lima, Perú, 2017.
+- [4] K. Takahashi and A. Martínez, "El Niño, cambio climático, y el ecosistema de manglares de Tumbes," Instituto Geofísico del Perú (IGP), Lima, Perú, Tech. Rep., 2015.
+- [5] Y. Zhi et al., "Prediction of dissolved oxygen in water based on machine learning," Scientific Reports.
+- [6] SERNANP, Plan Maestro del Santuario Nacional Los Manglares de Tumbes (2016-2020), Servicio Nacional de Áreas Naturales Protegidas por el Estado, Lima, Perú, 2016. [En línea].
