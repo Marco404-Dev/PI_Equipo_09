@@ -37,16 +37,20 @@ Nuestro proyecto se encuentra relacionado con los siguientes **Objetivos de Desa
 # 🌍 Objetivos de Desarrollo Sostenible (ODS)
 
 Nuestro proyecto se encuentra relacionado con los siguientes **Objetivos de Desarrollo Sostenible (ODS):**
+# 🌍 Objetivos de Desarrollo Sostenible (ODS)
+
+Nuestro proyecto se encuentra relacionado con los siguientes **Objetivos de Desarrollo Sostenible (ODS):**
+# 🌍 Objetivos de Desarrollo Sostenible (ODS)
+
+Nuestro proyecto se encuentra relacionado con los siguientes **Objetivos de Desarrollo Sostenible (ODS):**
 
 | ODS | META ESPECÍFICA |
-| :--- | :--- |
-| 💧 **ODS 6: Agua Limpia** <br>*(Meta 6.6)* | De aquí a 2030, proteger y restablecer los ecosistemas relacionados con el agua, incluidos los humedales y estuarios. |
-| ⚙️ **ODS 9: Industria e Innovación** <br>*(Meta 9.5)* | Aumentar la investigación científica y mejorar la capacidad tecnológica de los sectores industriales y de investigación. |
-| ☁️ **ODS 13: Acción por el Clima** <br>*(Meta 13.1)* | Fortalecer la resiliencia y la capacidad de adaptación a los riesgos relacionados con el clima y los desastres naturales. |
-| 🌊 **ODS 14: Vida Submarina** <br>*(Meta 14.2)* | De aquí a 2020, gestionar y proteger sosteniblemente los ecosistemas marinos y costeros para evitar efectos adversos significativos. |
-| 🌳 **ODS 15: Ecosistemas Terrestres** <br>*(Meta 15.1)* | Asegurar la conservación y el uso sostenible de los ecosistemas terrestres y los ecosistemas interiores de agua dulce. |
-
----
+| :---: | :---: |
+| **ODS 6: Agua Limpia** | **Meta 6.6:** De aquí a 2030, proteger y restablecer los ecosistemas relacionados con el agua, incluidos los humedales y estuarios. |
+| **ODS 9: Industria e Innovación** | **Meta 9.5:** Aumentar la investigación científica y mejorar la capacidad tecnológica de los sectores industriales y de investigación. |
+| **ODS 13: Acción por el Clima** | **Meta 13.1:** Fortalecer la resiliencia y la capacidad de adaptación a los riesgos relacionados con el clima y los desastres naturales. |
+| **ODS 14: Vida Submarina** | **Meta 14.2:** De aquí a 2020, gestionar y proteger sosteniblemente los ecosistemas marinos y costeros para evitar efectos adversos significativos. |
+| **ODS 15: Ecosistemas Terrestres** | **Meta 15.1:** Asegurar la conservación y el uso sostenible de los ecosistemas terrestres y los ecosistemas interiores de agua dulce. |
 
 # 📸 Fotografía del Equipo
 
