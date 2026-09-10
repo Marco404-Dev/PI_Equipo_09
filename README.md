@@ -1,4 +1,4 @@
-<h1 align="center">🌊 ManglarLab Learning</h1>
+<h1 align="center">🌊 YakuToring</h1>
 
 <h3 align="center">
 Sistema inteligente de monitoreo ecológico para la estimación de Oxígeno Disuelto en los manglares de Tumbes mediante IoT y Machine Learning
