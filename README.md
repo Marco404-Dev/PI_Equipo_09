@@ -449,4 +449,4 @@ ManglarSense/
 - [3] Ministerio del Ambiente (MINAM), Estándares de Calidad Ambiental (ECA) para Agua, Decreto Supremo N° 004-2017-MINAM, Lima, Perú, 2017.
 - [4] K. Takahashi and A. Martínez, "El Niño, cambio climático, y el ecosistema de manglares de Tumbes," Instituto Geofísico del Perú (IGP), Lima, Perú, Tech. Rep., 2015.
 - [5] Y. Zhi et al., "Prediction of dissolved oxygen in water based on machine learning," Scientific Reports.
-- [6] SERNANP, Plan Maestro del Santuario Nacional Los Manglares de Tumbes (2016-2020), Servicio Nacional de Áreas Naturales Protegidas por el Estado, Lima, Perú, 2016. [En línea].
+- [6] SERNANP, Plan Maestro del Santuario Nacional Los Manglares de Tumbes (2016-2020), Servicio Nacional de Áreas Naturales Protegidas por el Estado, Lima, Perú, 2016.
