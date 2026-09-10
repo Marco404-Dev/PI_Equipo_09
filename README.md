@@ -34,16 +34,6 @@ Nuestro objetivo es aplicar metodologías de diseño e innovación para desarrol
 
 Nuestro proyecto se encuentra relacionado con los siguientes **Objetivos de Desarrollo Sostenible (ODS):**
 
-# 🌍 Objetivos de Desarrollo Sostenible (ODS)
-
-Nuestro proyecto se encuentra relacionado con los siguientes **Objetivos de Desarrollo Sostenible (ODS):**
-# 🌍 Objetivos de Desarrollo Sostenible (ODS)
-
-Nuestro proyecto se encuentra relacionado con los siguientes **Objetivos de Desarrollo Sostenible (ODS):**
-# 🌍 Objetivos de Desarrollo Sostenible (ODS)
-
-Nuestro proyecto se encuentra relacionado con los siguientes **Objetivos de Desarrollo Sostenible (ODS):**
-
 | ODS | META ESPECÍFICA |
 | :---: | :---: |
 | **ODS 6: Agua Limpia** | **Meta 6.6:** De aquí a 2030, proteger y restablecer los ecosistemas relacionados con el agua, incluidos los humedales y estuarios. |
