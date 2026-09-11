@@ -1,6 +1,7 @@
 # Resultado de la simulación estructural
 
-![Resultado de la simulación](../../../recursos/imagenes/marco_simscale.png)
+<img width="1723" height="857" alt="Marco" src="https://github.com/user-attachments/assets/78756019-9ac3-4c52-9e2b-527b1dd307e5" />
+
 
 ## Simulación realizada
 
