@@ -314,7 +314,6 @@ flowchart TD
     linkStyle default stroke:#804092,stroke-width:2px;
 ```
 
-
 ---
 
 ## Modelos considerados
