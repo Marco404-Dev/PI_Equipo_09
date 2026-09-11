@@ -4,6 +4,7 @@
 
 ## 2. Esquema de funciones
 
+<img width="1203" height="627" alt="Esquema_de_ Funciones" src="https://github.com/user-attachments/assets/adb372d1-ebc3-4da6-8117-8dc7cd38eb12" />
 
 
 ## 1.3. Matriz morfológica
