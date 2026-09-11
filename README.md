@@ -294,29 +294,26 @@ Y = Oxígeno Disuelto (OD)
 
 ## Flujo de entrenamiento
 
-```text
-Sensores ambientales
+```mermaid
+flowchart TD
+    A["Sensores ambientales"] --> B["Obtención de datos experimentales<br/>con mediciones de OD de referencia"]
+    B --> C["Preparación del dataset"]
+    C --> D["Entrenamiento del modelo"]
+    D --> E["Evaluación con datos no utilizados<br/>durante el entrenamiento"]
+    E --> F["Modelo validado para<br/>las condiciones evaluadas"]
+    F --> G["Estimación de oxígeno disuelto<br/>a partir de nuevas mediciones"]
 
-        ↓
+    classDef entrada fill:#E8AD46,stroke:#804092,stroke-width:3px,color:#111;
+    classDef proceso fill:#382047,stroke:#E8AD46,stroke-width:2px,color:#fff;
+    classDef resultado fill:#804092,stroke:#E8AD46,stroke-width:3px,color:#fff;
 
-Obtención de datos experimentales
+    class A entrada;
+    class B,C,D,E proceso;
+    class F,G resultado;
 
-        ↓
-
-Dataset
-
-        ↓
-
-Entrenamiento del modelo
-
-        ↓
-
-Evaluación del desempeño
-
-        ↓
-
-Oxígeno Disuelto estimado
+    linkStyle default stroke:#804092,stroke-width:2px;
 ```
+
 
 ---
 
