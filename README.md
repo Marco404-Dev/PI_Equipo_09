@@ -135,9 +135,6 @@ Si el modelo no cumple en validación, se ajustan sus parámetros; si los ajuste
 
 ### Flujo de entrenamiento y evaluación
 
-<details>
-<summary><strong>Ver el flujo completo: adquisición, preparación, entrenamiento y evaluación</strong></summary>
-
 ```mermaid
 %%{init: {"theme": "base", "themeVariables": {"fontSize": "12px"}, "flowchart": {"nodeSpacing": 15, "rankSpacing": 20, "padding": 8}}}%%
 flowchart LR
@@ -205,20 +202,54 @@ flowchart LR
     linkStyle default stroke:#94A3B8,stroke-width:1.5px;
 ```
 
-</details>
-
 ### Criterios de evaluación
 
-| Aspecto | Uso |
-|---|---|
-| Error de validación | Guiar los ajustes y la selección del modelo. |
-| Error de prueba | Evaluar el modelo final con experimentos reservados. |
-| MAE | Reportar el error absoluto medio en mg/L. |
-| RMSE | Reportar la raíz del error cuadrático medio, en mg/L. |
-| R² | Describir el ajuste respecto a la variabilidad del OD de referencia. |
-| Incertidumbre | Analizar la confiabilidad de las estimaciones con un método por definir y validar. |
+El **error de validación** orienta los ajustes y la selección del modelo. El **error de prueba** comprueba el desempeño final con experimentos reservados. Se reportarán **MAE** y **RMSE** en mg/L, junto con **R²**, para describir los resultados. La incertidumbre se analizará mediante un método que deberá definirse y validarse.
 
 Los criterios de aceptación se definirán antes de la evaluación final. **El error promedio y la incertidumbre no son equivalentes.** Si la prueba final no cumple y sus resultados se usan para orientar mejoras, se reservará una nueva prueba independiente.
+
+### Implementación del modelo en el ESP32 receptor
+
+Después de evaluar el modelo, se preparará su implementación en el dispositivo. **El entrenamiento ocurre en la computadora; la estimación de nuevas mediciones ocurre en el ESP32 receptor.**
+
+```mermaid
+flowchart LR
+    subgraph PC["PREPARACIÓN EN COMPUTADORA"]
+        A("Modelo entrenado<br/>y evaluado")
+        B("Exportar y adaptar el modelo<br/>y la preparación de variables")
+        A --> B
+    end
+    subgraph ESP["INTEGRACIÓN EN ESP32 RECEPTOR"]
+        C("Cargar el modelo<br/>en el firmware")
+        D("Comprobar predicciones,<br/>memoria y tiempo de ejecución")
+        E{"¿Funciona dentro<br/>de los criterios definidos?"}
+        F("Revisar la implementación<br/>y repetir comprobaciones")
+        C --> D --> E
+        E -- No --> F --> C
+    end
+    subgraph USO["ESTIMACIÓN Y ENVÍO"]
+        G("Recibir temperatura, pH<br/>y conductividad por LoRa")
+        H("Preparar entradas<br/>y ejecutar el modelo")
+        I("Obtener OD estimado<br/>y enviar datos a AWS por Wi-Fi")
+        G --> H --> I
+    end
+    B --> C
+    E -- Sí --> G
+    classDef preparacion fill:#EDE9FE,stroke:#8B5CF6,color:#5B21B6;
+    classDef proceso fill:#EFF6FF,stroke:#3B82F6,color:#1E3A8A;
+    classDef decision fill:#CCFBF1,stroke:#0D9488,color:#134E4A;
+    classDef revision fill:#FFF7ED,stroke:#EA580C,color:#7C2D12;
+    class A,B preparacion;
+    class C,D,G,H,I proceso;
+    class E decision;
+    class F revision;
+    style PC fill:#F5F3FF,stroke:#C4B5FD,color:#5B21B6
+    style ESP fill:#F0F9FF,stroke:#7DD3FC,color:#0C4A6E
+    style USO fill:#F0FDFA,stroke:#99F6E4,color:#134E4A
+    linkStyle default stroke:#94A3B8,stroke-width:1.5px;
+```
+
+Se compararán las predicciones de la computadora y del ESP32 con las mismas entradas. Si la adaptación exige cambiar el modelo o sus variables, se volverá al proceso de entrenamiento y evaluación antes de habilitar su uso.
 
 <a id="servicios"></a>
 ## App, almacenamiento y avisos
