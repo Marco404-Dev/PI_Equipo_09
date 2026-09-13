@@ -297,19 +297,19 @@ Y = Oxígeno Disuelto (OD)
 ```mermaid
 %%{init: {"theme": "base", "themeVariables": {"fontSize": "12px"}, "flowchart": {"nodeSpacing": 15, "rankSpacing": 20, "padding": 8}}}%%
 flowchart LR
-    subgraph S1["① ADQUISICIÓN EN LABORATORIO"]
+    subgraph S1["ADQUISICIÓN EN LABORATORIO"]
         A("Medir temperatura,<br/>pH y conductividad")
         B("Medir OD de referencia<br/>y asociar cada muestra")
         A --> B
     end
 
-    subgraph S2["② PREPARACIÓN DE DATOS"]
+    subgraph S2["PREPARACIÓN DE DATOS"]
         C("Revisar calidad<br/>y preparar variables")
         D("Separar experimentos:<br/>entrenamiento, validación y prueba")
         C --> D
     end
 
-    subgraph S3["③ ENTRENAMIENTO Y VALIDACIÓN"]
+    subgraph S3["ENTRENAMIENTO Y VALIDACIÓN"]
         N("Seleccionar modelo inicial:<br/>Random Forest de regresión")
         E("Entrenar el modelo elegido<br/>para estimar OD")
         F("Calcular error<br/>en validación")
@@ -323,7 +323,7 @@ flowchart LR
         Q -- No --> R --> E
     end
 
-    subgraph S4["④ EVALUACIÓN Y USO"]
+    subgraph S4["EVALUACIÓN Y USO"]
         I("Calcular error final<br/>con la prueba reservada")
         P{"¿Cumple el criterio<br/>de error de prueba?"}
         J("Documentar error, limitaciones<br/>y condiciones de uso")
