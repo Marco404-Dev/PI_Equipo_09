@@ -267,16 +267,12 @@ El umbral ambiental de aviso se definirá por separado del criterio de aceptaci�
 
 <a id="estado"></a>
 ## Estado del proyecto
+YakuToring se encuentra en desarrollo y validación experimental.
 
-Avances declarados por el equipo en este README:
+Las exigencias, tareas y avances del equipo se organizan en nuestro tablero de GitHub Projects:
 
-| Estado | Actividades |
-|---|---|
-| **Completado** | Investigación del problema; definición de la propuesta; identificación de variables; matriz morfológica; diseño conceptual; diseño preliminar electrónico; diseño mecánico de la boya; simulación estructural. |
-| **En desarrollo** | Integración de sensores; construcción del prototipo; pruebas experimentales; generación del dataset; desarrollo del modelo de machine learning. |
-| **Trabajo futuro** | Optimización y adaptación del modelo al ESP32 receptor; validación en condiciones reales del manglar; integración completa con AWS; app y dashboard; avisos por WhatsApp; evaluación con datos ambientales reales. |
+**[Consultar el tablero del proyecto →](https://github.com/users/Marco404-Dev/projects/1)**
 
-<a id="ods"></a>
 ## Relación con los ODS
 
 <p align="center">
