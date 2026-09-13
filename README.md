@@ -10,11 +10,11 @@ Universidad Peruana Cayetano Heredia
 </p>
 
 ---
-
 <p align="center">
-  <img src="recursos/imagenes/ods14.gif" alt="ODS relacionados al proyecto" width="1000"/>
+  <img src="recursos/imagenes/yakutoring_ods.gif"
+       alt="Funcionamiento de YakuToring"
+       width="1000">
 </p>
-
 ---
 
 ## Funcionamiento de YakuToring
