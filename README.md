@@ -392,29 +392,46 @@ Además, se analizará la incertidumbre asociada a las predicciones para determi
 
 Como evolución del sistema se plantea una arquitectura basada en servicios cloud para almacenamiento y visualización remota.
 
-```text
-Boya IoT
+```mermaid
+flowchart LR
+    subgraph S1["BOYA IoT"]
+        A("Sensores<br/>Temperatura · pH · Conductividad")
+        B("ESP32<br/>Adquirir y procesar datos")
+        C("Módulo LoRa<br/>Transmitir datos")
+        A --> B --> C
+    end
 
-   ↓
+    subgraph S2["ESTACIÓN EN TIERRA"]
+        D("Módulo LoRa<br/>Recibir datos")
+        E("Equipo de enlace<br/>Conexión Wi-Fi o 4G")
+        D --> E
+    end
 
-ESP32
+    subgraph S3["NUBE · PROPUESTA FUTURA"]
+        F("AWS<br/>Recibir datos")
+        G("Base de datos<br/>Almacenar mediciones")
+        H("Dashboard ambiental<br/>Visualizar datos e historial")
+        F --> G --> H
+    end
 
-   ↓
+    C -- Enlace LoRa --> D
+    E -- Internet --> F
 
-Comunicación inalámbrica
+    classDef boya fill:#E0F2FE,stroke:#0284C7,color:#0C4A6E;
+    classDef estacion fill:#EDE9FE,stroke:#8B5CF6,color:#5B21B6;
+    classDef nube fill:#CCFBF1,stroke:#0D9488,color:#134E4A;
 
-   ↓
+    class A,B,C boya;
+    class D,E estacion;
+    class F,G,H nube;
 
-AWS
+    style S1 fill:#F0F9FF,stroke:#7DD3FC,color:#0C4A6E
+    style S2 fill:#F5F3FF,stroke:#C4B5FD,color:#5B21B6
+    style S3 fill:#F0FDFA,stroke:#99F6E4,color:#134E4A
 
-   ↓
-
-Base de datos
-
-   ↓
-
-Dashboard ambiental
+    linkStyle default stroke:#64748B,stroke-width:1.5px;
 ```
+
 
 Esta arquitectura permitirá:
 
