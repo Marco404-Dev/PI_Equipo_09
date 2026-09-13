@@ -1,307 +1,142 @@
 <h1 align="center">🌊 YakuToring</h1>
 
-<h3 align="center">
-Sistema inteligente de monitoreo ecológico para la estimación de Oxígeno Disuelto en los manglares de Tumbes mediante IoT y Machine Learning
-</h3>
-
 <p align="center">
-<b>Equipo 09 - Proyecto Integrador 2026-II</b><br>
-Universidad Peruana Cayetano Heredia
+  <strong>Monitoreo ecológico con IoT y estimación de oxígeno disuelto mediante machine learning</strong><br>
+  Manglares de Tumbes, Perú
 </p>
 
----
 <p align="center">
-  <img src="recursos/imagenes/yakutoring_ods.gif"
-       alt="Funcionamiento de YakuToring"
-       width="1000">
-</p>
----
-
-## Funcionamiento de YakuToring
-
-<p align="center">
-  <img src="recursos/imagenes/yakutoring.gif"
-       alt="Funcionamiento de YakuToring"
-       width="1000">
+  Equipo 09 · Proyecto Integrador 2026-II<br>
+  Universidad Peruana Cayetano Heredia
 </p>
 
-
-
-# 👥 Equipo 09 - Proyecto Integrador 2026-II
-
-### Carreras involucradas:
-- Ingeniería Ambiental
-- Ingeniería Informática
-- Ingeniería Industrial
-
-Somos el **Equipo 09** del curso **Proyecto Integrador 2026-II**, conformado por estudiantes de diferentes áreas de ingeniería.
-
-Nuestro objetivo es aplicar metodologías de diseño e innovación para desarrollar soluciones con impacto **social, tecnológico y ambiental**, integrando conocimientos interdisciplinarios para abordar problemáticas reales.
-
----
-
-# 🌍 Alineación con Objetivos de Desarrollo Sostenible (ODS)
-
-Nuestro proyecto se encuentra relacionado con los siguientes **Objetivos de Desarrollo Sostenible (ODS):**
-
-| ODS | META ESPECÍFICA |
-| :---: | :---: |
-| **💧ODS 6: Agua Limpia** | **Meta 6.6:** De aquí a 2030, proteger y restablecer los ecosistemas relacionados con el agua, incluidos los humedales y estuarios. |
-| **⚙️ODS 9: Industria e Innovación** | **Meta 9.5:** Aumentar la investigación científica y mejorar la capacidad tecnológica de los sectores industriales y de investigación. |
-| **☁️ODS 13: Acción por el Clima** | **Meta 13.1:** Fortalecer la resiliencia y la capacidad de adaptación a los riesgos relacionados con el clima y los desastres naturales. |
-| **🌊ODS 14: Vida Submarina** | **Meta 14.2:** De aquí a 2020, gestionar y proteger sosteniblemente los ecosistemas marinos y costeros para evitar efectos adversos significativos. |
-| **🌳ODS 15: Ecosistemas Terrestres** | **Meta 15.1:** Asegurar la conservación y el uso sostenible de los ecosistemas terrestres y los ecosistemas interiores de agua dulce. |
-
-# 📸 Fotografía del Equipo
-
 <p align="center">
-  <img src="recursos/imagenes/equipo.png" alt="Foto grupal del equipo" width="500"/>
-  <br>
-  <em>Equipo 09 - Proyecto Integrador 2026-II</em>
+  <a href="#proyecto">Proyecto</a> ·
+  <a href="#arquitectura">Arquitectura</a> ·
+  <a href="#modelo">Machine learning</a> ·
+  <a href="#servicios">App y avisos</a> ·
+  <a href="#estado">Avances</a> ·
+  <a href="#ods">ODS</a> ·
+  <a href="#equipo">Equipo</a>
 </p>
 
----
+**YakuToring** propone medir temperatura, pH y conductividad eléctrica del agua, estimar el oxígeno disuelto (OD) y facilitar el seguimiento de las condiciones del manglar. La evolución prevista incorpora almacenamiento en AWS, consulta desde una app y avisos por WhatsApp.
 
-# 👤 Integrantes del Equipo
+> **Estado:** prototipo en desarrollo y validación experimental en laboratorio. La integración cloud, la app y los avisos son funciones propuestas. El desempeño del sensor virtual deberá comprobarse antes de su uso en campo.
 
-| Foto | Nombre | Rol | Intereses |
-|------|--------|-----|-----------|
-| <img src="recursos/imagenes/result_RUTH.png" width="90"/> | **Ruth Elizabeth Atiro Cobeñas** | Líder del equipo | Innovación social, sostenibilidad |
-| <img src="recursos/imagenes/result_SHEY.png" width="90"/> | **Sheila Rocío Calla Mamani** | Responsable de investigación | Gestión ambiental, desarrollo comunitario |
-| <img src="recursos/imagenes/result_BENEDICT.png" width="90"/> | **Benedict Mattew Quispe Paniagua** | Integración Hardware y Software | Computación en la nube, desarrollo web, redes y desarrollo de software |
-| <img src="recursos/imagenes/result_MARCO.png" width="90"/> | **Marco Antonio Ancco Quispe** | Programador y Modelador | Programación, análisis de datos y simulación |
-| <img src="recursos/imagenes/result_Ivana.png" width="90"/> | **Ivana Francesca Gygax Malca** | Investigadora | Documentación y validación |
+<p align="center">
+  <img src="recursos/imagenes/yakutoring.gif" alt="Funcionamiento propuesto de YakuToring: boya, LoRa, ESP32 receptor con modelo ML, AWS, app y avisos" width="1000">
+</p>
 
----
+*Animación conceptual con datos y avisos de ejemplo.*
 
-# 📌 Descripción del Proyecto
+<a id="proyecto"></a>
+## El proyecto
 
-El **Santuario Nacional Los Manglares de Tumbes** representa uno de los ecosistemas estuarinos más importantes del Perú debido a su alta biodiversidad, capacidad de almacenamiento de carbono y función como zona de reproducción y refugio para especies de importancia ecológica y socioeconómica, como la **concha negra (*Anadara tuberculosa*)**.
+### Contexto y problemática
 
-Este ecosistema cumple un papel fundamental en la conservación de la biodiversidad marina y en el desarrollo sostenible de las comunidades vinculadas al aprovechamiento de recursos hidrobiológicos.
+El **Santuario Nacional Los Manglares de Tumbes** alberga especies de importancia ecológica y socioeconómica, como la **concha negra (*Anadara tuberculosa*)**. Las descargas antropogénicas, las alteraciones fisicoquímicas y las variaciones climáticas asociadas al fenómeno El Niño motivan el seguimiento de las condiciones del agua.
 
-Sin embargo, los manglares se encuentran expuestos a diversas amenazas ambientales, entre ellas:
+El **oxígeno disuelto** es un parámetro relevante para los organismos acuáticos. Su disminución puede generar condiciones de hipoxia y afectar al ecosistema. El proyecto parte de las dificultades de costo, mantenimiento y operación que presenta el monitoreo continuo con instrumentos especializados en ambientes salinos y con presencia de lodo.
 
-- Descargas antropogénicas.
-- Alteraciones fisicoquímicas del agua.
-- Variaciones climáticas extremas asociadas al **Fenómeno El Niño**.
+### Propuesta: un sensor virtual de OD
 
-Estas condiciones pueden modificar el equilibrio del ecosistema y afectar parámetros fundamentales para la supervivencia de organismos acuáticos.
+Se propone estudiar la relación entre tres variables medidas y el OD mediante un modelo de **regresión supervisada**:
 
----
+| Variable | Función en el sistema |
+|---|---|
+| Temperatura | Medición del estado térmico del agua; entrada del modelo. |
+| pH | Medición de acidez o alcalinidad; entrada del modelo. |
+| Conductividad eléctrica | Medición relacionada con la concentración iónica; entrada del modelo. |
+| OD de referencia | Medición con un instrumento de referencia para construir y evaluar el conjunto experimental. |
+| OD estimado | Salida del modelo, expresada en mg/L. |
 
-# 🌱 Problemática
+El **sensor virtual** busca reducir la dependencia de la medición directa de OD durante el uso previsto. El instrumento de referencia sigue siendo necesario para entrenar y evaluar el modelo.
 
-Uno de los parámetros más importantes para evaluar la salud del ecosistema acuático es el **Oxígeno Disuelto (OD)**.
+### Objetivos
 
-El oxígeno disuelto representa la cantidad de oxígeno disponible en el agua para los organismos vivos y está relacionado con diversos procesos físicos, químicos y biológicos del ecosistema.
+**Objetivo general:** desarrollar un sistema IoT capaz de monitorear variables fisicoquímicas y estimar el OD mediante machine learning, como apoyo al seguimiento ambiental de los ecosistemas de manglar.
 
-Una disminución significativa del OD puede generar condiciones de **hipoxia**, afectando:
+| Objetivo específico | Resultado esperado |
+|---|---|
+| Caracterizar el agua mediante sensores IoT | Adquirir temperatura, pH y conductividad con ESP32 y construir una base de datos experimental asociada al OD de referencia. |
+| Desarrollar el modelo predictivo | Estimar OD y analizar el error y la incertidumbre de las predicciones. |
+| Validar experimentalmente el sistema | Realizar pruebas en agua dulce, salada y condiciones similares a ambientes estuarinos; identificar límites y factores que afectan la estimación. |
+| Apoyar el monitoreo y la conservación | Generar información sobre tendencias y posibles condiciones de estrés ambiental para investigación y seguimiento ecológico. |
 
-- La supervivencia de organismos acuáticos.
-- La biodiversidad del ecosistema.
-- Los procesos ecológicos naturales.
-- Recursos hidrobiológicos de importancia económica como la concha negra.
+<a id="arquitectura"></a>
+## Arquitectura del sistema
 
-Actualmente, el monitoreo continuo del oxígeno disuelto presenta limitaciones debido a:
-
-- Alto costo de sensores especializados.
-- Requerimientos de mantenimiento.
-- Dificultades de operación en ambientes con alta salinidad.
-- Presencia de lodo y condiciones ambientales variables.
-
-Estas limitaciones dificultan implementar sistemas accesibles de vigilancia ambiental continua.
-
----
-
-# 💡 Propuesta del Proyecto
-
-Este proyecto propone desarrollar un **sistema IoT de vigilancia ambiental temprana** capaz de monitorear variables fisicoquímicas del agua y estimar el nivel de **Oxígeno Disuelto (OD)** mediante modelos de **Machine Learning**.
-
-La propuesta busca reducir la dependencia de sensores especializados de oxígeno mediante la construcción de un:
-
-# 🧠 Sensor Virtual de Oxígeno Disuelto
-
-En lugar de medir directamente el oxígeno mediante sensores especializados de alto costo, el sistema utilizará variables ambientales accesibles:
-
-| Variable | Descripción |
-|----------|-------------|
-| 🌡️ Temperatura | Influye en la solubilidad del oxígeno en el agua y en procesos biológicos |
-| ⚗️ pH | Proporciona información sobre condiciones químicas y procesos ambientales |
-| 🌊 Conductividad eléctrica | Relacionada con la concentración iónica y cambios asociados a la salinidad |
-
-Estas variables serán utilizadas para entrenar modelos predictivos capaces de estimar la concentración de oxígeno disuelto presente en el agua.
-
----
-
----
-
-# 🎯 Objetivos del Proyecto
-
-## Objetivo General
-
-Desarrollar un sistema IoT inteligente capaz de monitorear variables fisicoquímicas del agua y estimar el **Oxígeno Disuelto (OD)** mediante modelos de **Machine Learning** como indicador de la calidad ambiental de ecosistemas de manglar.
-
-La propuesta busca integrar sensores ambientales accesibles, procesamiento de datos y modelos predictivos para desarrollar una herramienta tecnológica orientada al monitoreo ecológico continuo.
-
----
-
-## Objetivos Específicos
-
-### 🌡️ 1. Caracterización ambiental mediante sensores IoT
-
-Diseñar e implementar un sistema basado en **ESP32** capaz de adquirir variables fisicoquímicas del agua relacionadas con la calidad ambiental del ecosistema.
-
-Las variables consideradas son:
-
-- 🌡️ **Temperatura:** Influye en la solubilidad del oxígeno y en los procesos biológicos del ecosistema.
-- ⚗️ **pH:** Permite analizar las condiciones químicas del agua.
-- 🌊 **Conductividad eléctrica:** Relacionada con la concentración iónica y variaciones asociadas a la salinidad.
-
-La información obtenida permitirá construir una base de datos experimental para analizar la relación entre estas variables y el Oxígeno Disuelto.
-
----
-
-### 🤖 2. Desarrollo de un modelo predictivo de Oxígeno Disuelto
-
-Establecer la relación matemática y predictiva entre las variables fisicoquímicas del agua y la concentración de **Oxígeno Disuelto (OD)** mediante algoritmos de **Machine Learning**.
-
-El modelo utilizará como variables de entrada:
-
-```text
-Temperatura
-pH
-Conductividad eléctrica
-```
-
-para estimar:
-
-```text
-Oxígeno Disuelto (OD)
-```
-
-El sistema será evaluado mediante métricas de desempeño y análisis de incertidumbre con el objetivo de determinar la confiabilidad de las predicciones.
-
----
-
-### 🧪 3. Validación experimental del modelo
-
-Evaluar progresivamente el funcionamiento del sistema mediante pruebas controladas en diferentes condiciones del agua.
-
-Inicialmente se considerarán:
-
-- Agua dulce.
-- Agua salada.
-- Condiciones similares a ambientes estuarinos.
-
-Estas pruebas permitirán:
-
-- Validar el funcionamiento de los sensores.
-- Analizar la relación entre variables ambientales y OD.
-- Evaluar los límites del modelo predictivo.
-- Identificar factores externos que puedan afectar la estimación.
-
----
-
-### 🌱 4. Monitoreo y conservación ambiental
-
-Desarrollar una herramienta tecnológica accesible que permita analizar la evolución de las condiciones del agua e identificar posibles escenarios de estrés ambiental dentro del ecosistema de manglar.
-
-El sistema busca generar información útil para:
-
-- Investigación ambiental.
-- Monitoreo ecológico.
-- Evaluación de cambios en la calidad del agua.
-- Futuras estrategias de conservación.
-
----
-
-# 🏗️ Arquitectura General del Sistema
-
-El sistema está compuesto por diferentes módulos integrados:
+La arquitectura propuesta distingue la **boya**, la **estación en tierra** y los **servicios remotos**. El modelo se entrena en una computadora y se adapta para ejecutarlo en el **ESP32 receptor**; AWS recibe las mediciones y el OD ya estimado.
 
 ```mermaid
 flowchart LR
-    subgraph S1["BOYA EN EL MANGLAR"]
-        A("Sensores<br/>Temperatura · pH · Conductividad")
-        B("ESP32<br/>Adquirir y procesar datos")
-        C("Módulo LoRa<br/>Transmitir datos")
-        A --> B --> C
+    subgraph B["BOYA EN EL MANGLAR"]
+        S("Sensores<br/>Temperatura · pH · Conductividad")
+        E("ESP32 de la boya<br/>Adquirir y preparar datos")
+        T("LoRa transmisor")
+        S --> E --> T
     end
-
-    subgraph S2["ESTACIÓN EN TIERRA"]
-        D("Módulo LoRa<br/>Recibir datos")
-        E("ESP32 receptor<br/>Procesar mediciones")
-        M("Modelo ML en el ESP32 receptor<br/>Estimar OD · mg/L")
-        W("ESP32 receptor<br/>Enviar datos por Wi-Fi")
-        D --> E --> M --> W
+    subgraph R["ESTACIÓN EN TIERRA"]
+        L("LoRa receptor")
+        P("ESP32 receptor<br/>Procesar datos y ejecutar modelo ML")
+        O("OD estimado + mediciones<br/>Enviar por Wi-Fi")
+        L --> P --> O
     end
-
-    subgraph S3["NUBE · PROPUESTA FUTURA"]
-        F("AWS<br/>Recibir datos")
-        G("Base de datos<br/>Guardar mediciones y OD estimado")
-        H("Dashboard ManglarLab<br/>Mediciones · OD estimado · Historial")
-        F --> G --> H
+    subgraph C["SERVICIOS REMOTOS · PROPUESTA FUTURA"]
+        A("AWS<br/>Recibir y almacenar datos")
+        V("App YakuToring<br/>Mediciones · OD · Historial")
+        Q("Evaluar reglas de aviso")
+        W("Notificar por WhatsApp<br/>si corresponde")
+        A --> V
+        A --> Q --> W
     end
-
-    C -- Enlace LoRa --> D
-    W -- Internet --> F
-
-    classDef boya fill:#E0F2FE,stroke:#0284C7,color:#0C4A6E;
-    classDef estacion fill:#EDE9FE,stroke:#8B5CF6,color:#5B21B6;
-    classDef nube fill:#CCFBF1,stroke:#0D9488,color:#134E4A;
-
-    class A,B,C boya;
-    class D,E,M,W estacion;
-    class F,G,H nube;
-
-    style S1 fill:#F0F9FF,stroke:#7DD3FC,color:#0C4A6E
-    style S2 fill:#F5F3FF,stroke:#C4B5FD,color:#5B21B6
-    style S3 fill:#F0FDFA,stroke:#99F6E4,color:#134E4A
-
-    linkStyle default stroke:#64748B,stroke-width:1.5px;
+    T -- Enlace LoRa --> L
+    O -- Internet --> A
+    classDef boya fill:#E5F0FC,stroke:#376BC5,color:#223455;
+    classDef tierra fill:#FCECE5,stroke:#C8502A,color:#683B30;
+    classDef cloud fill:#EDECF9,stroke:#8172B1,color:#393157;
+    class S,E,T boya;
+    class L,P,O tierra;
+    class A,V,Q,W cloud;
+    style B fill:#F5F9FE,stroke:#B6CEE9,color:#223455
+    style R fill:#FFF8EF,stroke:#EAC6AD,color:#683B30
+    style C fill:#F7F5FC,stroke:#D0C7E7,color:#393157
+    linkStyle default stroke:#8794A8,stroke-width:1.5px;
 ```
 
+Los bloques de procesamiento, estimación y envío de la estación corresponden al **mismo ESP32 receptor**. Su capacidad para ejecutar el modelo deberá verificarse con la placa y la versión del modelo seleccionadas.
 
+### Componentes y funciones
 
+| Componente | Ubicación o etapa | Función |
+|---|---|---|
+| ESP32 de la boya | Boya | Adquirir y preparar las mediciones. |
+| Sensor DS18B20 | Boya | Medir temperatura del agua. |
+| Sensor de pH | Boya | Medir pH. |
+| Sensor de conductividad | Boya | Medir conductividad eléctrica. |
+| Módulos LoRa transmisor y receptor | Boya y estación | Transportar las mediciones entre ambos extremos. |
+| ESP32 receptor | Estación en tierra | Procesar datos, ejecutar el modelo adaptado y enviar resultados por Wi-Fi. |
+| Boya experimental | Manglar / pruebas | Proporcionar soporte físico al sistema. |
+| Medidor de OD de referencia | Validación experimental | Obtener el valor de referencia para entrenar y evaluar. |
+| Computadora | Desarrollo | Preparar datos, entrenar, comparar y adaptar modelos. |
+| AWS y app YakuToring | Integración futura | Almacenar, consultar datos y gestionar avisos. |
 
+<a id="modelo"></a>
+## Machine learning y validación
 
----
+**Entrada:** temperatura, pH y conductividad eléctrica. **Objetivo:** OD medido con el instrumento de referencia. **Predicción:** OD estimado en mg/L.
 
-# 🔧 Componentes del Sistema
+### Selección del modelo
 
-| Componente | Función |
-|------------|---------|
-| ESP32 DevKit | Procesamiento y comunicación del sistema |
-| Sensor DS18B20 | Medición de temperatura del agua |
-| Sensor pH | Medición de condiciones químicas |
-| Sensor de conductividad | Estimación de cambios relacionados con salinidad |
-| Módulo de comunicación | Transmisión futura de datos |
-| Boya experimental | Soporte físico del sistema |
+Se propone **Random Forest de regresión como modelo inicial**. También se consideran regresión lineal y XGBoost. La selección dependerá del desempeño experimental y de la viabilidad de ejecutar el modelo en el ESP32 receptor.
 
----
+Si el modelo no cumple en validación, se ajustan sus parámetros; si los ajustes previstos no son suficientes, se evalúa otro algoritmo. Los datos de prueba permanecen reservados para la evaluación final.
 
-# 🤖 Machine Learning
+### Flujo de entrenamiento y evaluación
 
-## Planteamiento del problema
-
-El proyecto plantea un problema de **regresión supervisada**, donde el modelo aprende la relación entre variables ambientales medidas y la concentración de Oxígeno Disuelto.
-
-### Variables de entrada:
-
-```text
-X = [Temperatura, pH, Conductividad eléctrica]
-```
-
-### Variable objetivo:
-
-```text
-Y = Oxígeno Disuelto (OD)
-```
-
----
-
-## Flujo de entrenamiento
+<details>
+<summary><strong>Ver el flujo completo: adquisición, preparación, entrenamiento y evaluación</strong></summary>
 
 ```mermaid
 %%{init: {"theme": "base", "themeVariables": {"fontSize": "12px"}, "flowchart": {"nodeSpacing": 15, "rankSpacing": 20, "padding": 8}}}%%
@@ -370,123 +205,82 @@ flowchart LR
     linkStyle default stroke:#94A3B8,stroke-width:1.5px;
 ```
 
+</details>
 
----
+### Criterios de evaluación
 
-## Modelos considerados
+| Aspecto | Uso |
+|---|---|
+| Error de validación | Guiar los ajustes y la selección del modelo. |
+| Error de prueba | Evaluar el modelo final con experimentos reservados. |
+| MAE | Reportar el error absoluto medio en mg/L. |
+| RMSE | Reportar la raíz del error cuadrático medio, en mg/L. |
+| R² | Describir el ajuste respecto a la variabilidad del OD de referencia. |
+| Incertidumbre | Analizar la confiabilidad de las estimaciones con un método por definir y validar. |
 
-Como primera aproximación se evaluarán modelos de regresión:
+Los criterios de aceptación se definirán antes de la evaluación final. **El error promedio y la incertidumbre no son equivalentes.** Si la prueba final no cumple y sus resultados se usan para orientar mejoras, se reservará una nueva prueba independiente.
 
-- Regresión lineal.
-- Random Forest.
-- XGBoost.
+<a id="servicios"></a>
+## App, almacenamiento y avisos
 
-La selección final dependerá del desempeño obtenido con los datos experimentales.
+Esta etapa amplía el prototipo hacia la consulta remota. **Se plantea como trabajo futuro**, no como funcionalidad ya implementada.
 
----
+| Función propuesta | Comportamiento esperado |
+|---|---|
+| Almacenamiento en AWS | Guardar mediciones y estimaciones, asociadas a la boya y al momento de adquisición para construir el historial. |
+| App YakuToring | Mostrar temperatura, pH, conductividad, OD estimado, gráficas e historial. |
+| Reglas de aviso | Detectar condiciones configuradas, como OD estimado persistentemente bajo o ausencia de datos de una boya. |
+| Notificaciones por WhatsApp | Comunicar un aviso al destinatario autorizado mediante una integración de mensajería. |
 
-## Evaluación del modelo
+El umbral ambiental de aviso se definirá por separado del criterio de aceptación del modelo. Los avisos deberán identificar el **OD como estimado**, evitar repeticiones innecesarias y facilitar la revisión de los datos. La configuración de la mensajería y sus pruebas forman parte de la integración pendiente.
 
-El desempeño será evaluado mediante:
+<a id="estado"></a>
+## Estado del proyecto
 
-- **MAE:** Error absoluto medio.
-- **RMSE:** Error cuadrático medio.
-- **R²:** Capacidad explicativa del modelo.
+Avances declarados por el equipo en este README:
 
-Además, se analizará la incertidumbre asociada a las predicciones para determinar la confiabilidad del sensor virtual.
+| Estado | Actividades |
+|---|---|
+| **Completado** | Investigación del problema; definición de la propuesta; identificación de variables; matriz morfológica; diseño conceptual; diseño preliminar electrónico; diseño mecánico de la boya; simulación estructural. |
+| **En desarrollo** | Integración de sensores; construcción del prototipo; pruebas experimentales; generación del dataset; desarrollo del modelo de machine learning. |
+| **Trabajo futuro** | Optimización y adaptación del modelo al ESP32 receptor; validación en condiciones reales del manglar; integración completa con AWS; app y dashboard; avisos por WhatsApp; evaluación con datos ambientales reales. |
 
----
+<a id="ods"></a>
+## Relación con los ODS
 
-# ☁️ Arquitectura Cloud (Propuesta futura)
+<p align="center">
+  <img src="recursos/imagenes/yakutoring_ods.gif" alt="YakuToring y su relación con los ODS 6, 9, 13, 14 y 15" width="1000">
+</p>
 
-Como evolución del sistema se plantea una arquitectura basada en servicios cloud para almacenamiento y visualización remota.
+El proyecto relaciona su propuesta con las siguientes metas. Esta alineación expresa su orientación; el aporte efectivo dependerá de los resultados y del uso del sistema.
 
-```mermaid
-flowchart LR
-    subgraph S1["BOYA IoT"]
-        A("Sensores<br/>Temperatura · pH · Conductividad")
-        B("ESP32<br/>Adquirir y procesar datos")
-        C("Módulo LoRa<br/>Transmitir datos")
-        A --> B --> C
-    end
+| ODS | Meta específica |
+| :---: | :---: |
+| **💧ODS 6: Agua Limpia** | **Meta 6.6:** De aquí a 2030, proteger y restablecer los ecosistemas relacionados con el agua, incluidos los humedales y estuarios. |
+| **⚙️ODS 9: Industria e Innovación** | **Meta 9.5:** Aumentar la investigación científica y mejorar la capacidad tecnológica de los sectores industriales y de investigación. |
+| **☁️ODS 13: Acción por el Clima** | **Meta 13.1:** Fortalecer la resiliencia y la capacidad de adaptación a los riesgos relacionados con el clima y los desastres naturales. |
+| **🌊ODS 14: Vida Submarina** | **Meta 14.2:** De aquí a 2020, gestionar y proteger sosteniblemente los ecosistemas marinos y costeros para evitar efectos adversos significativos. |
+| **🌳ODS 15: Ecosistemas Terrestres** | **Meta 15.1:** Asegurar la conservación y el uso sostenible de los ecosistemas terrestres y los ecosistemas interiores de agua dulce. |
 
-    subgraph S2["ESTACIÓN EN TIERRA"]
-        D("Módulo LoRa<br/>Recibir datos")
-        E("Equipo de enlace<br/>Conexión Wi-Fi o 4G")
-        D --> E
-    end
+<a id="equipo"></a>
+## Equipo
 
-    subgraph S3["NUBE · PROPUESTA FUTURA"]
-        F("AWS<br/>Recibir datos")
-        G("Base de datos<br/>Almacenar mediciones")
-        H("Dashboard ambiental<br/>Visualizar datos e historial")
-        F --> G --> H
-    end
+Somos el **Equipo 09 de Proyecto Integrador 2026-II**, de la **Universidad Peruana Cayetano Heredia**. Integramos Ingeniería Ambiental, Ingeniería Informática e Ingeniería Industrial para desarrollar una propuesta con impacto social, tecnológico y ambiental.
 
-    C -- Enlace LoRa --> D
-    E -- Internet --> F
+<p align="center">
+  <img src="recursos/imagenes/equipo.png" alt="Fotografía del Equipo 09" width="500"><br>
+  <em>Equipo 09 · Proyecto Integrador 2026-II</em>
+</p>
 
-    classDef boya fill:#E0F2FE,stroke:#0284C7,color:#0C4A6E;
-    classDef estacion fill:#EDE9FE,stroke:#8B5CF6,color:#5B21B6;
-    classDef nube fill:#CCFBF1,stroke:#0D9488,color:#134E4A;
+| Foto | Nombre | Rol | Intereses |
+|------|--------|-----|-----------|
+| <img src="recursos/imagenes/result_RUTH.png" width="90"/> | **Ruth Elizabeth Atiro Cobeñas** | Líder del equipo | Innovación social, sostenibilidad |
+| <img src="recursos/imagenes/result_SHEY.png" width="90"/> | **Sheila Rocío Calla Mamani** | Responsable de investigación | Gestión ambiental, desarrollo comunitario |
+| <img src="recursos/imagenes/result_BENEDICT.png" width="90"/> | **Benedict Mattew Quispe Paniagua** | Integración Hardware y Software | Computación en la nube, desarrollo web, redes y desarrollo de software |
+| <img src="recursos/imagenes/result_MARCO.png" width="90"/> | **Marco Antonio Ancco Quispe** | Programador y Modelador | Programación, análisis de datos y simulación |
+| <img src="recursos/imagenes/result_Ivana.png" width="90"/> | **Ivana Francesca Gygax Malca** | Investigadora | Documentación y validación |
 
-    class A,B,C boya;
-    class D,E estacion;
-    class F,G,H nube;
-
-    style S1 fill:#F0F9FF,stroke:#7DD3FC,color:#0C4A6E
-    style S2 fill:#F5F3FF,stroke:#C4B5FD,color:#5B21B6
-    style S3 fill:#F0FDFA,stroke:#99F6E4,color:#134E4A
-
-    linkStyle default stroke:#64748B,stroke-width:1.5px;
-```
-
-
-Esta arquitectura permitirá:
-
-- Almacenar históricos de medición.
-- Consultar datos remotamente.
-- Analizar tendencias ambientales.
-- Escalar el sistema hacia futuras implementaciones en campo.
-
----
-
-# 📊 Estado del Proyecto
-
-## ✅ Completado
-
-- Investigación del problema ambiental.
-- Definición de la propuesta tecnológica.
-- Identificación de variables ambientales.
-- Matriz morfológica.
-- Diseño conceptual del sistema.
-- Diseño preliminar electrónico.
-- Diseño mecánico de la boya.
-- Simulación estructural.
-
----
-
-## 🔄 En desarrollo
-
-- Integración de sensores.
-- Construcción del prototipo.
-- Pruebas experimentales.
-- Generación del dataset.
-- Desarrollo del modelo Machine Learning.
-
----
-
-## 🔜 Trabajo futuro
-
-- Validación en condiciones reales del manglar.
-- Optimización del modelo predictivo.
-- Integración completa con AWS.
-- Implementación de dashboard de monitoreo.
-- Evaluación con datos ambientales reales.
-
----
-
-# 📚 Referencias Científicas
+## Referencias científicas
 
 - [1] Instituto del Mar del Perú (IMARPE), Informes de evaluación poblacional de concha negra y calidad del medio acuático en la Región Tumbes, Callao, Perú: IMARPE, 2020.
 - [2] R. B. Baird, A. D. Eaton, and E. W. Rice, Eds., Standard Methods for the Examination of Water and Wastewater, 23rd ed. Washington, DC, USA: American Public Health Association (APHA), 2017.
@@ -494,3 +288,5 @@ Esta arquitectura permitirá:
 - [4] K. Takahashi and A. Martínez, "El Niño, cambio climático, y el ecosistema de manglares de Tumbes," Instituto Geofísico del Perú (IGP), Lima, Perú, Tech. Rep., 2015.
 - [5] Y. Zhi et al., "Prediction of dissolved oxygen in water based on machine learning," Scientific Reports.
 - [6] SERNANP, Plan Maestro del Santuario Nacional Los Manglares de Tumbes (2016-2020), Servicio Nacional de Áreas Naturales Protegidas por el Estado, Lima, Perú, 2016.
+
+*Referencias conservadas del documento del equipo. La referencia [5] requiere completar año, volumen, identificador del artículo y DOI o enlace.*
