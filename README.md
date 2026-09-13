@@ -124,18 +124,6 @@ Estas variables serán utilizadas para entrenar modelos predictivos capaces de e
 
 ---
 
-# 🔬 Flujo general del modelo
-
-```text
-Temperatura
-      |
-      |
-pH ----|----> Modelo Machine Learning ----> Oxígeno Disuelto estimado
-      |
-      |
-Conductividad eléctrica
-```
-
 ---
 
 # 🎯 Objetivos del Proyecto
@@ -222,40 +210,51 @@ El sistema busca generar información útil para:
 
 El sistema está compuesto por diferentes módulos integrados:
 
-```text
-              Ecosistema Manglar
+```mermaid
+flowchart LR
+    subgraph S1["BOYA EN EL MANGLAR"]
+        A("Sensores<br/>Temperatura · pH · Conductividad")
+        B("ESP32<br/>Adquirir y procesar datos")
+        C("Módulo LoRa<br/>Transmitir datos")
+        A --> B --> C
+    end
 
-                     ↓
+    subgraph S2["ESTACIÓN EN TIERRA"]
+        D("Módulo LoRa<br/>Recibir datos")
+        E("ESP32 receptor<br/>Procesar mediciones")
+        M("Modelo ML en el ESP32 receptor<br/>Estimar OD · mg/L")
+        W("ESP32 receptor<br/>Enviar datos por Wi-Fi")
+        D --> E --> M --> W
+    end
 
-        ┌────────────┬────────────┐
-        │            │            │
+    subgraph S3["NUBE · PROPUESTA FUTURA"]
+        F("AWS<br/>Recibir datos")
+        G("Base de datos<br/>Guardar mediciones y OD estimado")
+        H("Dashboard ManglarLab<br/>Mediciones · OD estimado · Historial")
+        F --> G --> H
+    end
 
-  Temperatura       pH      Conductividad
+    C -- Enlace LoRa --> D
+    W -- Internet --> F
 
-        │            │            │
+    classDef boya fill:#E0F2FE,stroke:#0284C7,color:#0C4A6E;
+    classDef estacion fill:#EDE9FE,stroke:#8B5CF6,color:#5B21B6;
+    classDef nube fill:#CCFBF1,stroke:#0D9488,color:#134E4A;
 
-        └────────────┴────────────┘
+    class A,B,C boya;
+    class D,E,M,W estacion;
+    class F,G,H nube;
 
-                     ↓
+    style S1 fill:#F0F9FF,stroke:#7DD3FC,color:#0C4A6E
+    style S2 fill:#F5F3FF,stroke:#C4B5FD,color:#5B21B6
+    style S3 fill:#F0FDFA,stroke:#99F6E4,color:#134E4A
 
-                   ESP32
-
-                     ↓
-
-          Procesamiento de datos
-
-                     ↓
-
-          Modelo Machine Learning
-
-                     ↓
-
-        Oxígeno Disuelto estimado
-
-                     ↓
-
-             AWS / Dashboard
+    linkStyle default stroke:#64748B,stroke-width:1.5px;
 ```
+
+
+
+
 
 ---
 
