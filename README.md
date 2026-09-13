@@ -297,35 +297,70 @@ Y = Oxígeno Disuelto (OD)
 ```mermaid
 %%{init: {"theme": "base", "themeVariables": {"fontSize": "12px"}, "flowchart": {"nodeSpacing": 15, "rankSpacing": 20, "padding": 8}}}%%
 flowchart LR
-    A("ADQUISICIÓN<br/>Sensores + OD de referencia")
-    B("Registrar datos<br/>con fecha y hora")
-    C("PREPARACIÓN<br/>Revisar calidad y variables")
-    D("Separar experimentos<br/>Entrenar / validar / probar")
-    E("MODELO<br/>Entrenar y ajustar")
-    F{"¿Cumple en<br/>validación?"}
-    G("EVALUACIÓN<br/>Evaluar una vez en prueba")
-    H("Documentar error<br/>y limitaciones")
-    I(["USO<br/>Estimar OD · mg/L"])
+    subgraph S1["① ADQUISICIÓN EN LABORATORIO"]
+        A("Medir temperatura,<br/>pH y conductividad")
+        B("Medir OD de referencia<br/>y asociar cada muestra")
+        A --> B
+    end
 
-    A --> B --> C --> D --> E --> F
-    F -- Revisar datos y modelo --> C
-    F -- Sí --> G --> H
-    H -- Desempeño adecuado --> I
+    subgraph S2["② PREPARACIÓN DE DATOS"]
+        C("Revisar calidad<br/>y preparar variables")
+        D("Separar experimentos:<br/>entrenamiento, validación y prueba")
+        C --> D
+    end
+
+    subgraph S3["③ ENTRENAMIENTO Y VALIDACIÓN"]
+        N("Seleccionar modelo inicial:<br/>Random Forest de regresión")
+        E("Entrenar el modelo elegido<br/>para estimar OD")
+        F("Calcular error<br/>en validación")
+        G{"¿Cumple el criterio<br/>de error definido?"}
+        Q{"¿Quedan ajustes<br/>por explorar?"}
+        H("Ajustar parámetros<br/>del modelo elegido")
+        R("Seleccionar otro algoritmo<br/>de regresión")
+        N --> E --> F --> G
+        G -- No --> Q
+        Q -- Sí --> H --> E
+        Q -- No --> R --> E
+    end
+
+    subgraph S4["④ EVALUACIÓN Y USO"]
+        I("Calcular error final<br/>con la prueba reservada")
+        P{"¿Cumple el criterio<br/>de error de prueba?"}
+        J("Documentar error, limitaciones<br/>y condiciones de uso")
+        K(["Estimar OD · mg/L<br/>dentro de las condiciones evaluadas"])
+        L("Documentar error y limitaciones<br/>Modelo no aprobado para uso")
+        M("Volver al desarrollo<br/>y reservar una nueva prueba independiente")
+        I --> P
+        P -- Sí --> J --> K
+        P -- No --> L --> M
+    end
+
+    B --> C
+    D --> N
+    G -- Sí --> I
+    M -- Revisar datos y modelo --> C
 
     classDef datos fill:#E0F2FE,stroke:#0284C7,color:#0C4A6E,stroke-width:1.5px;
     classDef preparacion fill:#EFF6FF,stroke:#3B82F6,color:#1E3A8A,stroke-width:1.5px;
     classDef modelo fill:#EDE9FE,stroke:#8B5CF6,color:#5B21B6,stroke-width:1.5px;
-    classDef evaluacion fill:#CCFBF1,stroke:#0D9488,color:#134E4A,stroke-width:1.5px;
+    classDef decision fill:#CCFBF1,stroke:#0D9488,color:#134E4A,stroke-width:1.5px;
+    classDef revision fill:#FFF7ED,stroke:#EA580C,color:#7C2D12,stroke-width:1.5px;
     classDef resultado fill:#065F46,stroke:#34D399,color:#FFFFFF,stroke-width:2px;
 
     class A,B datos;
     class C,D preparacion;
-    class E,F modelo;
-    class G,H evaluacion;
-    class I resultado;
+    class N,E,F modelo;
+    class G,Q,I,J,P decision;
+    class H,R,L,M revision;
+    class K resultado;
 
+    style S1 fill:#F0F9FF,stroke:#7DD3FC,color:#0C4A6E
+    style S2 fill:#F0FDFA,stroke:#99F6E4,color:#134E4A
+    style S3 fill:#F5F3FF,stroke:#C4B5FD,color:#5B21B6
+    style S4 fill:#F0FDF4,stroke:#BBF7D0,color:#14532D
     linkStyle default stroke:#94A3B8,stroke-width:1.5px;
 ```
+
 
 ---
 
