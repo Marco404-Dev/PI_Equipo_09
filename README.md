@@ -297,15 +297,15 @@ Y = Oxígeno Disuelto (OD)
 ```mermaid
 %%{init: {"theme": "base", "themeVariables": {"fontSize": "12px"}, "flowchart": {"nodeSpacing": 15, "rankSpacing": 20, "padding": 8}}}%%
 flowchart LR
-    A("① ADQUISICIÓN<br/>Sensores + OD de referencia")
+    A("ADQUISICIÓN<br/>Sensores + OD de referencia")
     B("Registrar datos<br/>con fecha y hora")
-    C("② PREPARACIÓN<br/>Revisar calidad y variables")
+    C("PREPARACIÓN<br/>Revisar calidad y variables")
     D("Separar experimentos<br/>Entrenar / validar / probar")
-    E("③ MODELO<br/>Entrenar y ajustar")
+    E("MODELO<br/>Entrenar y ajustar")
     F{"¿Cumple en<br/>validación?"}
-    G("④ EVALUACIÓN<br/>Evaluar una vez en prueba")
+    G("EVALUACIÓN<br/>Evaluar una vez en prueba")
     H("Documentar error<br/>y limitaciones")
-    I(["⑤ USO<br/>Estimar OD · mg/L"])
+    I(["USO<br/>Estimar OD · mg/L"])
 
     A --> B --> C --> D --> E --> F
     F -- Revisar datos y modelo --> C
