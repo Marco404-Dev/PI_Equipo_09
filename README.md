@@ -20,12 +20,11 @@ Universidad Peruana Cayetano Heredia
 ## Funcionamiento de YakuToring
 
 <p align="center">
-  <img src="assets/yakutoring.gif" alt="YakuToring: sensores en la boya transmiten por LoRa al ESP32 receptor, que estima el oxígeno disuelto y envía los datos por Wi-Fi a AWS. La app permite consultar los resultados y una integración con WhatsApp envía avisos cuando se cumplen las reglas configuradas." width="1000">
+  <img src="recursos/imagenes/yakutoring.gif"
+       alt="Funcionamiento de YakuToring"
+       width="1000">
 </p>
 
-*Animación conceptual con datos y avisos ilustrativos. El modelo se entrena previamente en computadora y se adapta al ESP32 receptor. La integración con AWS, la app y WhatsApp representa la funcionalidad propuesta; requiere implementación y pruebas.*
-
-<!-- Subir assets/yakutoring.gif al repositorio y copiar este bloque en el README de la raíz. -->
 
 
 # 👥 Equipo 09 - Proyecto Integrador 2026-II
