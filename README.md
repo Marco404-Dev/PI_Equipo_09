@@ -295,45 +295,36 @@ Y = Oxígeno Disuelto (OD)
 ## Flujo de entrenamiento
 
 ```mermaid
-flowchart TD
-    subgraph S1["① ADQUISICIÓN DE DATOS"]
-        A["Sensores ambientales"] --> C["Registro de datos experimentales<br/>con fecha y hora"]
-        B["Medidor de OD de referencia"] --> C
-    end
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "12px"}, "flowchart": {"nodeSpacing": 15, "rankSpacing": 20, "padding": 8}}}%%
+flowchart LR
+    A("① ADQUISICIÓN<br/>Sensores + OD de referencia")
+    B("Registrar datos<br/>con fecha y hora")
+    C("② PREPARACIÓN<br/>Revisar calidad y variables")
+    D("Separar experimentos<br/>Entrenar / validar / probar")
+    E("③ MODELO<br/>Entrenar y ajustar")
+    F{"¿Cumple en<br/>validación?"}
+    G("④ EVALUACIÓN<br/>Evaluar una vez en prueba")
+    H("Documentar error<br/>y limitaciones")
+    I(["⑤ USO<br/>Estimar OD · mg/L"])
 
-    subgraph S2["② PREPARACIÓN Y ENTRENAMIENTO"]
-        C --> D["Revisar calidad de datos<br/>y preparar variables"]
-        D --> E["Separar experimentos para<br/>entrenamiento, validación y prueba"]
-        E --> F["Entrenar y ajustar el modelo<br/>con entrenamiento y validación"]
-        F --> G{"¿Cumple los criterios<br/>en validación?"}
-        G -- "No" --> H["Revisar datos, variables<br/>y configuración del modelo"]
-        H --> F
-    end
+    A --> B --> C --> D --> E --> F
+    F -- Revisar datos y modelo --> C
+    F -- Sí --> G --> H
+    H -- Desempeño adecuado --> I
 
-    subgraph S3["③ EVALUACIÓN Y USO"]
-        G -- "Sí" --> I["Evaluar una vez con<br/>los experimentos de prueba reservados"]
-        I --> J["Documentar error, limitaciones<br/>y condiciones de uso"]
-        J --> K["Si el desempeño es adecuado:<br/>usar el modelo con nuevas mediciones"]
-        K --> L(["Oxígeno disuelto estimado · mg/L"])
-    end
+    classDef datos fill:#E0F2FE,stroke:#0284C7,color:#0C4A6E,stroke-width:1.5px;
+    classDef preparacion fill:#EFF6FF,stroke:#3B82F6,color:#1E3A8A,stroke-width:1.5px;
+    classDef modelo fill:#EDE9FE,stroke:#8B5CF6,color:#5B21B6,stroke-width:1.5px;
+    classDef evaluacion fill:#CCFBF1,stroke:#0D9488,color:#134E4A,stroke-width:1.5px;
+    classDef resultado fill:#065F46,stroke:#34D399,color:#FFFFFF,stroke-width:2px;
 
-    classDef sensor fill:#E0F2FE,stroke:#0284C7,stroke-width:2px,color:#0C4A6E;
-    classDef proceso fill:#EFF6FF,stroke:#3B82F6,stroke-width:2px,color:#1E3A8A;
-    classDef decision fill:#CCFBF1,stroke:#0D9488,stroke-width:2px,color:#134E4A;
-    classDef revision fill:#FFF7ED,stroke:#EA580C,stroke-width:2px,color:#7C2D12;
-    classDef resultado fill:#065F46,stroke:#34D399,stroke-width:3px,color:#FFFFFF;
+    class A,B datos;
+    class C,D preparacion;
+    class E,F modelo;
+    class G,H evaluacion;
+    class I resultado;
 
-    class A,B sensor;
-    class C,D,E,F,I,J,K proceso;
-    class G decision;
-    class H revision;
-    class L resultado;
-
-    style S1 fill:#F8FAFC,stroke:#CBD5E1,color:#334155
-    style S2 fill:#F0FDFA,stroke:#99F6E4,color:#134E4A
-    style S3 fill:#F0FDF4,stroke:#BBF7D0,color:#14532D
-
-    linkStyle default stroke:#64748B,stroke-width:2px;
+    linkStyle default stroke:#94A3B8,stroke-width:1.5px;
 ```
 
 ---
