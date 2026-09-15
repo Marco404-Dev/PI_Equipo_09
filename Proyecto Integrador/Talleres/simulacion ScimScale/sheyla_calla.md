@@ -1,23 +1,21 @@
+## Análisis de Componente: Punto de Anclaje Inferior
 
-<img width="677" height="668" alt="image" src="https://github.com/user-attachments/assets/52efb436-dfb5-47da-b496-c25e80c31599" />
+<div align="center">
+  <img width="677" height="668" alt="image" src="https://github.com/user-attachments/assets/52efb436-dfb5-47da-b496-c25e80c31599" />
+</div>
 
-## Propósito: 
+### Propósito:
 Situada en la parte inferior de la boya, funciona como punto de anclaje estructural. Su rosca interior conecta el sistema de fondeo (cadenas o cables), transmitiendo las cargas del mar al cuerpo de la boya.
 
-## Fuerzas aplicadas:
+### Fuerzas Aplicadas:
+* **Empuje del agua:** Actúa directamente sobre su superficie inferior, generado por la flotabilidad.
+* **Cargas y restricciones mecánicas:** Transmitidas a través de la rosca interior al unirse con la otra pieza.
+  
+### Interpretación de Resultados (Esfuerzos de Von Mises):
+* **Comportamiento estructural:** El análisis de elementos finitos muestra que las tensiones se distribuyen de manera controlada por el cuerpo de la pieza.
+* **Conclusión:** Las concentraciones de esfuerzo se mantienen dentro de un rango seguro para el material analizado, lo que indica que la pieza soporta de forma adecuada las cargas de tensión simuladas sin riesgo inmediato de fallo estructural.
 
-Carga de tracción en la rosca interior para simular el esfuerzo de tensión que ejerce la línea de fondeo por el oleaje.
-Restricciones y fuerzas distribuidas en el cuerpo que simulan el acoplamiento con la estructura de la boya.
 
-=======
-<img width="677" height="668" alt="image" src="https://github.com/user-attachments/assets/52efb436-dfb5-47da-b496-c25e80c31599" />
 
-## Propósito: 
 
-Ubicada en la parte inferior de la boya, esta pieza sirve como elemento de conexión estructural que se acopla a otro componente mediante su rosca interior.
 
-## Fuerzas aplicadas:
-
-El empuje del agua que actúa sobre su superficie inferior, generado por la flotabilidad.
-
-Las cargas y restricciones mecánicas transmitidas a través de la rosca interior al unirse con la otra pieza.
