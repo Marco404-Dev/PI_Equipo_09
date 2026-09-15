@@ -35,9 +35,11 @@
 
 ### Contexto y problemática
 
-El **Santuario Nacional Los Manglares de Tumbes** alberga especies de importancia ecológica y socioeconómica, como la **concha negra (*Anadara tuberculosa*)**. Las descargas antropogénicas, las alteraciones fisicoquímicas y las variaciones climáticas asociadas al fenómeno El Niño motivan el seguimiento de las condiciones del agua.
+El **Santuario Nacional Los Manglares de Tumbes** constituye un estuario de vital valor ecológico y socioeconómico, albergando una rica biodiversidad y recursos clave como la concha negra (Anadara tuberculosa) [1, 6]. Este delicado equilibrio ambiental se ve amenazado por alteraciones fisicoquímicas, presiones antropogénicas y variaciones climáticas asociadas a eventos como El Niño [3, 4].
 
-El **oxígeno disuelto** es un parámetro relevante para los organismos acuáticos. Su disminución puede generar condiciones de hipoxia y afectar al ecosistema. El proyecto parte de las dificultades de costo, mantenimiento y operación que presenta el monitoreo continuo con instrumentos especializados en ambientes salinos y con presencia de lodo.
+Para evaluar la salud integral de este hábitat, el **oxígeno disuelto** es un indicador clave, ya que soporta los procesos biológicos de toda la comunidad acuática [2]. Su reducción genera episodios de hipoxia que ponen en riesgo tanto la estabilidad del ecosistema en su conjunto como sus especies representativas [1, 2, 6].
+
+No obstante, la vigilancia continua de este parámetro enfrenta barreras prácticas: el elevado costo de los sensores especializados, su complejo mantenimiento y la dificultad de operar en ambientes extremos con alta salinidad y presencia de lodo [2, 3, 5]. Estas limitaciones impiden implementar sistemas accesibles de monitoreo continuo para la protección del santuario [5].
 
 ### Propuesta: un sensor virtual de OD
 
