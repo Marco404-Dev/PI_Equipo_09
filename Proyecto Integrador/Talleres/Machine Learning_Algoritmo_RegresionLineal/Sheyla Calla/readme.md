@@ -7,8 +7,8 @@
 df['Consumo_Energia'].plot.hist(bins=25, figsize=(8,4))
 '''
 Histograma: ¿Cómo se distribuyen los datos por intervalos?
-
 '''
+
 <img width="691" height="369" alt="image" src="https://github.com/user-attachments/assets/4375a0ee-2e91-49b3-ba5b-22aa097ec867" />
 
 ### Descripción: 
