@@ -63,6 +63,4 @@ Gráfico de barras horizontales que detalla la importancia normalizada de cada v
 | **X4** | **~0.03 (3%)** | Bajo impacto predictivo. |
 | **X5** | **< 0.01 (< 1%)** | Variable prescindible. |
 
-
-<img width="851" height="647" alt="2 grafico_real_vs_predicho" src="https://github.com/user-attachments/assets/29fa0b20-81dc-4b6d-8735-ff627dfb5944" />
 <img width="907" height="609" alt="5 Importancia_de_arbol" src="https://github.com/user-attachments/assets/fdfbf466-f9a4-4d6d-9a27-9d7c4adbdb70" />
