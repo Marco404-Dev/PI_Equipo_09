@@ -17,7 +17,7 @@ Durante la clase práctica, usamos el Machine Learning en un cuaderno de Colab m
      
    - Interpretación: El gráfico muestra una concentración central cuyo punto más alto se encuentra alrededor de 26 unidades, lo que indica que gran parte de los registros presenta valores de consumo de energía cercanos a este valor, ubicándose la media y la mediana en esta zona central. Además, la mayor densidad de datos se encuentra aproximadamente entre 20 y 32 unidades, representando el rango de consumo habitual del sistema durante su operación. En los extremos, la curva desciende progresivamente hacia cero, tanto para valores cercanos a 10 unidades como para valores entre 40 y 45 unidades, lo que indica que los consumos muy bajos, menores a 15, o muy altos, mayores a 38, aparecen con menor frecuencia en los datos analizados. Finalmente, esta distribución continua, suave y sin sesgos marcados permite observar que la variable "Consumo_Energia" presenta un comportamiento adecuado para ser analizado mediante un modelo de Regresión Lineal, sin que sea necesario aplicar previamente transformaciones como una escala logarítmica.
 
-   2. hm
+   2. Relación entre variables y el consumo de energía
       
       <img width="1442" height="844" alt="image" src="https://github.com/user-attachments/assets/5ff372ff-78b9-4e88-916e-83fb202fdd91" />
 
