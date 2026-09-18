@@ -16,32 +16,19 @@ El objetivo principal fue evaluar si la **latitud, longitud y elevación de las 
 
 El archivo fue cargado con `pandas` y posteriormente se revisó su estructura mediante `head()`, `info()` y `describe()`.
 
-```python
-df_original = pd.read_csv(url)
+<img width="901" height="135" alt="Screenshot 2026-09-18 182754" src="https://github.com/user-attachments/assets/674b58de-4e70-4700-b3c7-574b2a2a488d" />
 
-df_original.head()
-df_original.info()
-df_original.describe().round(2)
-```
 
 La exploración mostró **3430 filas y 28 columnas**. El periodo comprendido en el archivo va de 2022-01-01 a 2023-12-31 y se identificaron cinco estaciones distintas.
 
 También se verificaron registros duplicados, unidades, fechas y cantidad de estaciones.
 
-```python
-print('Duplicados exactos:', df_original.duplicated().sum())
-print('Unidades:', df_original['Units'].unique())
-print('Fechas:', df_original['Date'].min(), 'a', df_original['Date'].max())
-print('Estaciones:', df_original['Site ID'].nunique())
-```
+<img width="760" height="350" alt="Screenshot 2026-09-18 182947" src="https://github.com/user-attachments/assets/a13a5413-7235-48f8-be24-7d11aefd6963" />
+
 
 No se encontraron duplicados exactos. Las concentraciones de PM10 están expresadas en `Micrograms/cubic meter (25 C)`.
 
-**Imagen 1 – Exploración inicial del conjunto de datos**
 
-![Exploración inicial](Capturas/exploracion_dataset.png)
-
-*Figura 1. Exploración inicial del conjunto de datos.*
 
 ---
 
@@ -49,17 +36,8 @@ No se encontraron duplicados exactos. Las concentraciones de PM10 están expresa
 
 La limpieza se limitó a eliminar duplicados exactos y registros sin fecha o concentración válida. La columna `Date` fue convertida a formato de fecha y la concentración de PM10 a formato numérico.
 
-```python
-df = df_original.drop_duplicates().copy()
-df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
-df[objetivo] = pd.to_numeric(df[objetivo], errors='coerce')
+<img width="832" height="336" alt="Screenshot 2026-09-18 183017" src="https://github.com/user-attachments/assets/52b74057-f4c8-430f-abbc-ddac07de4e1c" />
 
-df = (
-    df.dropna(subset=['Date', objetivo])
-      .sort_values('Date')
-      .reset_index(drop=True)
-)
-```
 
 Después de este procedimiento se conservaron los **3430 registros**, por lo que no fue necesario retirar filas.
 
@@ -68,23 +46,14 @@ Después de este procedimiento se conservaron los **3430 registros**, por lo que
 ### 1.3. Distribución de la concentración de PM10
 
 Se utilizaron un histograma y un diagrama de caja para observar la distribución de la variable objetivo.
+<img width="768" height="457" alt="Screenshot 2026-09-18 183143" src="https://github.com/user-attachments/assets/39881abd-83d3-464c-8bdc-1511b14c5bed" />
 
-```python
-fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
-sns.histplot(df[objetivo], bins=30, kde=True, ax=axes[0])
-sns.boxplot(x=df[objetivo], ax=axes[1])
-
-plt.show()
-```
 
 Las concentraciones se concentran principalmente entre valores bajos y medios. La mediana es aproximadamente **18 µg/m³**, mientras que el rango observado va de **2 a 110 µg/m³**. La distribución presenta asimetría hacia la derecha y existen observaciones altas que pueden representar episodios de mayor concentración.
 
-**Imagen 2 – Distribución del PM10**
+<img width="1557" height="567" alt="Screenshot 2026-09-18 183156" src="https://github.com/user-attachments/assets/d3ee452b-c15f-4b0d-8c84-aeab6201ee93" />
 
-![Distribución PM10](Capturas/distribucion_pm10.png)
-
-*Figura 2. Histograma y diagrama de caja de la concentración diaria de PM10.*
 
 ---
 
