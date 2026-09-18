@@ -60,35 +60,15 @@ Las concentraciones se concentran principalmente entre valores bajos y medios. L
 ### 1.4. Análisis de correlación
 
 Se analizó la correlación entre PM10, AQI y las características geográficas de las estaciones.
+<img width="697" height="353" alt="Screenshot 2026-09-18 183406" src="https://github.com/user-attachments/assets/08d377ac-97ec-4bf4-b0e8-b112e65dc891" />
 
-```python
-exploracion = [
-    objetivo,
-    'Daily AQI Value',
-    'Site Latitude',
-    'Site Longitude',
-    'Elevation (m)'
-]
 
-sns.heatmap(
-    df[exploracion].corr(),
-    annot=True,
-    fmt='.2f',
-    cmap='coolwarm',
-    vmin=-1,
-    vmax=1
-)
-```
 
 La concentración de PM10 presenta una correlación positiva muy alta con `Daily AQI Value`. Sin embargo, esta variable no fue utilizada como predictor porque el AQI se obtiene a partir de las concentraciones de contaminantes mediante los procedimientos establecidos por la EPA [2]. Utilizarla como entrada para estimar PM10 introduciría información directamente relacionada con la variable objetivo.
 
 Las variables geográficas mostraron correlaciones lineales débiles con PM10: aproximadamente **0.05 para latitud**, **-0.04 para longitud** y **-0.12 para elevación**.
+<img width="920" height="736" alt="descarga" src="https://github.com/user-attachments/assets/ecea325d-456f-4018-a0db-81b2af647574" />
 
-**Imagen 3 – Matriz de correlación**
-
-![Matriz de correlación](Capturas/matriz_correlacion.png)
-
-*Figura 3. Correlaciones entre PM10, AQI y características geográficas.*
 
 ---
 
@@ -104,27 +84,10 @@ La variable objetivo fue:
 
 - `Daily Mean PM10 Concentration`
 
-```python
-variables = [
-    'Site Latitude',
-    'Site Longitude',
-    'Elevation (m)'
-]
-
-X = df[variables]
-y = df['Daily Mean PM10 Concentration']
-```
-
 Los datos se dividieron aleatoriamente en **70 % para entrenamiento y 30 % para prueba**, utilizando `random_state=123` para mantener la reproducibilidad [3].
 
-```python
-X_train, X_test, y_train, y_test = train_test_split(
-    X,
-    y,
-    test_size=0.30,
-    random_state=123
-)
-```
+<img width="553" height="150" alt="Screenshot 2026-09-18 183856" src="https://github.com/user-attachments/assets/74464bf5-46eb-491c-987c-54324a1fcbe5" />
+
 
 ---
 
@@ -132,33 +95,24 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 Se utilizó `LinearRegression()` de Scikit-learn para ajustar un modelo lineal mediante mínimos cuadrados ordinarios [4].
 
-```python
-lm = LinearRegression()
-lm.fit(X_train, y_train)
+<img width="622" height="282" alt="Screenshot 2026-09-18 183928" src="https://github.com/user-attachments/assets/c3e4570b-7881-4c1c-a770-c3b2fe5bf6bb" />
 
-predicciones = lm.predict(X_test)
-```
 
 El modelo fue evaluado mediante **MAE** y **R²**. El MAE mide el error absoluto promedio y su mejor valor es 0 [5]. El coeficiente R² permite medir la proporción de variabilidad explicada por el modelo.
 
 Los resultados obtenidos fueron:
 
-| Métrica | Resultado |
-|---|---:|
-| MAE | 7.23 µg/m³ |
-| R² | 0.0598 |
+
+<img width="243" height="45" alt="Screenshot 2026-09-18 184003" src="https://github.com/user-attachments/assets/e22ed346-246a-4b50-bd34-bfd1782c9631" />
+
 
 El modelo presentó un error absoluto promedio de aproximadamente **7.23 µg/m³** y un **R² de 0.0598**. Esto indica que las variables geográficas utilizadas explican solamente una pequeña parte de las variaciones diarias observadas en PM10.
 
 Los coeficientes obtenidos fueron:
 
-| Variable | Coeficiente |
-|---|---:|
-| Site Latitude | -532.1994 |
-| Site Longitude | 81.8109 |
-| Elevation (m) | -1.7880 |
+<img width="612" height="157" alt="Screenshot 2026-09-18 184131" src="https://github.com/user-attachments/assets/0aa19840-191b-4df7-8123-734eacbbaa36" />
 
-El intercepto fue aproximadamente **25300.55**. Estos coeficientes describen el ajuste matemático del modelo para las estaciones incluidas en el conjunto analizado; debido al bajo R², no deben interpretarse de forma aislada como relaciones causales.
+
 
 ---
 
@@ -166,28 +120,11 @@ El intercepto fue aproximadamente **25300.55**. Estos coeficientes describen el 
 
 Se compararon los valores reales de PM10 con las predicciones generadas por el modelo.
 
-```python
-plt.figure(figsize=(10,7))
-
-plt.title("PM10 real vs. Predicción")
-plt.xlabel("PM10 real")
-plt.ylabel("PM10 predicho")
-
-plt.scatter(
-    x=y_test,
-    y=predicciones
-)
-
-plt.show()
-```
 
 Los puntos forman principalmente bandas horizontales y no una tendencia diagonal. Esto indica que el modelo genera valores similares para determinadas ubicaciones aunque las concentraciones reales cambien entre días.
 
-**Imagen 4 – PM10 real frente a predicción**
 
-![PM10 real vs predicción](Capturas/real_vs_predicho.png)
-
-*Figura 4. Comparación entre valores reales y predichos de PM10.*
+<img width="295" height="397" alt="Screenshot 2026-09-18 184314" src="https://github.com/user-attachments/assets/1e924343-680f-40cf-a98d-4d14612ce29b" />
 
 ---
 
@@ -195,38 +132,14 @@ Los puntos forman principalmente bandas horizontales y no una tendencia diagonal
 
 Los residuos se calcularon como la diferencia entre la concentración real y la predicción.
 
-```python
-residuos = y_test - predicciones
-
-sns.histplot(
-    residuos,
-    kde=True
-)
-
-plt.show()
-```
-
 La distribución se concentra alrededor de cero, pero presenta una **asimetría positiva y una cola hacia la derecha**. Esto evidencia que existen concentraciones elevadas que el modelo tiende a subestimar.
 
-También se analizaron los residuos respecto a los valores predichos.
+<img width="852" height="647" alt="descarga (1)" src="https://github.com/user-attachments/assets/8cb5e728-c096-4222-b52b-934a89b13cd7" />
 
-```python
-plt.scatter(
-    x=predicciones,
-    y=y_test - predicciones
-)
-
-plt.axhline(y=0, linestyle="--")
-plt.show()
-```
 
 La aparición de bandas y residuos alejados de cero respalda la conclusión de que la latitud, longitud y elevación no son suficientes para representar la variación diaria de PM10.
 
-**Imagen 5 – Análisis de residuos**
 
-![Residuos](Capturas/residuos.png)
-
-*Figura 5. Distribución de los residuos del modelo de PM10.*
 
 ---
 
@@ -242,28 +155,12 @@ Se generaron:
 - Ruido de 20.
 - `random_state=20`.
 
-```python
-X_artificial, y_artificial, coef_reales = make_regression(
-    n_samples=100,
-    n_features=6,
-    n_informative=3,
-    noise=20,
-    shuffle=False,
-    coef=True,
-    random_state=20
-)
-```
+<img width="616" height="497" alt="Screenshot 2026-09-18 184630" src="https://github.com/user-attachments/assets/60dd9644-2c38-4b4d-974a-f2fb4a49ef54" />
+
 
 Los coeficientes reales utilizados en la generación fueron aproximadamente:
+<img width="697" height="265" alt="Screenshot 2026-09-18 184635" src="https://github.com/user-attachments/assets/14e26d2c-23c1-482c-ad5c-d54c2c42fb05" />
 
-```text
-x1 = 78.59
-x2 = 97.72
-x3 = 52.31
-x4 = 0
-x5 = 0
-x6 = 0
-```
 
 Esto permitió comprobar el comportamiento de la regresión cuando los datos sí contienen una relación lineal definida.
 
@@ -272,38 +169,26 @@ Esto permitió comprobar el comportamiento de la regresión cuando los datos sí
 ### 1.10. Comparación entre regresión lineal y árbol de decisión
 
 Los datos artificiales se dividieron nuevamente en 70 % para entrenamiento y 30 % para prueba.
+<img width="676" height="300" alt="Screenshot 2026-09-18 184902" src="https://github.com/user-attachments/assets/b08c55e4-7413-4f1a-b7d3-80d55b0a41fa" />
 
-La regresión lineal obtuvo:
 
-| Modelo | MAE | R² |
-|---|---:|---:|
-| Regresión lineal | 16.2615 | 0.9756 |
 
 También se entrenó un `DecisionTreeRegressor` con una profundidad máxima de 5 [7].
 
-```python
-arbol_art = DecisionTreeRegressor(
-    max_depth=5,
-    random_state=10
-)
-```
+<img width="707" height="512" alt="Screenshot 2026-09-18 184744" src="https://github.com/user-attachments/assets/7b22caad-ade6-41c1-b422-b134f4502308" />
+
 
 La comparación fue:
 
-| Modelo | MAE | R² |
-|---|---:|---:|
-| Regresión lineal | 16.2615 | 0.9756 |
-| Árbol de decisión | 69.8909 | 0.5459 |
+<img width="392" height="113" alt="Screenshot 2026-09-18 184727" src="https://github.com/user-attachments/assets/3d4c8ecf-56e5-4624-865f-51a0023f27cb" />
+
 
 En este conjunto artificial, la regresión lineal presentó un desempeño considerablemente superior porque los datos fueron generados bajo una estructura lineal.
 
 El análisis de importancia del árbol mostró que `x2`, `x1` y `x3` fueron las variables con mayor aporte, coincidiendo con las características informativas usadas para crear el conjunto.
 
-**Imagen 6 – Importancia de variables en el árbol**
+<img width="900" height="450" alt="Screenshot 2026-09-18 184956" src="https://github.com/user-attachments/assets/09b60472-65e4-4c88-a20e-9c726fcb3607" />
 
-![Importancia de variables](Capturas/importancia_variables.png)
-
-*Figura 6. Importancia relativa de las variables en el árbol de decisión.*
 
 ---
 
@@ -311,12 +196,8 @@ El análisis de importancia del árbol mostró que `x2`, `x1` y `x3` fueron las 
 
 Como complemento estadístico se utilizó `statsmodels` para ajustar un modelo de mínimos cuadrados ordinarios (OLS) sobre los datos artificiales [8].
 
-```python
-Xs_art = sm.add_constant(X_train_art)
-ols_art = sm.OLS(y_train_art, Xs_art).fit()
+<img width="837" height="607" alt="Screenshot 2026-09-18 185037" src="https://github.com/user-attachments/assets/b12f6d10-b645-47e0-82c9-a65c7557d82e" />
 
-print(ols_art.summary())
-```
 
 El modelo obtuvo:
 
@@ -360,16 +241,4 @@ Como limitación, la división de los datos reales se realizó de forma aleatori
 
 [1] U.S. Environmental Protection Agency, “AirData: Air Quality Data Collected at Outdoor Monitors Across the US,” *U.S. EPA*. [Online]. Available: https://www.epa.gov/outdoor-air-quality-data. [Accessed: Sep. 18, 2026].
 
-[2] U.S. Environmental Protection Agency, “How is the AQI calculated?,” *U.S. EPA*. [Online]. Available: https://www.epa.gov/outdoor-air-quality-data/how-aqi-calculated. [Accessed: Sep. 18, 2026].
 
-[3] Scikit-learn Developers, “train_test_split,” *Scikit-learn Documentation*. [Online]. Available: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html. [Accessed: Sep. 18, 2026].
-
-[4] Scikit-learn Developers, “LinearRegression,” *Scikit-learn Documentation*. [Online]. Available: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html. [Accessed: Sep. 18, 2026].
-
-[5] Scikit-learn Developers, “mean_absolute_error,” *Scikit-learn Documentation*. [Online]. Available: https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html. [Accessed: Sep. 18, 2026].
-
-[6] Scikit-learn Developers, “make_regression,” *Scikit-learn Documentation*. [Online]. Available: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_regression.html. [Accessed: Sep. 18, 2026].
-
-[7] Scikit-learn Developers, “DecisionTreeRegressor,” *Scikit-learn Documentation*. [Online]. Available: https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html. [Accessed: Sep. 18, 2026].
-
-[8] Statsmodels Developers, “Linear Regression,” *Statsmodels Documentation*. [Online]. Available: https://www.statsmodels.org/stable/regression.html. [Accessed: Sep. 18, 2026].
