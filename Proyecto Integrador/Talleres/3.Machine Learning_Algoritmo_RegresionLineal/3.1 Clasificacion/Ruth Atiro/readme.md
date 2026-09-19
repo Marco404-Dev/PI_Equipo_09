@@ -51,6 +51,9 @@ Para el AQI diario:
 
 También se elaboró un diagrama de caja y bigotes para observar la distribución de la concentración de NO₂ y del AQI e identificar posibles valores alejados de la distribución central.
 
+<img width="543" height="413" alt="image" src="https://github.com/user-attachments/assets/81eb3398-8fba-48d9-ac39-ca8a20fe9e5e" />
+
+
 ### 2.3. Modelo de regresión lineal
 
 Se utilizó un modelo de **regresión lineal simple**, tomando como variable independiente:
@@ -76,6 +79,8 @@ El conjunto de datos presentó 357 observaciones y 28 variables. La información
 La concentración máxima diaria de NO₂ tuvo un valor promedio de **9.039 ppb**, con valores comprendidos entre **2.0 y 34.3 ppb**. La mediana fue de **7.6 ppb**, lo que indica que la mitad de las observaciones presentó concentraciones iguales o inferiores a este valor.
 Por otro lado, el AQI diario presentó una media de **8.199** y una mediana de **7**, con valores entre **2 y 32**.
 El 50 % central de las observaciones de concentración de NO₂ se encontró entre **5.4 y 11.2 ppb**, mientras que para el AQI este intervalo estuvo entre **5 y 10**.
+
+<img width="562" height="455" alt="image" src="https://github.com/user-attachments/assets/2e11f167-1880-4999-acd7-6ac9cd7a1199" />
 
 ### 3.2. Regresión lineal
 El modelo desarrollado utilizó la concentración máxima diaria de NO₂ como variable predictora del AQI diario.
