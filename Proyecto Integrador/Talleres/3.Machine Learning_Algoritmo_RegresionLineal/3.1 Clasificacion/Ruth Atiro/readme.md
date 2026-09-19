@@ -2,7 +2,7 @@
 
 ## 1. Introducción
 La calidad del aire constituye un aspecto importante para la evaluación de las condiciones ambientales, debido a la presencia de contaminantes que pueden afectar tanto al ambiente como a la salud de la población. Entre estos contaminantes se encuentra el dióxido de nitrógeno (NO₂), un gas asociado principalmente a procesos de combustión y que forma parte de los contaminantes atmosféricos monitoreados mediante sistemas de vigilancia de la calidad del aire.
-Para el presente análisis se utilizaron datos obtenidos de **AirData**, plataforma de la Agencia de Protección Ambiental de Estados Unidos (U.S. Environmental Protection Agency, EPA), que proporciona información de calidad del aire recopilada mediante estaciones de monitoreo ambiental. Los datos de AirData proceden principalmente del **Air Quality System (AQS)** y permiten consultar información horaria, diaria y anual sobre concentraciones de contaminantes y valores del índice de calidad del aire (AQI) [1], [2].
+Para el presente análisis se utilizaron datos obtenidos de **AirData**, plataforma de la Agencia de Protección Ambiental de Estados Unidos (U.S. Environmental Protection Agency, EPA), que proporciona información de calidad del aire recopilada mediante estaciones de monitoreo ambiental. Los datos de AirData proceden principalmente del **Air Quality System (AQS)** y permiten consultar información horaria, diaria y anual sobre concentraciones de contaminantes y valores del índice de calidad del aire (AQI) [1].
 El objetivo del presente trabajo fue realizar un análisis exploratorio de datos de NO₂ y desarrollar un modelo de **regresión lineal** para analizar la relación entre la concentración máxima diaria de NO₂ y el valor diario del AQI. Para ello se emplearon herramientas de Python, principalmente las bibliotecas Pandas, Seaborn, Matplotlib y Scikit-learn.
 El conjunto analizado contiene **357 registros diarios** correspondientes al monitoreo de NO₂ en el sitio identificado como **150030010**, ubicado en Kapolei. La concentración máxima diaria de NO₂ presenta una media de **9.039 ppb**, mientras que el valor diario del AQI presenta una media de **8.199**.
 
@@ -60,14 +60,14 @@ Se utilizó un modelo de **regresión lineal simple**, tomando como variable ind
 X = Daily Max NO2 Concentration
 y como variable dependiente:
 Y = Daily AQI Value
-Los datos fueron divididos en un conjunto de entrenamiento y uno de prueba utilizando `train_test_split`, con un **30 % de los datos destinado a prueba** y un `random_state = 42`, lo que permite reproducir la misma división de los datos [3].
+Los datos fueron divididos en un conjunto de entrenamiento y uno de prueba utilizando `train_test_split`, con un **30 % de los datos destinado a prueba** y un `random_state = 42`, lo que permite reproducir la misma división de los datos.
 Posteriormente, se utilizó el algoritmo `LinearRegression` de Scikit-learn para ajustar el modelo. Finalmente, se generaron predicciones sobre el conjunto de prueba.
 La evaluación se realizó mediante dos métricas de regresión:
 
 * **Coeficiente de determinación (R²)**.
 * **Error cuadrático medio (MSE)**.
 
-Estas métricas son apropiadas para evaluar modelos de regresión; R² representa la proporción de variabilidad de la variable dependiente explicada por el modelo, mientras que MSE cuantifica el error cuadrático promedio entre los valores observados y predichos [4], [5].
+Estas métricas son apropiadas para evaluar modelos de regresión; R² representa la proporción de variabilidad de la variable dependiente explicada por el modelo, mientras que MSE cuantifica el error cuadrático promedio entre los valores observados y predichos.
 
 ## 3. Resultados
 ### 3.1. Análisis descriptivo
@@ -93,7 +93,7 @@ La representación gráfica de la regresión muestra los valores observados de c
 
 ## 4. Discusión
 Los resultados obtenidos muestran una relación lineal muy elevada entre la concentración máxima diaria de NO₂ y el valor diario del AQI dentro del conjunto de datos analizado. El coeficiente R² obtenido, de **0.99447**, indica que el modelo reproduce con un ajuste muy elevado la variación del AQI en los datos de prueba.
-Sin embargo, este resultado debe interpretarse con precaución. El AQI no constituye una variable completamente independiente de la concentración de contaminantes. La EPA señala que el AQI se calcula a partir de las concentraciones de contaminantes y que, para cada contaminante medido, se calcula un índice; el valor máximo de esos índices determina el AQI correspondiente [6]. Por esta razón, la elevada asociación observada entre la concentración de NO₂ y el AQI es coherente con la forma en que se construye este índice.
+Sin embargo, este resultado debe interpretarse con precaución. El AQI no constituye una variable completamente independiente de la concentración de contaminantes. La EPA señala que el AQI se calcula a partir de las concentraciones de contaminantes y que, para cada contaminante medido, se calcula un índice; el valor máximo de esos índices determina el AQI correspondiente. Por esta razón, la elevada asociación observada entre la concentración de NO₂ y el AQI es coherente con la forma en que se construye este índice.
 En los datos analizados, además, el AQI presenta valores que aumentan conforme aumenta la concentración de NO₂. Esto permite que la regresión lineal produzca un ajuste elevado. Por tanto, el resultado no debe interpretarse como evidencia de que la concentración de NO₂ sea la única causa de las variaciones en la calidad del aire, sino como una relación estadística dentro de este conjunto de datos y entre estas dos variables.
 El análisis descriptivo mostró una concentración media de **9.039 ppb**, mientras que el máximo registrado fue de **34.3 ppb**. La diferencia entre estos valores evidencia que existe variabilidad en las concentraciones registradas durante el periodo estudiado. Asimismo, el diagrama de caja permite identificar la dispersión y posibles observaciones alejadas de la distribución central.
 Otro aspecto importante es que los datos corresponden a **un único sitio de monitoreo**, identificado como Site ID 150030010. Por ello, los resultados describen las observaciones de este monitor y no deben generalizarse automáticamente a otras estaciones, ciudades o regiones.
