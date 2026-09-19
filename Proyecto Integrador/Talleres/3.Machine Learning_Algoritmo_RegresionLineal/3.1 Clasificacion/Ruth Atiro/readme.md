@@ -57,13 +57,9 @@ También se elaboró un diagrama de caja y bigotes para observar la distribució
 ### 2.3. Modelo de regresión lineal
 
 Se utilizó un modelo de **regresión lineal simple**, tomando como variable independiente:
-$$
-X = \text{Daily Max NO2 Concentration}
-$$
+X = Daily Max NO2 Concentration
 y como variable dependiente:
-$$
-Y = \text{Daily AQI Value}
-$$
+Y = Daily AQI Value
 Los datos fueron divididos en un conjunto de entrenamiento y uno de prueba utilizando `train_test_split`, con un **30 % de los datos destinado a prueba** y un `random_state = 42`, lo que permite reproducir la misma división de los datos [3].
 Posteriormente, se utilizó el algoritmo `LinearRegression` de Scikit-learn para ajustar el modelo. Finalmente, se generaron predicciones sobre el conjunto de prueba.
 La evaluación se realizó mediante dos métricas de regresión:
