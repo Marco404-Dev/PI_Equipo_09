@@ -23,5 +23,5 @@ Para realizar este análisis se siguieron los siguientes pasos computacionales y
 ## 4. Discusión
 Aunque la pendiente de la regresión lineal global muestra una estabilidad casi nula entre 2022 y 2023, el valor real del análisis radica en la estacionalidad. Una regresión lineal simple basada estrictamente en el tiempo tiende a promediar los ciclos estacionales, lo que resulta en un coeficiente de determinación (R^2) bajo para capturar variaciones diarias, pero excelente para demostrar visualmente el fenómeno fotoquímico anual. Para futuros análisis más precisos, se recomendaría filtrar estaciones individuales (por ejemplo, zonas urbanas específicas como Denver) o incorporar variables meteorológicas independientes como la temperatura ambiente y la radiación solar.
 
-## 5. Referencias (Formato IEEE)
+## 5. Referencias 
 [1] U. S. Environmental Protection Agency (EPA), "AirData: Access Air Data" [En línea]. Disponible en: https://www.epa.gov/outdoor-air-quality-data.
