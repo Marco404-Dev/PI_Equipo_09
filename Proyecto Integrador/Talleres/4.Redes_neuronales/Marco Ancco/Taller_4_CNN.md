@@ -4,8 +4,6 @@
 
 En este taller se desarrollaron modelos de aprendizaje profundo para clasificar imágenes de residuos en dos categorías: vidrio (*glass*) y plástico (*plastic*). El trabajo abarca la preparación de datos, la construcción de una CNN, el entrenamiento, la evaluación y la comparación con un modelo preentrenado.
 
-Este informe se basa en la sección de CNN del notebook `Redes_neuronales_ss.ipynb`. Las métricas corresponden a las salidas guardadas en el archivo; no se realizó un nuevo entrenamiento. Las secciones posteriores de clasificación de reseñas con Keras y perceptrones corresponden a otros ejercicios.
-
 ## 2. Objetivos
 
 - Comprender cómo las capas convolucionales extraen características de las imágenes.
@@ -15,13 +13,7 @@ Este informe se basa en la sección de CNN del notebook `Redes_neuronales_ss.ipy
 - Evaluar los modelos con accuracy, ROC-AUC, precisión, recall, F1 y matrices de confusión.
 - Explorar la interpretación de predicciones mediante Grad-CAM.
 
-## 3. Entorno de trabajo
-
-Se utilizó Google Colab con Python, PyTorch y torchvision. También se emplearon NumPy, Matplotlib, scikit-learn, tqdm y Pillow. La ejecución guardada detectó una GPU compatible con CUDA.
-
-El notebook importa la clase `TrashDataset` desde el módulo externo `trash_dataset.py`. Este archivo debe estar disponible para reproducir el ejercicio; su implementación no está incluida en el notebook proporcionado.
-
-## 4. Dataset y preparación de las imágenes
+## 3. Dataset y preparación de las imágenes
 
 Se trabajó con las categorías de vidrio y plástico de TrashNet. Aunque el archivo descargado contiene más categorías, este ejercicio utiliza únicamente dos:
 
