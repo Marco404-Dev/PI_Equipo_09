@@ -36,6 +36,8 @@ La partición se realizo de la siguiente forma
 
 Para la CNN básica se aplica `T.ToTensor()`. Los lotes observados tienen forma `[128, 1, 384, 512]`: hasta 128 imágenes, un canal y resolución de 384 × 512 píxeles. Esto confirma que el modelo recibe imágenes en escala de grises; la conversión interna realizada por `TrashDataset` no es visible en el archivo.
 
+![Ejemplos de vidrio y plástico extraídos del notebook](Taller_4_CNN_assets/colab1.png)
+
 ```python
 transform_basic = T.Compose([
     T.ToTensor()
