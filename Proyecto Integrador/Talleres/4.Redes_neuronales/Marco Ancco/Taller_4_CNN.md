@@ -13,7 +13,7 @@ En este taller se desarrollaron modelos de aprendizaje profundo para clasificar 
 - Evaluar los modelos con accuracy, ROC-AUC, precisión, recall, F1 y matrices de confusión.
 - Explorar la interpretación de predicciones mediante Grad-CAM.
 
-## 3. Dataset y preparación de las imágenes
+## 3. Division de la data
 
 Se trabajó con las categorías de vidrio y plástico de TrashNet. Aunque el archivo descargado contiene más categorías, este ejercicio utiliza únicamente dos:
 
@@ -22,11 +22,7 @@ Se trabajó con las categorías de vidrio y plástico de TrashNet. Aunque el arc
 | 0 | `glass` | Vidrio |
 | 1 | `plastic` | Plástico |
 
-La carpeta de datos configurada en Colab es `/content/dataset-resized`. Dentro de ella se utilizan las subcarpetas `glass/` y `plastic/`.
-
-### 4.1. División de datos
-
-Las particiones se solicitan mediante el argumento `split` de `TrashDataset`.
+La partición se realizo de la siguiente forma
 
 | Conjunto | Imágenes | Porcentaje aproximado | Función |
 |---|---:|---:|---|
@@ -35,9 +31,8 @@ Las particiones se solicitan mediante el argumento `split` de `TrashDataset`.
 | Prueba | 149 | 15,16 % | Evaluar el modelo al finalizar |
 | **Total** | **983** | **100 %** | |
 
-Las cantidades son las registradas en el notebook. Sin el módulo externo no se puede confirmar el algoritmo de separación, su semilla ni los porcentajes configurados internamente.
 
-### 4.2. Transformación y carga
+### 4 Transformación y carga
 
 Para la CNN básica se aplica `T.ToTensor()`. Los lotes observados tienen forma `[128, 1, 384, 512]`: hasta 128 imágenes, un canal y resolución de 384 × 512 píxeles. Esto confirma que el modelo recibe imágenes en escala de grises; la conversión interna realizada por `TrashDataset` no es visible en el archivo.
 
