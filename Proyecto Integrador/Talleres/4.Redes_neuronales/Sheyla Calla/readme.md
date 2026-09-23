@@ -1,4 +1,4 @@
-# Redes Neuronales 
+# Informe interpretativo: Redes Neuronales 
 
 ## 1. CNN:
 Las CNN son un tipo de red especializada en el procesamiento de datos con estructura espacial, como las imágenes. En lugar de conectar cada píxel de forma compacta, utilizan filtros pequeños llamados kernels que recorren la matriz de la imagen para extraer patrones jerárquicos (desde bordes y texturas simples en las capas iniciales hasta formas complejas en las profundas). 
