@@ -38,28 +38,6 @@ Para la CNN básica se aplica `T.ToTensor()`. Los lotes observados tienen forma 
 
 ![Ejemplos de vidrio y plástico extraídos del notebook](Taller_4_CNN_assets/colab1.png)
 
-```python
-transform_basic = T.Compose([
-    T.ToTensor()
-])
-
-train_dataset = DataClass(
-    root=DATA_DIR,
-    split="train",
-    transform=transform_basic)
-
-val_dataset = DataClass(
-    root=DATA_DIR,
-    split="val",
-    transform=transform_basic)
-
-test_dataset = DataClass(
-    root=DATA_DIR,
-    split="test",
-    transform=transform_basic)
-
-len(train_dataset), len(val_dataset), len(test_dataset)
-```
 
 El cargador de entrenamiento mezcla los ejemplos con `shuffle=True`; los de validación y prueba mantienen su orden. El tamaño de lote utilizado es 128.
 
@@ -82,41 +60,8 @@ En una CNN, los filtros convolucionales recorren regiones de la imagen y aprende
 
 Las convoluciones utilizan kernels de 3 × 3 y padding de 1. La salida del clasificador son dos *logits*, no probabilidades. La evaluación aplica softmax para obtener la probabilidad de la clase plástico.
 
-```python
-import torch.nn as nn
-import torch.nn.functional as F
+![Ejemplos de vidrio y plástico extraídos del notebook](Taller_4_CNN_assets/colab2.png)
 
-num_classes = len(DataClass.classes)
-
-class SimpleCNN(nn.Module):
-    def __init__(self, num_classes):
-        super().__init__()
-        self.features = nn.Sequential(
-            nn.Conv2d(1, 16, kernel_size=3, padding=1),
-            nn.ReLU(),
-            nn.MaxPool2d(2),
-
-            nn.Conv2d(16, 32, kernel_size=3, padding=1),
-            nn.ReLU(),
-            nn.MaxPool2d(2),
-
-            nn.Conv2d(32, 64, kernel_size=3, padding=1),
-            nn.ReLU(),
-            nn.AdaptiveAvgPool2d((1, 1))
-        )
-        self.classifier = nn.Sequential(
-            nn.Flatten(),
-            nn.Linear(64, num_classes)
-        )
-
-    def forward(self, x):
-        x = self.features(x)
-        x = self.classifier(x)
-        return x
-
-model_scratch = SimpleCNN(num_classes=num_classes).to(device)
-model_scratch
-```
 
 ## 6. Entrenamiento y ajuste de pesos
 
@@ -130,23 +75,8 @@ El aprendizaje se realiza mediante estos pasos:
 
 Fragmento del ciclo de entrenamiento del notebook:
 
-```python
-def train_one_epoch(model, loader, optimizer, criterion):
-    model.train()
-    losses = []
-    for x, y in loader:
-        x = x.to(device)
-        y = y.to(device).long()
+![Ejemplos de vidrio y plástico extraídos del notebook](Taller_4_CNN_assets/colab3.png)
 
-        optimizer.zero_grad()
-        logits = model(x)
-        loss = criterion(logits, y)
-        loss.backward()
-        optimizer.step()
-
-        losses.append(loss.item())
-    return float(np.mean(losses))
-```
 
 La CNN básica se entrenó durante **8 épocas**, con Adam y una tasa de aprendizaje de **0,001**. La pérdida de entrenamiento disminuyó de **0,6943** a **0,6718**. La accuracy de validación terminó en **63,27 %**, mientras que el ROC-AUC de validación terminó en **0,6748**.
 
@@ -160,15 +90,8 @@ La accuracy de validación permanece en 0,5102 durante las primeras cinco época
 
 La evaluación utiliza `model.eval()` y desactiva el cálculo de gradientes. Una probabilidad de plástico mayor o igual que 0,5 se clasifica como plástico; en caso contrario, como vidrio.
 
-```python
-test_acc, test_auc, y_true, y_pred, y_prob = evaluate(model_scratch, test_loader)
-print(f"Test accuracy: {test_acc:.4f}")
-print(f"Test ROC-AUC:  {test_auc:.4f}")
-print()
-print(classification_report(y_true, y_pred, digits=4))
-cm = confusion_matrix(y_true, y_pred)
-cm
-```
+![Ejemplos de vidrio y plástico extraídos del notebook](Taller_4_CNN_assets/colab4.png)
+
 
 Las métricas utilizadas se interpretan así:
 
@@ -202,13 +125,8 @@ El modelo clasificó correctamente **82 imágenes** y se equivocó en **67**.
 
 El segundo experimento conserva la arquitectura `SimpleCNN` y aplica transformaciones aleatorias al conjunto de entrenamiento: rotaciones de hasta 10 grados y traslaciones de hasta el 5 % en cada eje.
 
-```python
-transform_aug = T.Compose([
-    T.RandomRotation(degrees=10),
-    T.RandomAffine(degrees=0, translate=(0.05, 0.05)),
-    T.ToTensor()
-])
-```
+![Ejemplos de vidrio y plástico extraídos del notebook](Taller_4_CNN_assets/colab5.png)
+
 
 Estas transformaciones generan variaciones de los ejemplos durante su carga, con el propósito de mejorar la generalización. La validación y la prueba conservan las transformaciones básicas.
 
@@ -226,20 +144,8 @@ Los lotes son de 64 imágenes. En entrenamiento se mantienen las rotaciones y tr
 
 Se sustituye la capa final por una capa lineal con dos salidas. Se congelan los parámetros del modelo y se habilita el entrenamiento de los de `fc`.
 
-```python
-resnet = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
-in_features = resnet.fc.in_features
-resnet.fc = nn.Linear(in_features, num_classes)
-resnet = resnet.to(device)
+![Ejemplos de vidrio y plástico extraídos del notebook](Taller_4_CNN_assets/colab6.png)
 
-for name, param in resnet.named_parameters():
-    param.requires_grad = False
-
-for param in resnet.fc.parameters():
-    param.requires_grad = True
-
-resnet
-```
 
 Esta etapa dura **4 épocas**, con Adam y tasa de aprendizaje de **0,001**. El ROC-AUC de validación pasa de **0,7152** a **0,8207**. La accuracy fluctúa y termina en **57,82 %**: una mejora de AUC no implica necesariamente una mejora de accuracy con el umbral fijo utilizado.
 
