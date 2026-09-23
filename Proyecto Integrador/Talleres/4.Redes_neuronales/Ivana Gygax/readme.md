@@ -48,9 +48,16 @@ weighted avg     0.6599    0.6174    0.5946       149
 
 array([[29, 47],
        [10, 63]])
+       
+En el conjunto de prueba, la CNN clasificó correctamente el 61.74% de las imágenes. El ROC-AUC de 0.6119 indica una capacidad limitada para distinguir entre vidrio y plástico. Por tanto, aunque el modelo aprendió ciertos patrones durante el entrenamiento, su capacidad de generalización es todavía reducida.
 
 
 Figura 3. Matriz de confusión de CNN desde cero (5.4 en el código) <img width="364" height="341" alt="image" src="https://github.com/user-attachments/assets/76f31742-7e02-464d-95f6-136c9a373dee" />
+De las 76 imágenes de vidrio, 29 fueron clasificadas correctamente y 47 fueron confundidas con plástico. En cambio, de las 73 imágenes de plástico, 63 fueron clasificadas correctamente y 10 fueron confundidas con vidrio. La matriz evidencia que el principal problema del modelo es la identificación del vidrio.
+
+
+Figura 4. Gráfico de sobrecorrección <img width="826" height="813" alt="copyImage" src="https://github.com/user-attachments/assets/882b9bf4-10a2-4b72-8395-5a310dfe4941" />
+
 
 
 
