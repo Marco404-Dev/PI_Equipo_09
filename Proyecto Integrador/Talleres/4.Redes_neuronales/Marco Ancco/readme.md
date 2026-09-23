@@ -404,7 +404,7 @@ Para OR, usa pesos `[2, 1]` y sesgo `-0.5`. Con que una entrada valga 1, la suma
 
 El Colab también prueba `[0.8, 0.5]` con sesgo `-0.7`. Esa combinación **no representa AND**: produce 1 cuando la primera entrada es 1, incluso si la segunda es 0. Esto muestra por qué hay que revisar las cuatro combinaciones.
 
-![Líneas que separan las respuestas de AND y OR](Taller_4_CNN_assets/perceptron_and_or.png)
+![Líneas que separan las respuestas de AND y OR](Taller_4_CNN_assets/colab7.png)
 
 **Cómo entiendo la imagen:** los ejes representan las dos entradas, P y Q. Cada punto es una combinación posible. La línea roja separa `(0,0)` del resto, como necesita OR. La verde separa `(1,1)` de los demás, como necesita AND. Son dibujos para explicar la separación; no representan exactamente los pesos usados en las pruebas anteriores.
 
@@ -414,7 +414,7 @@ La importancia de esta figura es que muestra que cada regla puede resolverse sep
 
 **XOR da 1 cuando las entradas son diferentes.** Por eso `(0,1)` y `(1,0)` dan 1, mientras que `(0,0)` y `(1,1)` dan 0.
 
-![Ejemplo de dos líneas para explicar la separación de XOR](Taller_4_CNN_assets/perceptron_xor.png)
+![Ejemplo de dos líneas para explicar la separación de XOR](Taller_4_CNN_assets/colab8.png)
 
 **Lo que muestra la gráfica:** los puntos con círculo blanco son los casos donde XOR debe dar 0. Los otros dos deben dar 1. No se puede dibujar una sola línea recta que deje todos los ceros de un lado y todos los unos del otro.
 
