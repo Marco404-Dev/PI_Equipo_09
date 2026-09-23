@@ -1,4 +1,4 @@
-##**REDES NEURONALES**
+## **REDES NEURONALES**
 
 Las redes neuronales son un modelo de inteligencia artificial (IA) que reconoce patrones y resuelve problemas comunes a partir de datos. Por lo que deben ser entrenados para aprender las características presentes en los datos, permitiendo clasificarlos datos y realizar predicciones \[1\].
 
