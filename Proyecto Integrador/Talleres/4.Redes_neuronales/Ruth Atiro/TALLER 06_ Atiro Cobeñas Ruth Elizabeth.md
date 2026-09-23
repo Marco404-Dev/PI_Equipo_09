@@ -5,7 +5,7 @@ Las redes neuronales son un modelo de inteligencia artificial (IA) que reconoce 
 **CNN (Redes neuronales convolucionales)**  
 Es un tipo de red especializada en procesar datos estructurados en cuadrículas, como imágenes. Pueden tener decenas o cientos de capas, y cada una aprende a detectar diferentes características de una imagen \[2\].
 
-![][image1]
+<img width="990" height="356" alt="image" src="https://github.com/user-attachments/assets/46ee1327-fd9b-43b4-986c-f684d4c662c3" />
 
 - **Interpretación:**  
   Se puede observar tres imágenes:  
@@ -16,7 +16,7 @@ Es un tipo de red especializada en procesar datos estructurados en cuadrículas,
 **KERAS**  
 Keras es una biblioteca de alto nivel desarrollada en Python para la creación y el entrenamiento de modelos de aprendizaje profundo. Su importancia radica en que proporciona una interfaz sencilla para trabajar con TensorFlow, facilitando el desarrollo, la experimentación y la implementación de redes neuronales profundas de manera eficiente \[3\].
 
-![][image2]
+<img width="835" height="813" alt="image" src="https://github.com/user-attachments/assets/84c60325-437d-4f67-a743-27d6d391c596" />
 
 - **Interpretación:**  
   En la gráfica se compara la pérdida de validación a lo largo de 20 épocas entre el modelo original (naranja) y el modelo con dropout (azul). Durante el entrenamiento, el dropout desactiva aleatoriamente el 50% de las neuronas, lo que obliga a la red a no depender de conexiones específicas y a aprender con diferentes combinaciones, reduciendo el sobreajuste (overfitting).   A pesar que el modelo original reduce su error más rápido al inicio, ambos comienzan a sobreajustarse a partir de la época 10\.
@@ -24,7 +24,7 @@ Keras es una biblioteca de alto nivel desarrollada en Python para la creación y
 **PERCEPTRÓN**  
 Es una unidad neuronal de procesamiento en el aprendizaje profundo (Deep Learning) \[4\]. Es una representación matemática de una neurona biológica que recibe múltiples entradas, les aplica un peso (weight), suma un sesgo (bias) y pasa el resultado por una función de activación para producir una salida \[4\].
 
-![][image3]
+<img width="503" height="505" alt="image" src="https://github.com/user-attachments/assets/51682fec-1dc1-4b54-a563-8360b4168f61" />
 
 - **Interpretación:**  
   Los círculos blancos representan los casos donde XOR \= 0 en (0,0) y (1,1), mientras que los círculos azules representan XOR \= 1 en (0,1) y (1,0) y cada línea azul continua representa la frontera de decisión de una neurona (perceptrón).  
