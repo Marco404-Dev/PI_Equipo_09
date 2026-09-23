@@ -59,5 +59,11 @@ La representación visual obtenida permite comprobar de forma geométrica el fun
 - Línea de la compuerta AND (verde): Separa correctamente el punto superior derecho (1,1) del resto de los puntos ((0,0), (0,1) y (1,0)), cumpliendo la regla de que solo se activa si ambas entradas son verdaderas.
 - Línea de la compuerta OR (roja): Aísla el punto inferior izquierdo (0,0) frente a los demás casos, demostrando que el perceptrón logra dividir satisfactoriamente los estados donde al menos una entrada es activa.
 
+## Referencias:
+
+- [1] MathWorks, “Introducción a las redes neuronales,” *MATLAB & Simulink*. . Disponible en:(https://la.mathworks.com/discovery/neural-network.html?utm_source=chatgpt.com). 
+
+- [2] MathWorks, “¿Qué son las redes neuronales convolucionales?,” *MATLAB & Simulink*. Disponible en: (https://la.mathworks.com/discovery/convolutional-neural-network.html).
+
 
 
