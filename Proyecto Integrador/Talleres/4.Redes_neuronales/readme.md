@@ -4,7 +4,8 @@
 
 En YakuToring queremos desarrollar un modelo que **estime cuánto oxígeno disuelto hay en el agua**, usando otras mediciones y la hora del día. El resultado se expresará en **miligramos por litro (mg/L)**.
 
-El oxígeno disuelto, también llamado **OD**, es el oxígeno presente en el agua que utilizan muchos organismos acuáticos. Su cantidad cambia según las condiciones del ambiente. Por ejemplo, la temperatura y los procesos de fotosíntesis y respiración influyen en sus variaciones. [Fuente: USGS](https://www.usgs.gov/water-science-school/science/dissolved-oxygen-and-water).
+El oxígeno disuelto, también llamado **OD**, es el oxígeno presente en el agua que utilizan muchos organismos acuáticos. Su cantidad cambia según las condiciones del ambiente. Por ejemplo, la temperatura y los procesos de fotosíntesis y respiración influyen en sus variaciones.
+[Fuente: USGS](https://www.usgs.gov/water-science-school/science/dissolved-oxygen-and-water).
 
 Nuestro primer objetivo es estimar el OD **del momento de la medición**. Aunque en machine learning se utiliza la palabra “predecir”, en esta etapa no buscamos anunciar cuánto oxígeno habrá mañana. Pronosticar valores futuros sería un trabajo adicional.
 
