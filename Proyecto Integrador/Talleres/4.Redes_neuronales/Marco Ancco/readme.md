@@ -1,321 +1,341 @@
-# Taller 4 — Redes Neuronales Convolucionales (CNN)
+# Taller 4 — Lo que aprendí sobre redes neuronales
 
 ## 1. Introducción
 
-En este taller se desarrollaron modelos de aprendizaje profundo para clasificar imágenes de residuos en dos categorías: vidrio (*glass*) y plástico (*plastic*). El trabajo abarca la preparación de datos, la construcción de una CNN, el entrenamiento, la evaluación y la comparación con un modelo preentrenado.
+En este taller aprendí cómo una red neuronal puede usar ejemplos para aprender a clasificar información. Primero trabajé con imágenes de vidrio y plástico. Después revisé otro ejercicio en el que una red clasifica opiniones de películas como positivas o negativas.
 
-Este informe se basa en la sección de CNN del notebook `Redes_neuronales_ss.ipynb`. Las métricas corresponden a las salidas guardadas en el archivo; no se realizó un nuevo entrenamiento. Las secciones posteriores de clasificación de reseñas con Keras y perceptrones corresponden a otros ejercicios.
+Lo que entendí es que no se le escribe una regla para cada imagen o comentario. Se le dan ejemplos con sus respuestas correctas y, durante el entrenamiento, el modelo va ajustando sus cálculos.
 
-## 2. Objetivos
+En este documento explico el código y los resultados del Colab. Las cifras de imágenes provienen del notebook original y las gráficas de reseñas son las capturas compartidas. Las mejoras que propongo al final todavía necesitan ejecutarse para conocer sus resultados.
 
-- Comprender cómo las capas convolucionales extraen características de las imágenes.
-- Preparar conjuntos de entrenamiento, validación y prueba.
-- Entrenar una CNN desde cero mediante el ajuste de sus pesos.
-- Comparar el entrenamiento básico, el aumento de datos y la transferencia de aprendizaje.
-- Evaluar los modelos con accuracy, ROC-AUC, precisión, recall, F1 y matrices de confusión.
-- Explorar la interpretación de predicciones mediante Grad-CAM.
+## 2. ¿Qué quería aprender?
 
-## 3. Entorno de trabajo
+- Entender cómo una red puede distinguir imágenes.
+- Separar los datos para aprender, revisar el avance y hacer una prueba final.
+- Comprender qué hace el código durante el entrenamiento.
+- Comparar una red creada desde cero con una que ya había sido entrenada.
+- Leer las gráficas para reconocer cuándo el modelo mejora y cuándo empieza a sobreajustarse.
 
-Se utilizó Google Colab con Python, PyTorch y torchvision. También se emplearon NumPy, Matplotlib, scikit-learn, tqdm y Pillow. La ejecución guardada detectó una GPU compatible con CUDA.
+## 3. Los datos y su división
 
-El notebook importa la clase `TrashDataset` desde el módulo externo `trash_dataset.py`. Este archivo debe estar disponible para reproducir el ejercicio; su implementación no está incluida en el notebook proporcionado.
+Para las imágenes se utilizó TrashNet. Este conjunto tiene diferentes tipos de residuos, pero en el ejercicio solo se trabajó con dos:
 
-## 4. Dataset y preparación de las imágenes
-
-Se trabajó con las categorías de vidrio y plástico de TrashNet. Aunque el archivo descargado contiene más categorías, este ejercicio utiliza únicamente dos:
-
-| Etiqueta | Categoría | Material |
+| Número que usa el modelo | Nombre en el código | Material |
 |---|---|---|
 | 0 | `glass` | Vidrio |
 | 1 | `plastic` | Plástico |
 
-La carpeta de datos configurada en Colab es `/content/dataset-resized`. Dentro de ella se utilizan las subcarpetas `glass/` y `plastic/`.
+Los datos se dividieron en tres grupos:
 
-### 4.1. División de datos
+| Grupo | Imágenes | ¿Para qué sirve? |
+|---|---:|---|
+| Entrenamiento | 687 | Para que el modelo aprenda |
+| Validación | 147 | Para revisar cómo va con ejemplos que no usa para ajustar sus pesos |
+| Prueba | 149 | Para comprobar el resultado al terminar |
+| **Total** | **983** | |
 
-Las particiones se solicitan mediante el argumento `split` de `TrashDataset`.
+Estas cantidades equivalen aproximadamente a 70 %, 15 % y 15 %. La división la realiza la clase `TrashDataset`, que se importa desde `trash_dataset.py`. Ese archivo no está dentro del notebook compartido, por lo que no puedo confirmar cómo hace la separación internamente.
 
-| Conjunto | Imágenes | Porcentaje aproximado | Función |
-|---|---:|---:|---|
-| Entrenamiento | 687 | 69,89 % | Ajustar los pesos |
-| Validación | 147 | 14,95 % | Observar el desempeño durante el entrenamiento |
-| Prueba | 149 | 15,16 % | Evaluar el modelo al finalizar |
-| **Total** | **983** | **100 %** | |
+Entendí esta división como estudiar con unos ejercicios, practicar con otros y rendir un examen con preguntas diferentes. Así se puede comprobar si el modelo aprendió algo que también le sirve con ejemplos nuevos.
 
-Las cantidades son las registradas en el notebook. Sin el módulo externo no se puede confirmar el algoritmo de separación, su semilla ni los porcentajes configurados internamente.
+## 4. Preparación de las imágenes
 
-### 4.2. Transformación y carga
+Antes de entrar al modelo, las imágenes se convierten en números. En este ejercicio llegan en escala de grises, con un solo canal y un tamaño de 384 × 512 píxeles.
 
-Para la CNN básica se aplica `T.ToTensor()`. Los lotes observados tienen forma `[128, 1, 384, 512]`: hasta 128 imágenes, un canal y resolución de 384 × 512 píxeles. Esto confirma que el modelo recibe imágenes en escala de grises; la conversión interna realizada por `TrashDataset` no es visible en el archivo.
+![Código para preparar los tres grupos de imágenes](Taller_4_CNN_assets/colab1.png)
 
-```python
-transform_basic = T.Compose([
-    T.ToTensor()
-])
+**Lo que hace este código:** `T.ToTensor()` convierte la imagen a un formato numérico que PyTorch puede usar. `split="train"`, `split="val"` y `split="test"` seleccionan cada grupo. Al final, `len()` muestra cuántas imágenes tiene cada uno.
 
-train_dataset = DataClass(
-    root=DATA_DIR,
-    split="train",
-    transform=transform_basic)
+El modelo recibe grupos de hasta 128 imágenes, llamados **lotes**. `shuffle=True` mezcla el orden de los ejemplos de entrenamiento.
 
-val_dataset = DataClass(
-    root=DATA_DIR,
-    split="val",
-    transform=transform_basic)
+![Ejemplos de imágenes de vidrio y plástico](Taller_4_CNN_assets/dataset_ejemplos.png)
 
-test_dataset = DataClass(
-    root=DATA_DIR,
-    split="test",
-    transform=transform_basic)
+**Qué me muestra esta imagen:** permite ver los ejemplos que recibe la red y comprobar sus etiquetas. Los objetos tienen distintas formas, posiciones y apariencias. Por eso el modelo necesita aprender características que le ayuden a distinguir los materiales en diferentes imágenes.
 
-len(train_dataset), len(val_dataset), len(test_dataset)
-```
+## 5. ¿Cómo funciona la CNN?
 
-El cargador de entrenamiento mezcla los ejemplos con `shuffle=True`; los de validación y prueba mantienen su orden. El tamaño de lote utilizado es 128.
+Una CNN es un tipo de red neuronal que se utiliza para trabajar con imágenes. Revisa pequeñas partes de la imagen y aprende a detectar características útiles, como bordes, texturas y formas.
 
-![Ejemplos de vidrio y plástico extraídos del notebook](Taller_4_CNN_assets/dataset_ejemplos.png)
+![Código de la red SimpleCNN](Taller_4_CNN_assets/colab2.png)
 
-## 5. Fundamentos y arquitectura de la CNN
+**Así entendí sus partes:**
 
-Una red neuronal combina entradas mediante pesos y funciones de activación para producir una salida. Durante el entrenamiento, esos pesos se modifican para reducir una función de pérdida.
+| Parte del código | Explicación sencilla |
+|---|---|
+| `Conv2d` | Aplica filtros pequeños que buscan patrones en la imagen |
+| `ReLU` | Deja los valores positivos y cambia los negativos a cero; ayuda a aprender relaciones más variadas |
+| `MaxPool2d` | Reduce el tamaño de la información y conserva los valores más altos de cada zona |
+| `AdaptiveAvgPool2d` | Resume cada mapa de características con un promedio |
+| `Flatten` | Ordena esos valores en una sola lista |
+| `Linear` | Usa la lista para producir una puntuación para vidrio y otra para plástico |
 
-En una CNN, los filtros convolucionales recorren regiones de la imagen y aprenden patrones útiles para la clasificación. ReLU introduce no linealidad y MaxPool reduce la resolución espacial de las representaciones.
+La red tiene tres capas de convolución, con 16, 32 y 64 filtros. La salida final tiene dos puntuaciones. Durante la evaluación se convierten en probabilidades con una operación llamada `softmax`.
 
-| Etapa | Configuración | Salida por imagen |
-|---|---|---|
-| Entrada | Imagen en escala de grises | 1 × 384 × 512 |
-| Bloque 1 | Conv2d 1 → 16, ReLU, MaxPool2d(2) | 16 × 192 × 256 |
-| Bloque 2 | Conv2d 16 → 32, ReLU, MaxPool2d(2) | 32 × 96 × 128 |
-| Bloque 3 | Conv2d 32 → 64, ReLU | 64 × 96 × 128 |
-| Promedio adaptativo | AdaptiveAvgPool2d((1, 1)) | 64 × 1 × 1 |
-| Clasificador | Flatten y Linear(64, 2) | 2 puntuaciones |
+Lo importante para mí es que cada parte cumple una tarea: algunas buscan características, otras resumen la información y la última ayuda a decidir la clase.
 
-Las convoluciones utilizan kernels de 3 × 3 y padding de 1. La salida del clasificador son dos *logits*, no probabilidades. La evaluación aplica softmax para obtener la probabilidad de la clase plástico.
+## 6. ¿Cómo aprende el modelo?
 
-```python
-import torch.nn as nn
-import torch.nn.functional as F
+El modelo aprende repitiendo un proceso: recibe imágenes, responde, compara sus respuestas con las etiquetas correctas y ajusta sus pesos. Los **pesos** son números internos que cambian durante el aprendizaje.
 
-num_classes = len(DataClass.classes)
+![Código del entrenamiento de una época](Taller_4_CNN_assets/colab3.png)
 
-class SimpleCNN(nn.Module):
-    def __init__(self, num_classes):
-        super().__init__()
-        self.features = nn.Sequential(
-            nn.Conv2d(1, 16, kernel_size=3, padding=1),
-            nn.ReLU(),
-            nn.MaxPool2d(2),
+**Lo que hace el código, paso a paso:**
 
-            nn.Conv2d(16, 32, kernel_size=3, padding=1),
-            nn.ReLU(),
-            nn.MaxPool2d(2),
+1. `model.train()` pone la red en modo de entrenamiento.
+2. `optimizer.zero_grad()` limpia los cálculos de ajuste del lote anterior.
+3. `model(x)` obtiene las respuestas para las imágenes.
+4. `criterion(logits, y)` calcula la pérdida, que mide qué tan buenas o malas fueron las respuestas.
+5. `loss.backward()` calcula cómo influyen los pesos en esa pérdida.
+6. `optimizer.step()` modifica los pesos para intentar reducirla.
 
-            nn.Conv2d(32, 64, kernel_size=3, padding=1),
-            nn.ReLU(),
-            nn.AdaptiveAvgPool2d((1, 1))
-        )
-        self.classifier = nn.Sequential(
-            nn.Flatten(),
-            nn.Linear(64, num_classes)
-        )
+Una **época** es una pasada por todo el grupo de entrenamiento. La CNN básica se entrenó durante 8 épocas, usando Adam para actualizar los pesos y una tasa de aprendizaje de 0,001. Esa tasa controla el tamaño de los ajustes.
 
-    def forward(self, x):
-        x = self.features(x)
-        x = self.classifier(x)
-        return x
+### 6.1. ¿Qué pasó con la pérdida?
 
-model_scratch = SimpleCNN(num_classes=num_classes).to(device)
-model_scratch
-```
+![Pérdida durante el entrenamiento de la CNN](Taller_4_CNN_assets/perdida_entrenamiento.png)
 
-## 6. Entrenamiento y ajuste de pesos
+El eje horizontal muestra el avance de las épocas y el vertical muestra la pérdida. En esta figura el conteo empieza en 0: ese primer punto corresponde a la primera época.
 
-El aprendizaje se realiza mediante estos pasos:
+La pérdida baja de **0,6943 a 0,6718**. Esto indica que el modelo mejora en los ejemplos de entrenamiento, aunque el cambio es pequeño. Que la pérdida baje no demuestra por sí solo que vaya a responder bien con imágenes nuevas.
 
-1. El modelo recibe un lote de imágenes y genera sus logits.
-2. `CrossEntropyLoss` compara esas salidas con las etiquetas reales.
-3. `loss.backward()` calcula los gradientes del error respecto de los parámetros.
-4. Adam actualiza los parámetros mediante `optimizer.step()`.
-5. El proceso se repite con los lotes y las épocas siguientes.
+### 6.2. ¿Qué pasó en validación?
 
-Fragmento del ciclo de entrenamiento del notebook:
+![Aciertos y ROC-AUC durante la validación de la CNN](Taller_4_CNN_assets/metricas_validacion.png)
 
-```python
-def train_one_epoch(model, loader, optimizer, criterion):
-    model.train()
-    losses = []
-    for x, y in loader:
-        x = x.to(device)
-        y = y.to(device).long()
+La línea de accuracy muestra la proporción de respuestas correctas. Se mantiene cerca de 51 % durante las primeras cinco épocas y luego sube hasta **63,27 %**. La línea de ROC-AUC se mueve aproximadamente entre 0,67 y 0,69 y termina en **0,6748**.
 
-        optimizer.zero_grad()
-        logits = model(x)
-        loss = criterion(logits, y)
-        loss.backward()
-        optimizer.step()
+Entendí que el modelo sí aprende algo, pero todavía le cuesta separar las dos clases. Tampoco puedo asegurar que exista sobreajuste solo con estas figuras, porque aquí no se muestra la pérdida de validación junto a la de entrenamiento.
 
-        losses.append(loss.item())
-    return float(np.mean(losses))
-```
+## 7. La prueba final de la CNN
 
-La CNN básica se entrenó durante **8 épocas**, con Adam y una tasa de aprendizaje de **0,001**. La pérdida de entrenamiento disminuyó de **0,6943** a **0,6718**. La accuracy de validación terminó en **63,27 %**, mientras que el ROC-AUC de validación terminó en **0,6748**.
-
-![Pérdida de entrenamiento de la CNN básica](Taller_4_CNN_assets/perdida_entrenamiento.png)
-
-![Accuracy y ROC-AUC de validación de la CNN básica](Taller_4_CNN_assets/metricas_validacion.png)
-
-La accuracy de validación permanece en 0,5102 durante las primeras cinco épocas y mejora desde la sexta. El descenso de la pérdida indica aprendizaje, pero las métricas muestran un desempeño limitado. Estas curvas, por sí solas, no permiten confirmar sobreajuste: no se registra una curva de pérdida de validación para este experimento.
-
-## 7. Evaluación de la CNN básica
-
-La evaluación utiliza `model.eval()` y desactiva el cálculo de gradientes. Una probabilidad de plástico mayor o igual que 0,5 se clasifica como plástico; en caso contrario, como vidrio.
+Después del entrenamiento se usaron las 149 imágenes de prueba. En esta etapa se revisan las respuestas sin seguir ajustando los pesos.
 
 ```python
 test_acc, test_auc, y_true, y_pred, y_prob = evaluate(model_scratch, test_loader)
 print(f"Test accuracy: {test_acc:.4f}")
-print(f"Test ROC-AUC:  {test_auc:.4f}")
-print()
+print(f"Test ROC-AUC: {test_auc:.4f}")
 print(classification_report(y_true, y_pred, digits=4))
 cm = confusion_matrix(y_true, y_pred)
-cm
 ```
 
-Las métricas utilizadas se interpretan así:
+**Qué hace este código:** `evaluate()` compara las respuestas del modelo con las etiquetas reales. `classification_report()` resume los resultados por clase y `confusion_matrix()` cuenta los aciertos y errores de cada tipo.
 
-- **Accuracy:** proporción total de predicciones correctas.
-- **ROC-AUC:** capacidad de ordenar las imágenes de plástico por encima de las de vidrio según su puntuación, considerando diferentes umbrales.
-- **Precisión:** proporción de predicciones de una clase que son correctas.
-- **Recall:** proporción de ejemplos reales de una clase identificados correctamente.
-- **F1:** media armónica de precisión y recall.
+Estas son las medidas que aprendí a leer:
 
-En las **149 imágenes de prueba**, la CNN básica obtuvo **55,03 % de accuracy** y **0,6191 de ROC-AUC**.
+| Medida | ¿Qué me dice? |
+|---|---|
+| Accuracy | Qué porcentaje de respuestas fue correcto |
+| ROC-AUC | Qué tan bien separa las dos clases según sus puntuaciones; 1 es una separación perfecta y 0,5 es el nivel de una clasificación al azar |
+| Precisión | De todo lo que llamó “vidrio”, por ejemplo, cuánto sí era vidrio |
+| Recall | De todos los vidrios reales, cuántos encontró |
+| F1 | Resume el equilibrio entre precisión y recall |
 
-| Clase | Precisión | Recall | F1 | Imágenes |
-|---|---:|---:|---:|---:|
-| Vidrio | 0,5672 | 0,5000 | 0,5315 | 76 |
-| Plástico | 0,5366 | 0,6027 | 0,5677 | 73 |
+La CNN básica obtuvo **55,03 % de accuracy** y **0,6191 de ROC-AUC** en el notebook original.
 
-### Matriz de confusión
+![Matriz de confusión de la CNN básica](Taller_4_CNN_assets/matriz_confusion.png)
 
-Las filas representan la clase real y las columnas la predicción.
+**Cómo leo esta figura:** las filas muestran la clase real y las columnas muestran la respuesta del modelo. El número 0 es vidrio y el 1 es plástico.
 
-| Clase real | Predicción: vidrio | Predicción: plástico |
+| Material real | Dijo vidrio | Dijo plástico |
 |---|---:|---:|
 | Vidrio | 38 | 38 |
 | Plástico | 29 | 44 |
 
-El modelo clasificó correctamente **82 imágenes** y se equivocó en **67**.
+El modelo acertó en **82 imágenes** y falló en **67**. Esta figura es útil porque muestra los errores concretos: confundió 38 vidrios con plástico y 29 plásticos con vidrio.
 
-![Matriz de confusión de la CNN básica](Taller_4_CNN_assets/matriz_confusion.png)
+## 8. Aumento de datos: practicar con variaciones
 
-## 8. Aumento de datos
+El siguiente experimento usó la misma CNN, pero cambió un poco las imágenes durante el entrenamiento. La idea es que el modelo practique con distintas versiones de un mismo objeto.
 
-El segundo experimento conserva la arquitectura `SimpleCNN` y aplica transformaciones aleatorias al conjunto de entrenamiento: rotaciones de hasta 10 grados y traslaciones de hasta el 5 % en cada eje.
+![Código de las transformaciones para aumentar la variedad de imágenes](Taller_4_CNN_assets/colab5.png)
 
-```python
-transform_aug = T.Compose([
-    T.RandomRotation(degrees=10),
-    T.RandomAffine(degrees=0, translate=(0.05, 0.05)),
-    T.ToTensor()
-])
-```
+**Qué hace este código:** `RandomRotation(degrees=10)` gira las imágenes hasta 10 grados. `RandomAffine` permite desplazarlas hasta el 5 % de su tamaño en cada dirección. Después, `ToTensor()` las convierte en números.
 
-Estas transformaciones generan variaciones de los ejemplos durante su carga, con el propósito de mejorar la generalización. La validación y la prueba conservan las transformaciones básicas.
+Estas variaciones se usan en entrenamiento. Las imágenes de validación y prueba mantienen la preparación básica.
 
-Esta CNN se entrenó durante **6 épocas**. Su pérdida final de entrenamiento fue **0,6856**, y su accuracy final de validación fue **65,31 %**. En prueba alcanzó **56,38 % de accuracy** y **0,6411 de ROC-AUC**.
+Después de 6 épocas, esta red obtuvo **56,38 % de accuracy** y **0,6411 de ROC-AUC** en prueba. La mejora frente a la CNN básica fue pequeña: aproximadamente **1,35 puntos porcentuales**.
 
-La mejora observada frente a la CNN básica es pequeña: aproximadamente **1,35 puntos porcentuales** de accuracy. Como los experimentos tienen distinta duración y no se documentan varias repeticiones, esta diferencia no permite aislar el efecto del aumento de datos.
+Lo que entendí es que mostrar más variaciones puede ayudar, pero no asegura una gran mejora. Además, los dos modelos se entrenaron durante distinta cantidad de épocas, así que no puedo atribuir toda la diferencia a las transformaciones.
 
-## 9. Transferencia de aprendizaje y ajuste fino
+## 9. Usar una red que ya había aprendido
 
-El tercer experimento utiliza **ResNet18 con pesos preentrenados**. Las imágenes se redimensionan a **224 × 224 píxeles** y se repite el canal de gris tres veces para adaptar la entrada al modelo. Esta repetición proporciona tres canales, pero no recupera el color original.
+También se utilizó **ResNet18**, una red con pesos que ya habían sido entrenados con otras imágenes. A esto se le llama **transferencia de aprendizaje**: aprovechar parte de lo aprendido para una nueva tarea.
 
-Los lotes son de 64 imágenes. En entrenamiento se mantienen las rotaciones y traslaciones; en validación y prueba solo se redimensiona, convierte a tensor y repite el canal.
+Las imágenes se cambiaron a 224 × 224 píxeles y el canal de gris se repitió tres veces para que el modelo pudiera recibirlas. Esto no devuelve el color original; solo adapta el formato.
 
-### 9.1. Entrenamiento del clasificador
+![Código para adaptar ResNet18 a las dos clases](Taller_4_CNN_assets/colab6.png)
 
-Se sustituye la capa final por una capa lineal con dos salidas. Se congelan los parámetros del modelo y se habilita el entrenamiento de los de `fc`.
+**Qué hace este código:** carga ResNet18 con pesos previos, cambia su última capa para que tenga dos salidas y usa `requires_grad=False` para impedir que se ajusten esos pesos. Después permite entrenar los de la última capa, llamada `fc`.
 
-```python
-resnet = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
-in_features = resnet.fc.in_features
-resnet.fc = nn.Linear(in_features, num_classes)
-resnet = resnet.to(device)
+Primero se entrenó esa última capa durante 4 épocas. Luego se permitió ajustar también el último bloque de la red, `layer4`, durante otras 4 épocas, con cambios más pequeños. Esta segunda parte se llama **ajuste fino**.
 
-for name, param in resnet.named_parameters():
-    param.requires_grad = False
+El resultado final fue **86,58 % de accuracy** y **0,9562 de ROC-AUC** en prueba. Acertó en **129 de las 149 imágenes**.
 
-for param in resnet.fc.parameters():
-    param.requires_grad = True
-
-resnet
-```
-
-Esta etapa dura **4 épocas**, con Adam y tasa de aprendizaje de **0,001**. El ROC-AUC de validación pasa de **0,7152** a **0,8207**. La accuracy fluctúa y termina en **57,82 %**: una mejora de AUC no implica necesariamente una mejora de accuracy con el umbral fijo utilizado.
-
-### 9.2. Ajuste fino
-
-Se habilitan los parámetros de `layer4` y `fc`, y se entrena durante otras **4 épocas** con tasa de aprendizaje de **0,0001**.
-
-Al finalizar, la pérdida de entrenamiento es **0,0890**, la accuracy de validación es **88,44 %** y el ROC-AUC de validación es **0,9676**.
-
-### 9.3. Resultados de prueba
-
-ResNet18 con ajuste fino alcanza **86,58 % de accuracy** y **0,9562 de ROC-AUC**.
-
-| Clase | Precisión | Recall | F1 | Imágenes |
-|---|---:|---:|---:|---:|
-| Vidrio | 0,8182 | 0,9474 | 0,8780 | 76 |
-| Plástico | 0,9344 | 0,7808 | 0,8507 | 73 |
-
-| Clase real | Predicción: vidrio | Predicción: plástico |
+| Material real | Dijo vidrio | Dijo plástico |
 |---|---:|---:|
 | Vidrio | 72 | 4 |
 | Plástico | 16 | 57 |
 
-Se clasifican correctamente **129 imágenes** y se cometen **20 errores**. El modelo identifica una mayor proporción de los vidrios que de los plásticos; el error más frecuente es clasificar plástico como vidrio.
+Este modelo confundió más veces el plástico con vidrio que el vidrio con plástico.
 
-## 10. Comparación de resultados
+### 9.1. ¿Qué parte de la imagen influye en la respuesta?
 
-| Modelo | Épocas | Pérdida final de entrenamiento | Accuracy en prueba | ROC-AUC en prueba |
-|---|---:|---:|---:|---:|
-| CNN desde cero | 8 | 0,6718 | 55,03 % | 0,6191 |
-| CNN con aumento de datos | 6 | 0,6856 | 56,38 % | 0,6411 |
-| ResNet18 con ajuste fino | 4 + 4 | 0,0890 | **86,58 %** | **0,9562** |
+El Colab también usa **Grad-CAM**, que crea un mapa de colores para explorar qué zonas influyen en la respuesta de ResNet18. Es una ayuda para interpretar el modelo, aunque no demuestra por sí sola que reconozca bien el material.
 
-ResNet18 presenta el mejor desempeño en esta ejecución y supera a la CNN básica en aproximadamente **31,55 puntos porcentuales** de accuracy. La comparación corresponde a configuraciones que también difieren en arquitectura, resolución, tamaño de lote y entrenamiento; no mide únicamente el efecto de los pesos preentrenados.
+Para colocar ese mapa encima de la imagen correctamente, ambos deben estar alineados y tener el mismo tamaño o la misma escala de dibujo.
 
-La pérdida indicada pertenece al entrenamiento. El notebook no reporta la pérdida final de prueba de estos modelos.
+## 10. Comparación de los tres modelos de imágenes
 
-## 11. Interpretabilidad mediante Grad-CAM
+| Modelo | Épocas | Aciertos en prueba | ROC-AUC en prueba |
+|---|---:|---:|---:|
+| CNN desde cero | 8 | 55,03 % | 0,6191 |
+| CNN con aumento de datos | 6 | 56,38 % | 0,6411 |
+| ResNet18 con ajuste fino | 4 + 4 | **86,58 %** | **0,9562** |
 
-El notebook implementa una versión simplificada de Grad-CAM sobre `layer4` de ResNet18. Combina activaciones y gradientes para obtener un mapa de las regiones que contribuyen a la puntuación de una clase.
+En esta ejecución, ResNet18 dio el mejor resultado. Superó a la CNN básica en aproximadamente **31,55 puntos porcentuales** de aciertos.
 
-Los colores más intensos permiten explorar qué regiones influyen en la salida. El mapa es una herramienta de interpretación; no demuestra por sí solo que la red reconozca correctamente el material.
+Entendí que aprovechar una red ya entrenada puede ser muy útil. Sin embargo, también cambiaron otras cosas, como el tamaño de las imágenes y la forma de la red. Por eso estos resultados comparan los experimentos completos, no solo el uso de pesos previos.
 
-El notebook guarda una visualización de Grad-CAM. Su superposición requiere redimensionar el mapa al tamaño de la imagen o ajustar la extensión de ambos gráficos para garantizar su alineación espacial.
+## 11. Lo que aprendí sobre el sobreajuste con las reseñas
 
-## 12. Guardado y reproducción
+En otro ejercicio del mismo Colab se usan opiniones de películas de **IMDB**. La red intenta distinguir si una opinión es positiva o negativa. Estas cuatro gráficas pertenecen a ese ejercicio de texto, no a las imágenes de residuos.
 
-El notebook guarda los diccionarios de parámetros de los modelos en:
+Cada comentario se convierte en una lista de 10 000 posiciones. Un 1 indica que una palabra aparece y un 0 indica que no aparece. El modelo original tiene dos capas internas de 16 neuronas y una salida para la clasificación.
+
+En todas las gráficas siguientes, el eje horizontal muestra las épocas y el vertical la pérdida. Los valores que menciono son aproximados y se leen de las capturas.
+
+### 11.1. Entrenar más no siempre ayuda
+
+![Pérdida de entrenamiento y validación en el ejercicio de reseñas](Taller_4_CNN_assets/keras_06_sobreajuste.png)
+
+La línea azul es la pérdida de entrenamiento y sigue bajando. La naranja es la pérdida de validación: baja al inicio, llega a su mejor punto cerca de la época 5 y después sube.
+
+**Lo que entendí:** la red mejora con los ejemplos que estudia, pero empieza a responder peor con otros ejemplos. Eso se llama **sobreajuste**. Se parece a aprenderse las respuestas de una práctica sin poder resolver bien preguntas diferentes.
+
+Esta gráfica es importante porque muestra que terminar las 20 épocas no significa obtener el mejor modelo. Según esta curva, convenía conservar los pesos de alrededor de la época 5.
+
+### 11.2. Una red más pequeña puede funcionar mejor
+
+![Pérdida de validación del modelo pequeño y del original](Taller_4_CNN_assets/keras_08_modelo_pequeno.png)
+
+Aquí las dos líneas muestran pérdida de validación. La azul corresponde al modelo pequeño y la naranja al original. El pequeño mejora más despacio, pero su pérdida se mantiene baja durante más tiempo. Su mejor punto está cerca de la época 10 y después empeora un poco.
+
+```python
+model2 = models.Sequential()
+model2.add(layers.Dense(4, activation='relu', input_shape=(10000,)))
+model2.add(layers.Dense(1, activation='sigmoid'))
+```
+
+**Qué cambió en el código:** se reemplazaron las dos capas internas de 16 neuronas por una sola de 4. La cantidad de ejemplos se mantuvo igual; lo que se hizo más pequeño fue el modelo.
+
+**Lo que entendí:** una red más grande no siempre aprende mejor para datos nuevos. En esta prueba, reducir su tamaño ayudó a que el resultado fuera más estable, aunque todavía empeoró al final.
+
+### 11.3. Regularización L2: limitar los pesos demasiado grandes
+
+![Comparación de regularización L2; la etiqueta de la línea azul contiene un error](Taller_4_CNN_assets/keras_09_l2_original.png)
+
+**Hay un detalle importante en esta captura:** la línea azul dice que pertenece al entrenamiento con L2, pero el código toma los datos del modelo original. Por eso no debo usarla para explicar cómo entrenó el modelo con L2.
+
+La línea naranja sí muestra la validación con L2 y la verde corresponde al modelo original. La naranja baja hasta cerca de 0,33 alrededor de la época 5. Después vuelve a subir y tiene varios cambios bruscos. Aunque en varias épocas finales queda por debajo de la verde, no elimina el problema.
+
+```python
+layers.Dense(16, activation='relu',
+             kernel_regularizer=regularizers.l2(0.001))
+```
+
+**Qué hace este código:** agrega una penalización cuando los pesos crecen demasiado. Es una forma de ponerle un límite al aprendizaje para intentar que el modelo no dependa tanto de detalles de sus ejemplos.
+
+La pérdida con L2 incluye esa penalización extra. Por eso no se puede comparar directamente con la pérdida original como si ambas midieran exactamente lo mismo. Tampoco puedo saber la causa del pico de la época 16 mirando solo la figura.
+
+Para corregir la línea azul en Colab, debe usarse el historial del modelo regularizado:
+
+```python
+plt.plot(epocas, modelb3.history['loss'], '.-', label='L2: entrenamiento')
+```
+
+`epocas` debe tener un valor por cada época de ese historial. La captura incluida conserva el error original; esta línea es la corrección que habría que ejecutar para regenerarla.
+
+### 11.4. Dropout: no depender siempre de las mismas neuronas
+
+![Pérdida de validación con dropout y del modelo original](Taller_4_CNN_assets/keras_10_dropout.png)
+
+La línea azul corresponde al modelo con dropout y la naranja al original. Ambas son de validación. Con dropout, el mejor punto aparece cerca de la época 7, pero luego la pérdida vuelve a subir.
+
+```python
+model4.add(layers.Dense(16, activation='relu'))
+model4.add(layers.Dropout(0.5))
+```
+
+**Qué hace este fragmento:** después de una capa, dropout pone temporalmente en cero una parte de sus salidas durante el entrenamiento. Con `0.5`, la tasa es del 50 %. En el notebook se coloca después de cada una de las dos capas internas. Al evaluar o predecir, dropout se desactiva.
+
+**Lo que entendí:** esta técnica intenta evitar que la red dependa siempre de las mismas combinaciones. En la gráfica retrasa el sobreajuste, pero no lo elimina. Las neuronas no se borran permanentemente.
+
+### 11.5. ¿Qué me enseñaron estas cuatro gráficas?
+
+| Cambio | Lo que observé |
+|---|---|
+| Modelo original | Seguir entrenando después del mejor punto empeoró la validación |
+| Modelo pequeño | La pérdida se mantuvo baja durante más épocas |
+| Regularización L2 | No eliminó el aumento de la pérdida; además, su gráfica necesita una corrección |
+| Dropout | Retrasó el mejor punto, pero después también apareció sobreajuste |
+
+Estas comparaciones me enseñaron a mirar los resultados de validación y no quedarme solo con la pérdida de entrenamiento. Una sola ejecución tampoco basta para asegurar que una técnica siempre será la mejor.
+
+## 12. Cómo guardaría el trabajo y qué mejoraría
+
+### 12.1. Guardar lo aprendido por los modelos
+
+El Colab guarda los pesos de los modelos de imágenes en estos archivos:
 
 - `models/cnn_scratch.pth`
 - `models/cnn_aug.pth`
 - `models/resnet_transfer.pth`
 
-Para volver a utilizarlos es necesario reconstruir la arquitectura correspondiente y cargar su `state_dict`. El archivo proporcionado contiene el código de guardado, pero no una demostración de recarga ni los archivos de pesos adjuntos.
+Así se pueden recuperar después sin empezar todo el entrenamiento de nuevo. Para usarlos hay que crear la misma red y cargar sus pesos. También se necesitan las herramientas del notebook y el archivo `trash_dataset.py` para preparar los datos.
 
-Para reproducir el experimento deben prepararse las dependencias, los datos y el módulo `trash_dataset.py` antes de crear los datasets. También conviene documentar la semilla y el procedimiento de partición. En la sección de ResNet18 no aparece una normalización explícita de entrada; además, congelar parámetros no impide que las estadísticas internas de BatchNorm se actualicen cuando se llama a `model.train()`.
+### 12.2. Detener el entrenamiento cuando deja de mejorar
 
-## 13. Conclusiones
+Una mejora que aplicaría en el ejercicio de Keras es la **parada temprana**. Sirve para detener el entrenamiento si el resultado de validación deja de mejorar y recuperar los mejores pesos.
 
-El taller permitió recorrer el proceso de clasificación de imágenes: carga y transformación de datos, construcción de una CNN, cálculo del error, actualización de pesos y evaluación con ejemplos de prueba.
+```python
+from keras.callbacks import EarlyStopping
 
-La CNN desde cero obtuvo un rendimiento limitado y el aumento de datos produjo una mejora pequeña en la ejecución registrada. El mejor resultado se obtuvo con ResNet18 y ajuste fino: **86,58 % de accuracy y 0,9562 de ROC-AUC**.
+parada = EarlyStopping(
+    monitor='val_loss',
+    patience=2,
+    restore_best_weights=True
+)
 
-La matriz de confusión permitió identificar los errores por material, mientras que Grad-CAM introdujo una aproximación a la interpretación visual. Los resultados respaldan la utilidad de la transferencia de aprendizaje en este ejercicio, aunque sería necesario repetir los experimentos con particiones y semillas controladas para evaluar su estabilidad.
+historial = model.fit(
+    partial_x_train, partial_y_train,
+    epochs=20,
+    batch_size=512,
+    validation_data=(x_val, y_val),
+    callbacks=[parada]
+)
+```
 
----
+**Cómo lo entiendo:** `monitor` indica qué resultado revisar. `patience=2` permite esperar dos épocas seguidas sin mejora. `restore_best_weights=True` recupera los pesos de la mejor época observada.
 
-**Fuente:** sección CNN, celdas 1–59 según el índice del archivo `Redes_neuronales_ss.ipynb` (contado desde cero). Las figuras se extrajeron de sus salidas guardadas. Los fragmentos de código son extractos del notebook y dependen del entorno y las definiciones de ese archivo.
+Este código es una propuesta para ejecutar con un modelo recién creado y preparado. No se usó para obtener las cifras que aparecen en este informe. Corresponde a Keras; la CNN de PyTorch necesita su propio código para detenerse y recuperar pesos.
+
+### 12.3. Otras mejoras que haría
+
+- Corregir la línea de entrenamiento de L2 y poner título y nombres de ejes en cada gráfica.
+- Comparar los modelos usando la misma medida. En L2, separar la pérdida de las predicciones de la penalización extra.
+- Repetir los entrenamientos, guardar la semilla y mantener los mismos grupos de datos para ver si los resultados se repiten.
+- Elegir los cambios con validación y dejar el grupo de prueba para el final.
+- Registrar la mejor época de cada modelo, no solo la última.
+- Mantener juntas las figuras y cifras de una misma ejecución para evitar contradicciones.
+
+## 13. Conclusiones: lo que me llevo del taller
+
+Aprendí que una red neuronal mejora ajustando números internos a partir de ejemplos. También entendí por qué hay que separar los datos: acertar con lo que ya vio no asegura que vaya a responder bien con algo nuevo.
+
+En las imágenes de residuos, el mejor resultado del notebook fue el de ResNet18 con ajuste fino: **86,58 % de aciertos**. La CNN desde cero obtuvo **55,03 %**, y con aumento de datos llegó a **56,38 %**.
+
+En el ejercicio de reseñas entendí el sobreajuste al ver cómo la pérdida de entrenamiento bajaba mientras la de validación subía. Una red más pequeña y dropout ayudaron en distintos momentos, pero ninguna técnica aseguró que el problema desapareciera.
+
+Mi principal aprendizaje es que no basta con ejecutar el código o entrenar durante más tiempo. Hay que entender qué hace cada parte, revisar las gráficas y comprobar los resultados con datos nuevos.
+
+**Material utilizado:** notebook `Redes_neuronales_ss.ipynb` e imágenes compartidas del taller. No se realizaron nuevos entrenamientos para redactar este documento.
