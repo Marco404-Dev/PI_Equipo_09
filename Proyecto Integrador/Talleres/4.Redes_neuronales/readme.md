@@ -162,12 +162,6 @@ Los entregables esperados son:
 No esperamos obtener mediciones perfectas ni demostrar que una variable causa por sí sola los cambios de OD. Buscamos una estimación útil y comprobar con datos hasta dónde funciona.
 
 
-### Fuente de los datos
-
-Obtuvimos los datos del programa de monitoreo SWMP de NOAA NERRS [1], mediante su portal de descarga.
-
-Utilizamos registros de 2022 y 2023 de dos estaciones de East Bay, en Apalachicola Bay, Florida: `apaebwq`, que mide las condiciones del agua, y `apaebmet`, que mide condiciones meteorológicas. Asociamos sus registros por fecha y hora para construir nuestro dataset.
-
 ### Referencias
 
 [1] NOAA National Estuarine Research Reserve System (NERRS), “System-wide Monitoring Program,” Centralized Data Management Office, conjunto de datos. Subconjunto utilizado: estaciones apaebwq y apaebmet, Apalachicola Bay, registros de 2022–2023. doi: 10.25921/vw8a-8031. [En línea]. Disponible en: https://nerrsdata.org/aqs/zips.cfm. 
