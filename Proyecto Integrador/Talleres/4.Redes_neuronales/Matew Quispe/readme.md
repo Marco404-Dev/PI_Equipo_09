@@ -61,6 +61,13 @@ Esto ayuda porque la red ya tiene cierto conocimiento previo, debido a que apren
 
 <img width="1052" height="815" alt="image" src="https://github.com/user-attachments/assets/4fae3c7c-004f-45fd-9d97-32991ef601be" />
 
+Esta imagen muestra el proceso de entrenamiento de una red neuronal durante 20 épocas. En cada época se observa cómo cambia la **accuracy** y el **loss** del modelo.
+
+La **accuracy** aumenta progresivamente desde aproximadamente 77.89% hasta 97.95%, lo que indica que la red va aprendiendo mejor los patrones de los datos de entrenamiento.
+
+Por otro lado, el **loss** disminuye de 0.5552 a 0.0865, mostrando que el error del modelo se reduce conforme aprende.
+
+También se observa la **validation accuracy**, que llega aproximadamente a 88.31%. Debido a que este valor es menor que la accuracy de entrenamiento, se puede notar una diferencia entre ambos resultados, lo cual indica cierto sobreajuste. Sin embargo, el modelo mantiene un buen rendimiento con datos nuevos, ya que logra una precisión cercana al 90%.
 
 ---
 
