@@ -1,8 +1,8 @@
-# Taller 4 — Lo que aprendí sobre redes neuronales
+# Taller 4 — CNN, Keras y perceptrón: lo que aprendí
 
 ## 1. Introducción
 
-En este taller aprendí cómo una red neuronal puede usar ejemplos para aprender a clasificar información. Primero trabajé con imágenes de vidrio y plástico. Después revisé otro ejercicio en el que una red clasifica opiniones de películas como positivas o negativas.
+En este taller aprendí cómo una red neuronal puede usar ejemplos para aprender a clasificar información. Primero trabajé con imágenes de vidrio y plástico. Después usé Keras para revisar una red que clasifica opiniones de películas como positivas o negativas. Finalmente, estudié el perceptrón para entender cómo una neurona sencilla combina sus entradas y produce una respuesta.
 
 Lo que entendí es que no se le escribe una regla para cada imagen o comentario. Se le dan ejemplos con sus respuestas correctas y, durante el entrenamiento, el modelo va ajustando sus cálculos.
 
@@ -10,6 +10,8 @@ Lo que entendí es que no se le escribe una regla para cada imagen o comentario.
 ## 2. ¿Qué quería aprender?
 
 - Entender cómo una red puede distinguir imágenes.
+- Diferenciar un modelo de red neuronal de una herramienta como Keras.
+- Comprender el perceptrón y por qué puede resolver AND y OR, pero no XOR por sí solo.
 - Separar los datos para aprender, revisar el avance y hacer una prueba final.
 - Comprender qué hace el código durante el entrenamiento.
 - Comparar una red creada desde cero con una que ya había sido entrenada.
@@ -195,7 +197,7 @@ En esta ejecución, ResNet18 dio el mejor resultado. Superó a la CNN básica en
 
 Entendí que aprovechar una red ya entrenada puede ser muy útil. Sin embargo, también cambiaron otras cosas, como el tamaño de las imágenes y la forma de la red. Por eso estos resultados comparan los experimentos completos, no solo el uso de pesos previos.
 
-## 11. Lo que aprendí sobre el sobreajuste con las reseñas
+## 11. Keras: una red para clasificar reseñas
 
 En otro ejercicio del mismo Colab se usan opiniones de películas de **IMDB**. La red intenta distinguir si una opinión es positiva o negativa. Estas cuatro gráficas pertenecen a ese ejercicio de texto, no a las imágenes de residuos.
 
@@ -203,7 +205,58 @@ Cada comentario se convierte en una lista de 10 000 posiciones. Un 1 indica que 
 
 En todas las gráficas siguientes, el eje horizontal muestra las épocas y el vertical la pérdida. Los valores que menciono son aproximados y se leen de las capturas.
 
-### 11.1. Entrenar más no siempre ayuda
+### 11.1. ¿Qué es Keras y para qué lo usamos?
+
+**Keras es una herramienta para construir y entrenar redes neuronales.** En este ejercicio la usamos para crear una red que clasifica opiniones de películas. No es un tipo de red como la CNN ni una neurona como el perceptrón.
+
+Lo entendí como una caja de herramientas: permite organizar las capas, elegir cómo aprender y revisar los resultados. También permite construir CNN, aunque en este Colab la CNN de residuos se hizo con PyTorch.
+
+```python
+from keras import models, layers
+
+model = models.Sequential()
+model.add(layers.Dense(16, activation='relu', input_shape=(10000,)))
+model.add(layers.Dense(16, activation='relu'))
+model.add(layers.Dense(1, activation='sigmoid'))
+
+model.compile(
+    optimizer='rmsprop',
+    loss='binary_crossentropy',
+    metrics=['accuracy']
+)
+```
+
+**Así entendí el código:**
+
+| Instrucción | ¿Qué hace? |
+|---|---|
+| `Sequential()` | Organiza las capas una después de otra |
+| `Dense(16)` | Agrega una capa con 16 neuronas conectadas a las entradas de esa capa |
+| `input_shape=(10000,)` | Indica que cada opinión llega como una lista de 10 000 números |
+| `relu` | Es la función que transforma la salida de las capas internas |
+| `Dense(1, activation='sigmoid')` | Produce un valor entre 0 y 1 para la clase positiva |
+| `compile()` | Prepara las reglas que se usarán para entrenar y evaluar |
+| `rmsprop` | Es el método que ajusta los pesos |
+| `binary_crossentropy` | Mide la pérdida en esta clasificación de dos clases |
+| `accuracy` | Permite revisar qué proporción de respuestas fue correcta |
+
+Un valor cercano a 1 en la salida indica que el modelo considera más probable una opinión positiva. Uno cercano a 0 indica una opinión negativa. Es una estimación del modelo, no una garantía de que tenga razón.
+
+```python
+modelb = model.fit(
+    partial_x_train, partial_y_train,
+    epochs=20,
+    batch_size=512,
+    validation_data=(x_val, y_val)
+)
+```
+
+**Qué hace esta parte:** `fit()` inicia el aprendizaje. El modelo recorre los ejemplos durante 20 épocas y trabaja en lotes de hasta 512 reseñas. `validation_data` permite revisar su avance con otros ejemplos. `modelb.history` guarda los resultados de cada época; de ahí salen las gráficas siguientes.
+
+Mi aprendizaje fue que Keras facilita escribir el modelo, pero todavía tengo que decidir cómo organizarlo y comprobar si aprende bien.
+
+
+### 11.2. Entrenar más no siempre ayuda
 
 ![Pérdida de entrenamiento y validación en el ejercicio de reseñas](Taller_4_CNN_assets/keras_06_sobreajuste.png)
 
@@ -213,7 +266,7 @@ La línea azul es la pérdida de entrenamiento y sigue bajando. La naranja es la
 
 Esta gráfica es importante porque muestra que terminar las 20 épocas no significa obtener el mejor modelo. Según esta curva, convenía conservar los pesos de alrededor de la época 5.
 
-### 11.2. Una red más pequeña puede funcionar mejor
+### 11.3. Una red más pequeña puede funcionar mejor
 
 ![Pérdida de validación del modelo pequeño y del original](Taller_4_CNN_assets/keras_08_modelo_pequeno.png)
 
@@ -229,7 +282,7 @@ model2.add(layers.Dense(1, activation='sigmoid'))
 
 **Lo que entendí:** una red más grande no siempre aprende mejor para datos nuevos. En esta prueba, reducir su tamaño ayudó a que el resultado fuera más estable, aunque todavía empeoró al final.
 
-### 11.3. Regularización L2: limitar los pesos demasiado grandes
+### 11.4. Regularización L2: limitar los pesos demasiado grandes
 
 ![Comparación de regularización L2; la etiqueta de la línea azul contiene un error](Taller_4_CNN_assets/keras_09_l2_original.png)
 
@@ -254,7 +307,7 @@ plt.plot(epocas, modelb3.history['loss'], '.-', label='L2: entrenamiento')
 
 `epocas` debe tener un valor por cada época de ese historial. La captura incluida conserva el error original; esta línea es la corrección que habría que ejecutar para regenerarla.
 
-### 11.4. Dropout: no depender siempre de las mismas neuronas
+### 11.5. Dropout: no depender siempre de las mismas neuronas
 
 ![Pérdida de validación con dropout y del modelo original](Taller_4_CNN_assets/keras_10_dropout.png)
 
@@ -269,7 +322,7 @@ model4.add(layers.Dropout(0.5))
 
 **Lo que entendí:** esta técnica intenta evitar que la red dependa siempre de las mismas combinaciones. En la gráfica retrasa el sobreajuste, pero no lo elimina. Las neuronas no se borran permanentemente.
 
-### 11.5. ¿Qué me enseñaron estas cuatro gráficas?
+### 11.6. ¿Qué me enseñaron estas cuatro gráficas?
 
 | Cambio | Lo que observé |
 |---|---|
@@ -280,13 +333,119 @@ model4.add(layers.Dropout(0.5))
 
 Estas comparaciones me enseñaron a mirar los resultados de validación y no quedarme solo con la pérdida de entrenamiento. Una sola ejecución tampoco basta para asegurar que una técnica siempre será la mejor.
 
-## 12. Conclusiones: lo que me llevo del taller
+## 12. El perceptrón: entender una neurona sencilla
+
+### 12.1. ¿Qué es y cómo funciona?
+
+El perceptrón es un modelo sencillo que combina datos y produce una respuesta. Me ayudó a entender la idea básica de una neurona artificial antes de pensar en redes más grandes.
+
+Su funcionamiento se puede explicar en cuatro pasos:
+
+1. Recibe datos de entrada.
+2. Multiplica cada dato por un peso, que indica cómo influye en el cálculo.
+3. Suma los resultados y agrega un número llamado **sesgo** o `bias`, que mueve el punto donde cambia la decisión.
+4. Aplica una función que transforma esa suma en una salida.
+
+```python
+def step_function(x):
+    return 1 if x >= 0 else 0
+
+def perceptron(inputs, weights, bias, activation_func):
+    weighted_sum = np.dot(inputs, weights) + bias
+    output = activation_func(weighted_sum)
+    return output
+```
+
+**Qué hace el código:** `np.dot()` multiplica cada entrada por su peso y suma los resultados. Después se agrega `bias`. La función `step_function`, llamada escalón, devuelve 1 si el resultado es cero o positivo y 0 si es negativo. El notebook importa NumPy como `np` antes de usar estas funciones.
+
+En esta parte del Colab, **los pesos se eligen manualmente**. No hay un entrenamiento que los aprenda automáticamente, como sí ocurre con las redes de imágenes y reseñas.
+
+### 12.2. Ejemplo de temperatura y vibración
+
+El notebook usa estos valores para ilustrar una decisión de alerta:
+
+| Dato | Valor | Peso |
+|---|---:|---:|
+| Temperatura | 100 | 0,5 |
+| Vibración | 50 | −0,5 |
+| Sesgo | −30 | — |
+
+El cálculo es:
+
+```text
+(100 × 0,5) + (50 × −0,5) − 30
+= 50 − 25 − 30
+= −5
+```
+
+Como el resultado es negativo, la función escalón devuelve **0**. Según la regla del ejemplo, eso significa que no se activa la alerta.
+
+El Colab también prueba `tanh`, que convierte la suma en un valor entre −1 y 1. Para −5, devuelve aproximadamente **−0,9999**. Con la regla utilizada, un valor negativo tampoco activa la alerta.
+
+**Lo que entendí:** cambiar los pesos, el sesgo o la función de salida puede cambiar la respuesta. Este es un ejemplo de cálculo con valores elegidos a mano; no demuestra que un equipo real esté seguro a esa temperatura.
+
+### 12.3. Decisiones AND y OR
+
+Después se prueban entradas que solo pueden valer 0 o 1. Las reglas AND y OR son decisiones sencillas:
+
+- **AND:** da 1 únicamente cuando las dos entradas son 1.
+- **OR:** da 1 cuando por lo menos una entrada es 1.
+
+| Entrada P | Entrada Q | AND | OR | XOR |
+|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 1 | 0 | 1 | 1 |
+| 1 | 0 | 0 | 1 | 1 |
+| 1 | 1 | 1 | 1 | 0 |
+
+Para AND, el notebook usa pesos `[0.4, 0.4]` y sesgo `-0.5`. Si las dos entradas son 1, el cálculo da `0.4 + 0.4 - 0.5 = 0.3`, así que la salida es 1. En las demás combinaciones la suma queda negativa.
+
+Para OR, usa pesos `[2, 1]` y sesgo `-0.5`. Con que una entrada valga 1, la suma ya es positiva.
+
+El Colab también prueba `[0.8, 0.5]` con sesgo `-0.7`. Esa combinación **no representa AND**: produce 1 cuando la primera entrada es 1, incluso si la segunda es 0. Esto muestra por qué hay que revisar las cuatro combinaciones.
+
+![Líneas que separan las respuestas de AND y OR](Taller_4_CNN_assets/perceptron_and_or.png)
+
+**Cómo entiendo la imagen:** los ejes representan las dos entradas, P y Q. Cada punto es una combinación posible. La línea roja separa `(0,0)` del resto, como necesita OR. La verde separa `(1,1)` de los demás, como necesita AND. Son dibujos para explicar la separación; no representan exactamente los pesos usados en las pruebas anteriores.
+
+La importancia de esta figura es que muestra que cada regla puede resolverse separando los puntos con una sola línea.
+
+### 12.4. ¿Por qué un solo perceptrón no resuelve XOR?
+
+**XOR da 1 cuando las entradas son diferentes.** Por eso `(0,1)` y `(1,0)` dan 1, mientras que `(0,0)` y `(1,1)` dan 0.
+
+![Ejemplo de dos líneas para explicar la separación de XOR](Taller_4_CNN_assets/perceptron_xor.png)
+
+**Lo que muestra la gráfica:** los puntos con círculo blanco son los casos donde XOR debe dar 0. Los otros dos deben dar 1. No se puede dibujar una sola línea recta que deje todos los ceros de un lado y todos los unos del otro.
+
+Las dos líneas del dibujo dejan los puntos con salida 1 en una franja intermedia. Esto ayuda a entender por qué se necesitan varias neuronas y una capa que combine sus respuestas para resolver XOR. El notebook ilustra la idea, pero no entrena una red para XOR en esta sección.
+
+Mi aprendizaje fue que un perceptrón tiene límites. Al combinar varias neuronas en capas se pueden representar decisiones que una sola no puede resolver.
+
+### 12.5. Diferencias entre CNN, Keras y perceptrón
+
+**No son tres modelos equivalentes: CNN y perceptrón son modelos; Keras es una herramienta para construir modelos.**
+
+| Aspecto | CNN | Keras | Perceptrón |
+|---|---|---|---|
+| ¿Qué es? | Un tipo de red neuronal con capas que buscan patrones cercanos | Una herramienta para crear y entrenar redes neuronales | Un modelo sencillo de neurona artificial |
+| ¿Cómo lo usamos en el taller? | Para clasificar vidrio y plástico | Para construir una red que clasifica opiniones de películas | Para probar una alerta y las reglas AND, OR y la dificultad de XOR |
+| ¿Con qué se trabajó? | Imágenes convertidas en números | Reseñas convertidas en listas de números, en este ejercicio | Unas pocas entradas numéricas |
+| ¿Cómo se ajustaron los pesos aquí? | Se aprendieron durante el entrenamiento | Keras permitió entrenar los pesos de la red de reseñas | Se eligieron manualmente |
+| Idea que me ayudó a entender | Cómo una red extrae información de imágenes | Cómo programar y entrenar una red con menos pasos manuales | Cómo se combinan entradas, pesos y sesgo para dar una respuesta |
+
+**La relación entre los tres:** el perceptrón permite empezar por una unidad sencilla; una CNN organiza muchas operaciones y neuronas en capas para trabajar con patrones; Keras proporciona herramientas para construir redes, incluidas las CNN. En este Colab se usó PyTorch para la CNN y Keras para la red de reseñas.
+
+
+## 13. Conclusiones: lo que me llevo del taller
 
 Aprendí que una red neuronal mejora ajustando números internos a partir de ejemplos. También entendí por qué hay que separar los datos: acertar con lo que ya vio no asegura que vaya a responder bien con algo nuevo.
 
 En las imágenes de residuos, el mejor resultado del notebook fue el de ResNet18 con ajuste fino: **86,58 % de aciertos**. La CNN desde cero obtuvo **55,03 %**, y con aumento de datos llegó a **56,38 %**.
 
 En el ejercicio de reseñas entendí el sobreajuste al ver cómo la pérdida de entrenamiento bajaba mientras la de validación subía. Una red más pequeña y dropout ayudaron en distintos momentos, pero ninguna técnica aseguró que el problema desapareciera.
+
+Con el perceptrón entendí cómo influyen las entradas, los pesos y el sesgo en una respuesta. AND y OR se pueden separar con una línea, pero XOR necesita combinar varias neuronas. También aprendí que Keras es la herramienta con la que construimos la red de reseñas, mientras que CNN y perceptrón son tipos de modelos.
 
 Mi principal aprendizaje es que no basta con ejecutar el código o entrenar durante más tiempo. Hay que entender qué hace cada parte, revisar las gráficas y comprobar los resultados con datos nuevos.
 
