@@ -6,7 +6,6 @@ En este taller aprendí cómo una red neuronal puede usar ejemplos para aprender
 
 Lo que entendí es que no se le escribe una regla para cada imagen o comentario. Se le dan ejemplos con sus respuestas correctas y, durante el entrenamiento, el modelo va ajustando sus cálculos.
 
-En este documento explico el código y los resultados del Colab. Las cifras de imágenes provienen del notebook original y las gráficas de reseñas son las capturas compartidas. Las mejoras que propongo al final todavía necesitan ejecutarse para conocer sus resultados.
 
 ## 2. ¿Qué quería aprender?
 
