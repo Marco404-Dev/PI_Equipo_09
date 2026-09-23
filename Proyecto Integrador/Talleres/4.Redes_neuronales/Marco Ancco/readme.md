@@ -6,7 +6,6 @@ En este taller aprendí cómo una red neuronal puede usar ejemplos para aprender
 
 Lo que entendí es que no se le escribe una regla para cada imagen o comentario. Se le dan ejemplos con sus respuestas correctas y, durante el entrenamiento, el modelo va ajustando sus cálculos.
 
-En este documento explico el código y los resultados del Colab. Las cifras de imágenes provienen del notebook original y las gráficas de reseñas son las capturas compartidas. También explico las diferencias entre CNN, Keras y perceptrón, porque no son tres nombres para lo mismo.
 
 ## 2. ¿Qué quería aprender?
 
@@ -448,6 +447,4 @@ En el ejercicio de reseñas entendí el sobreajuste al ver cómo la pérdida de 
 
 Con el perceptrón entendí cómo influyen las entradas, los pesos y el sesgo en una respuesta. AND y OR se pueden separar con una línea, pero XOR necesita combinar varias neuronas. También aprendí que Keras es la herramienta con la que construimos la red de reseñas, mientras que CNN y perceptrón son tipos de modelos.
 
-Mi principal aprendizaje es que no basta con ejecutar el código o entrenar durante más tiempo. Hay que entender qué hace cada parte, revisar las gráficas y comprobar los resultados con datos nuevos.
 
-**Material utilizado:** notebook `Redes_neuronales_ss.ipynb` e imágenes compartidas del taller. No se realizaron nuevos entrenamientos para redactar este documento.
