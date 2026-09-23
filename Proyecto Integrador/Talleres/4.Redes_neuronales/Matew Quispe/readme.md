@@ -61,6 +61,13 @@ Esto ayuda porque la red ya tiene cierto conocimiento previo, debido a que apren
 
 <img width="1052" height="815" alt="image" src="https://github.com/user-attachments/assets/4fae3c7c-004f-45fd-9d97-32991ef601be" />
 
+Esta imagen muestra el proceso de entrenamiento de una red neuronal durante 20 épocas. En cada época se observa cómo cambia la **accuracy** y el **loss** del modelo.
+
+La **accuracy** aumenta progresivamente desde aproximadamente 77.89% hasta 97.95%, lo que indica que la red va aprendiendo mejor los patrones de los datos de entrenamiento.
+
+Por otro lado, el **loss** disminuye de 0.5552 a 0.0865, mostrando que el error del modelo se reduce conforme aprende.
+
+También se observa la **validation accuracy**, que llega aproximadamente a 88.31%. Debido a que este valor es menor que la accuracy de entrenamiento, se puede notar una diferencia entre ambos resultados, lo cual indica cierto sobreajuste. Sin embargo, el modelo mantiene un buen rendimiento con datos nuevos, ya que logra una precisión cercana al 90%.
 
 ---
 
@@ -75,7 +82,18 @@ Me pareció interesante porque normalmente solo observamos la predicción final,
 <img width="885" height="771" alt="image" src="https://github.com/user-attachments/assets/7b2fc7a2-9e49-4377-abfd-229599f2ed95" />
 <img width="912" height="841" alt="image" src="https://github.com/user-attachments/assets/80e248a4-b2ac-4ef0-9dbb-8e27723cb2b6" />
 
+Esta gráfica muestra la evolución del error (loss) durante el entrenamiento de tres modelos diferentes:
 
+Esta gráfica muestra **la evolución del error (loss)** durante el entrenamiento de tres modelos diferentes:
+
+- **Azul: `regularization - train`**  
+  → Error del modelo con regularización utilizando los datos de entrenamiento.
+
+- **Naranja: `regularization - validation`**  
+  → Error del modelo con regularización utilizando datos que el modelo **nunca vio durante el entrenamiento** (datos de validación).
+
+- **Verde punteado: `original`**  
+  → Modelo sin aplicar regularización.
 
 ---
 
@@ -115,7 +133,110 @@ Por esta razón fueron necesarias redes con más neuronas y capas, dando origen 
 
 <img width="1177" height="728" alt="image" src="https://github.com/user-attachments/assets/ca38886a-2678-4974-84b5-b9abf3de84d2" />
 <img width="844" height="578" alt="image" src="https://github.com/user-attachments/assets/8dabb4f6-6ab9-427c-9db1-d183e1773e94" />
+# Perceptrón y fronteras de decisión
 
+Esta gráfica muestra cómo un **perceptrón genera fronteras de decisión** para separar diferentes clases de datos.
+
+Una frontera de decisión es una línea que divide el espacio en dos regiones:
+
+- Una región donde el modelo predice la clase **0**.
+- Otra región donde el modelo predice la clase **1**.
+
+El perceptrón realiza una operación matemática utilizando las entradas y los pesos:
+
+\[
+w_1x_1+w_2x_2+b
+\]
+
+Después aplica una función de activación para decidir la salida final.
+
+---
+
+## Funcionamiento del problema AND
+
+En la compuerta AND las salidas son:
+
+| Entrada | Salida |
+|---------|--------|
+| (0,0) | 0 |
+| (0,1) | 0 |
+| (1,0) | 0 |
+| (1,1) | 1 |
+
+En la gráfica, la línea verde logra separar correctamente el punto **(1,1)** del resto de puntos.
+
+Esto significa que:
+
+- El punto (1,1) pertenece a la clase positiva.
+- Los demás puntos pertenecen a la clase negativa.
+
+Por esta razón, un perceptrón simple puede resolver el problema AND, ya que existe una línea recta capaz de separar ambas clases.
+
+---
+
+## Funcionamiento del problema OR
+
+En la compuerta OR las salidas son:
+
+| Entrada | Salida |
+|---------|--------|
+| (0,0) | 0 |
+| (0,1) | 1 |
+| (1,0) | 1 |
+| (1,1) | 1 |
+
+En este caso, la línea roja separa el punto **(0,0)** del resto.
+
+Esto permite que el perceptrón clasifique correctamente:
+
+- (0,0) como clase 0.
+- (0,1), (1,0) y (1,1) como clase 1.
+
+Por lo tanto, OR también es un problema que puede resolver un perceptrón.
+
+---
+
+## Importancia de la frontera de decisión
+
+Esta gráfica permite comprender una característica importante del perceptrón:
+
+Un perceptrón simple solamente puede resolver problemas que sean **linealmente separables**.
+
+Esto significa que los datos deben poder dividirse utilizando una línea recta.
+
+Cuando existe una separación clara entre las clases, el perceptrón puede encontrar una frontera adecuada para realizar la clasificación.
+
+---
+
+## Limitación del perceptrón: problema XOR
+
+El problema XOR tiene la siguiente distribución:
+
+| Entrada | Salida |
+|---------|--------|
+| (0,0) | 0 |
+| (0,1) | 1 |
+| (1,0) | 1 |
+| (1,1) | 0 |
+
+En este caso los puntos positivos y negativos están mezclados, por lo que no existe una única línea recta capaz de separarlos.
+
+Debido a esto:
+
+-  Un solo perceptrón no puede resolver XOR.
+-  Se necesitan más neuronas y más capas para solucionar problemas más complejos.
+
+---
+
+## Comentario personal
+
+Esta parte fue una de las que más me llamó la atención, debido a que permite entender desde un ejemplo sencillo cómo una red neuronal toma decisiones.
+
+Aunque el perceptrón parece un modelo básico, contiene la idea principal de las redes neuronales: recibir información, asignar importancia mediante pesos y generar una respuesta.
+
+También aprendí que aumentar la complejidad del modelo es necesario cuando los problemas no pueden resolverse con una sola separación lineal, lo cual explica la importancia de utilizar redes neuronales con múltiples capas.
+
+📌 **Imagen colocada:** Fronteras de decisión del perceptrón para AND y OR.
 
 ---
 
