@@ -15,6 +15,7 @@ Las CNN son un tipo de red especializada en el procesamiento de datos con estruc
   <img width="840" height="298" alt="image" src="https://github.com/user-attachments/assets/ca0d0383-a7bd-4a4b-bac1-96711705f3f6" />
 </div>
 
+
 La visualización confirma que el modelo está tomando decisiones correctas basadas en la región relevante de la imagen:
 - Imagen Original (label=0): Muestra el objeto de entrada (en este caso, una botella).
 - Mapa Grad-CAM (pred=0): Resalta en colores cálidos (amarillo/verde claro) las zonas de la imagen donde el modelo concentró su atención para predecir la clase 0. Se observa que el enfoque principal recae en el cuerpo central de la botella.
@@ -37,6 +38,7 @@ Para supervisar el proceso de aprendizaje de un modelo en Keras, se extraen las 
 <div align="center">
   <img width="638" height="627" alt="image" src="https://github.com/user-attachments/assets/2f2a6019-e874-471a-9f14-6b19d12c2067" />
 </div>
+
 La visualización obtenida a partir del código anterior permite realizar el siguiente diagnóstico del modelo:
 
 - Pérdida de entrenamiento (training): La línea azul continua desciende de manera constante y se aproxima a cero, lo que demuestra que el modelo está aprendiendo y ajustándose de forma exitosa a los datos con los que fue entrenado.
@@ -50,6 +52,7 @@ El perceptrón es la unidad básica de red neuronal capaz de resolver problemas 
 <div align="center">
   <img width="497" height="497" alt="image" src="https://github.com/user-attachments/assets/f4bcaee2-32d7-46f4-b9ee-ffdb5985086d" />
 </div>
+
 La representación visual obtenida permite comprobar de forma geométrica el funcionamiento del perceptrón como clasificador lineal:
 
 - Puntos azules ((0,0), (0,1), (1,0), (1,1)): Ubican las combinaciones de entrada posibles en el espacio bidimensional de las compuertas lógicas.
