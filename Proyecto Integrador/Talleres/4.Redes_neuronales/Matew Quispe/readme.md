@@ -77,9 +77,16 @@ Me pareció interesante porque normalmente solo observamos la predicción final,
 
 Esta gráfica muestra la evolución del error (loss) durante el entrenamiento de tres modelos diferentes:
 
-Azul: regularization - train → error del modelo con regularización usando los datos de entrenamiento.
-Naranja: regularization - validation → error del modelo con regularización usando datos que nunca vio durante el entrenamiento (validación).
-Verde punteado: original → modelo sin regularización.
+Esta gráfica muestra **la evolución del error (loss)** durante el entrenamiento de tres modelos diferentes:
+
+- **Azul: `regularization - train`**  
+  → Error del modelo con regularización utilizando los datos de entrenamiento.
+
+- **Naranja: `regularization - validation`**  
+  → Error del modelo con regularización utilizando datos que el modelo **nunca vio durante el entrenamiento** (datos de validación).
+
+- **Verde punteado: `original`**  
+  → Modelo sin aplicar regularización.
 
 ---
 
