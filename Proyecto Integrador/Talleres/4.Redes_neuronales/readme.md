@@ -20,6 +20,10 @@ La idea es desarrollar un **sensor virtual**: un modelo que estime una variable 
 No asumimos que machine learning sea automáticamente mejor que una fórmula sencilla. Lo compararemos con modelos básicos para comprobar si aporta una mejora real.
 
 ## 3. Dataset que utilizaremos
+Obtuvimos los datos del programa de monitoreo SWMP de NOAA NERRS [1], mediante su portal de descarga.
+
+Utilizamos registros de 2022 y 2023 de dos estaciones de East Bay, en Apalachicola Bay, Florida: `apaebwq`, que mide las condiciones del agua, y `apaebmet`, que mide condiciones meteorológicas. Asociamos sus registros por fecha y hora para construir nuestro dataset.
+
 
 Usaremos el archivo **`data_Apalachicola Bay, FL.csv`**.
 
@@ -32,7 +36,7 @@ Usaremos el archivo **`data_Apalachicola Bay, FL.csv`**.
 
 La ausencia de celdas vacías no demuestra que todas las mediciones sean perfectas. El archivo proviene de una selección filtrada de registros; por eso tiene huecos entre fechas y no representa una serie completa de todos los intervalos de 15 minutos.
 
-Los datos proceden de **Apalachicola, Florida, Estados Unidos**. Las mediciones de agua corresponden a East Bay Bottom (`apaebwq`), mientras que presión y radiación PAR corresponden a la estación meteorológica East Bay (`apaebmet`). Se asociaron por fecha y hora. Son estaciones distintas y debemos considerar esa diferencia al interpretar los resultados.
+Los datos provienen de la zona de East Bay, en Apalachicola Bay, Florida, Estados Unidos. Utilizamos dos estaciones que observan diferentes aspectos del mismo entorno: East Bay Bottom (apaebwq) mide las condiciones del agua, mientras que East Bay (apaebmet) mide condiciones atmosféricas, como la presión y la radiación PAR. Unimos sus registros por fecha y hora para relacionar cómo estaba el agua con las condiciones del ambiente en ese momento. Aunque pertenecen a la misma zona, los sensores están en lugares distintos, por lo que las mediciones meteorológicas se usan como una referencia del ambiente cercano.
 
 Usaremos este dataset para desarrollar el primer modelo. **Sus resultados describirán el desempeño en los periodos evaluados de Apalachicola; no demostrarán todavía que funcione en Tumbes.**
 
@@ -156,4 +160,15 @@ Los entregables esperados son:
 - Una descripción de las condiciones en las que el modelo fue probado y de sus limitaciones.
 
 No esperamos obtener mediciones perfectas ni demostrar que una variable causa por sí sola los cambios de OD. Buscamos una estimación útil y comprobar con datos hasta dónde funciona.
+
+
+### Fuente de los datos
+
+Obtuvimos los datos del programa de monitoreo SWMP de NOAA NERRS [1], mediante su portal de descarga.
+
+Utilizamos registros de 2022 y 2023 de dos estaciones de East Bay, en Apalachicola Bay, Florida: `apaebwq`, que mide las condiciones del agua, y `apaebmet`, que mide condiciones meteorológicas. Asociamos sus registros por fecha y hora para construir nuestro dataset.
+
+### Referencias
+
+[1] NOAA National Estuarine Research Reserve System (NERRS), “System-wide Monitoring Program,” Centralized Data Management Office, conjunto de datos. Subconjunto utilizado: estaciones apaebwq y apaebmet, Apalachicola Bay, registros de 2022–2023. doi: 10.25921/vw8a-8031. [En línea]. Disponible en: https://nerrsdata.org/aqs/zips.cfm. 
 
