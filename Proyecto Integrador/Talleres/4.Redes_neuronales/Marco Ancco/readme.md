@@ -281,54 +281,7 @@ model4.add(layers.Dropout(0.5))
 
 Estas comparaciones me enseñaron a mirar los resultados de validación y no quedarme solo con la pérdida de entrenamiento. Una sola ejecución tampoco basta para asegurar que una técnica siempre será la mejor.
 
-## 12. Cómo guardaría el trabajo y qué mejoraría
-
-### 12.1. Guardar lo aprendido por los modelos
-
-El Colab guarda los pesos de los modelos de imágenes en estos archivos:
-
-- `models/cnn_scratch.pth`
-- `models/cnn_aug.pth`
-- `models/resnet_transfer.pth`
-
-Así se pueden recuperar después sin empezar todo el entrenamiento de nuevo. Para usarlos hay que crear la misma red y cargar sus pesos. También se necesitan las herramientas del notebook y el archivo `trash_dataset.py` para preparar los datos.
-
-### 12.2. Detener el entrenamiento cuando deja de mejorar
-
-Una mejora que aplicaría en el ejercicio de Keras es la **parada temprana**. Sirve para detener el entrenamiento si el resultado de validación deja de mejorar y recuperar los mejores pesos.
-
-```python
-from keras.callbacks import EarlyStopping
-
-parada = EarlyStopping(
-    monitor='val_loss',
-    patience=2,
-    restore_best_weights=True
-)
-
-historial = model.fit(
-    partial_x_train, partial_y_train,
-    epochs=20,
-    batch_size=512,
-    validation_data=(x_val, y_val),
-    callbacks=[parada]
-)
-```
-
-**Cómo lo entiendo:** `monitor` indica qué resultado revisar. `patience=2` permite esperar dos épocas seguidas sin mejora. `restore_best_weights=True` recupera los pesos de la mejor época observada.
-
-Este código es una propuesta para ejecutar con un modelo recién creado y preparado. No se usó para obtener las cifras que aparecen en este informe. Corresponde a Keras; la CNN de PyTorch necesita su propio código para detenerse y recuperar pesos.
-
-### 12.3. Otras mejoras que haría
-
-- Corregir la línea de entrenamiento de L2 y poner título y nombres de ejes en cada gráfica.
-- Comparar los modelos usando la misma medida. En L2, separar la pérdida de las predicciones de la penalización extra.
-- Repetir los entrenamientos, guardar la semilla y mantener los mismos grupos de datos para ver si los resultados se repiten.
-- Elegir los cambios con validación y dejar el grupo de prueba para el final.
-- Registrar la mejor época de cada modelo, no solo la última.
-- Mantener juntas las figuras y cifras de una misma ejecución para evitar contradicciones.
-
-## 13. Conclusiones: lo que me llevo del taller
+## 12. Conclusiones: lo que me llevo del taller
 
 Aprendí que una red neuronal mejora ajustando números internos a partir de ejemplos. También entendí por qué hay que separar los datos: acertar con lo que ya vio no asegura que vaya a responder bien con algo nuevo.
 
