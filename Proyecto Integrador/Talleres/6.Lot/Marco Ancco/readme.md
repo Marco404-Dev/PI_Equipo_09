@@ -11,8 +11,7 @@ Durante las actividades aprendimos a:
 - Leer un potenciómetro.
 - Convertir una lectura ADC a voltaje.
 - Conectar el ESP32 a WiFi.
-- Enviar información a ThingSpeak.
-- Medir distancias con el sensor HC-SR04.
+- Enviar información a Arduino CLoud.
 - Encender y apagar un LED desde una página web.
 
 ---
@@ -28,14 +27,6 @@ Cuando la giramos, cambia el voltaje que recibe el ESP32. El ESP32 convierte est
 En esta actividad usamos el **GPIO 34**.
 
 El funcionamiento es:
-
-```text
-Potenciómetro
-     ↓
-   ESP32
-     ↓
-Monitor Serie
-```
 
 Cuando giramos el potenciómetro, podemos observar cómo cambia el número mostrado en el Monitor Serie.
 
@@ -134,37 +125,6 @@ void loop() {
 }
 ```
 
-## Explicación sencilla
-
-Primero el ESP32 realiza **10 lecturas**.
-
-Después suma todos los valores:
-
-```text
-Lectura 1
-+
-Lectura 2
-+
-Lectura 3
-+
-...
-+
-Lectura 10
-```
-
-Luego divide el resultado entre 10.
-
-Así obtenemos el promedio.
-
-Finalmente usamos:
-
-```cpp
-float voltaje = promedio * 3.3 / 4095.0;
-```
-
-para transformar el valor ADC en voltios.
-
----
 
 # 3. Conexión del ESP32 a WiFi
 
