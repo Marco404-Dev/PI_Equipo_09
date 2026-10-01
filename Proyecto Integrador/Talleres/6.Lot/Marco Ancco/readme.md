@@ -213,294 +213,103 @@ nos muestra la dirección IP del ESP32.
 
 ---
 
-# 4. Envío de datos a ThingSpeak
 
-## ¿Qué es ThingSpeak?
 
-ThingSpeak es una plataforma que permite recibir información enviada desde dispositivos como el ESP32.
+# 4. Envío de datos a Arduino Cloud
 
-Nuestro sistema funciona así:
+## ¿Qué es Arduino Cloud?
 
-```text
-Potenciómetro
-      ↓
-    ESP32
-      ↓
-     WiFi
-      ↓
-  ThingSpeak
-      ↓
-    Gráfica
-```
+Arduino Cloud es una plataforma que permite recibir y visualizar información enviada desde dispositivos como el ESP32.
 
-El ESP32 lee el potenciómetro y envía el valor por Internet.
-
-ThingSpeak recibe ese número y puede mostrarlo en una gráfica.
-
-## Código
-
-```cpp
-#include <WiFi.h>
-#include <ThingSpeak.h>
-
-const char* nombreWifi = "NOMBRE_DE_LA_RED";
-const char* claveWifi = "CONTRASEÑA_DE_LA_RED";
-
-unsigned long canal = TU_CHANNEL_ID;
-const char* apiKey = "TU_WRITE_API_KEY";
-
-WiFiClient cliente;
-
-const int pinPotenciometro = 34;
-
-void setup() {
-
-  Serial.begin(115200);
-
-  WiFi.begin(nombreWifi, claveWifi);
-
-  Serial.print("Conectando");
-
-  while (WiFi.status() != WL_CONNECTED) {
-
-    Serial.print(".");
-    delay(500);
-  }
-
-  Serial.println();
-  Serial.println("WiFi listo");
-
-  Serial.print("Direccion IP: ");
-  Serial.println(WiFi.localIP());
-
-  ThingSpeak.begin(cliente);
-}
-
-void loop() {
-
-  int valorSensor = analogRead(pinPotenciometro);
-
-  Serial.print("Lectura: ");
-  Serial.println(valorSensor);
-
-  ThingSpeak.setField(1, valorSensor);
-
-  int respuesta = ThingSpeak.writeFields(canal, apiKey);
-
-  if (respuesta == 200) {
-
-    Serial.println("Dato enviado correctamente");
-
-  } else {
-
-    Serial.print("No se pudo enviar. Codigo: ");
-    Serial.println(respuesta);
-  }
-
-  delay(20000);
-}
-```
+En esta actividad, el ESP32 se conecta a una red WiFi y envía los valores obtenidos por los sensores a Arduino Cloud. Los datos pueden observarse desde un Dashboard mediante indicadores o gráficas.
 
 ## Explicación sencilla
 
-Primero el ESP32 lee el potenciómetro:
+Primero el ESP32 obtiene la información del sensor. Después se conecta a Internet mediante WiFi y envía los valores a Arduino Cloud.
 
-```cpp
-analogRead(pinPotenciometro);
-```
-
-Después coloca ese número en el **Field 1**:
-
-```cpp
-ThingSpeak.setField(1, valorSensor);
-```
-
-Finalmente lo envía a nuestro canal de ThingSpeak.
-
-Si aparece:
-
-```text
-Dato enviado correctamente
-```
-
-significa que la información llegó correctamente.
+De esta manera podemos observar las mediciones desde una computadora o celular sin depender únicamente del Monitor Serie.
 
 ---
 
-# 5. Medición de distancia con HC-SR04
+# Sensor de temperatura, humedad y presión atmosférica
 
-## ¿Cómo funciona?
+## ¿Qué hace el sensor?
 
-El **HC-SR04** es un sensor que permite medir distancias utilizando ultrasonido.
+En esta actividad utilizamos un sensor ambiental conectado al ESP32.
 
-Podemos imaginarlo como un pequeño eco.
+Este sensor permite obtener información del ambiente como:
 
-El sensor hace esto:
+- Temperatura.
+- Humedad.
+- Presión atmosférica.
 
-```text
-Envía sonido
-     ↓
-El sonido golpea un objeto
-     ↓
-El sonido regresa
-     ↓
-ESP32 mide el tiempo
-     ↓
-Calcula la distancia
-```
+La **temperatura** indica qué tan caliente o frío se encuentra el ambiente y normalmente se mide en grados Celsius (°C).
 
-El sensor utiliza dos señales importantes:
+La **humedad** indica la cantidad de humedad presente en el aire y normalmente se representa mediante un porcentaje (%).
+
+La **presión atmosférica** representa la presión que ejerce el aire y puede expresarse en hectopascales (hPa).
+
+Por ejemplo, se pueden obtener valores como:
 
 ```text
-TRIG → envía el ultrasonido
-ECHO → recibe el rebote
+Temperatura: 25.4 °C
+Humedad: 64 %
+Presión: 1011 hPa
 ```
 
-## Código
+## Conexión con el ESP32
 
-```cpp
-#include <WiFi.h>
-#include <ThingSpeak.h>
+El sensor se comunica con el ESP32 mediante comunicación I2C.
 
-const char* red = "NOMBRE_DE_LA_RED";
-const char* password = "CONTRASEÑA_DE_LA_RED";
+Las conexiones principales son:
 
-unsigned long canalID = TU_CHANNEL_ID;
-const char* apiKey = "TU_WRITE_API_KEY";
-
-WiFiClient cliente;
-
-const int trig = 25;
-const int echo = 26;
-
-float medirDistancia() {
-
-  digitalWrite(trig, LOW);
-  delayMicroseconds(2);
-
-  digitalWrite(trig, HIGH);
-  delayMicroseconds(10);
-
-  digitalWrite(trig, LOW);
-
-  long tiempo = pulseIn(echo, HIGH, 30000);
-
-  if (tiempo == 0) {
-    return 0;
-  }
-
-  float distancia = tiempo * 0.0343 / 2;
-
-  return distancia;
-}
-
-void setup() {
-
-  Serial.begin(115200);
-
-  pinMode(trig, OUTPUT);
-  pinMode(echo, INPUT);
-
-  WiFi.begin(red, password);
-
-  Serial.print("Conectando");
-
-  while (WiFi.status() != WL_CONNECTED) {
-
-    Serial.print(".");
-    delay(500);
-  }
-
-  Serial.println();
-  Serial.println("WiFi conectado");
-
-  ThingSpeak.begin(cliente);
-}
-
-void loop() {
-
-  float distanciaActual = medirDistancia();
-
-  Serial.print("Distancia medida: ");
-  Serial.print(distanciaActual, 2);
-  Serial.println(" cm");
-
-  ThingSpeak.setField(1, distanciaActual);
-
-  int respuesta = ThingSpeak.writeFields(canalID, apiKey);
-
-  if (respuesta == 200) {
-
-    Serial.println("Distancia enviada");
-
-  } else {
-
-    Serial.println("Error al enviar");
-  }
-
-  delay(20000);
-}
-```
+| Sensor | ESP32 |
+|---|---|
+| VCC | Alimentación |
+| GND | GND |
+| SDA | GPIO 21 |
+| SCL | GPIO 22 |
 
 ## Explicación sencilla
 
-El ESP32 manda una señal muy pequeña usando `TRIG`.
+El sensor mide las condiciones del ambiente y envía los valores al ESP32.
 
-Después espera que la señal regrese por `ECHO`.
-
-Esta línea:
-
-```cpp
-pulseIn(echo, HIGH, 30000);
-```
-
-mide cuánto tiempo demoró en regresar.
-
-Luego calculamos:
-
-```cpp
-float distancia = tiempo * 0.0343 / 2;
-```
-
-Dividimos entre 2 porque el sonido realiza dos viajes:
-
-```text
-Sensor → objeto
-Objeto → sensor
-```
-
-El resultado se muestra en **centímetros** y también se envía a ThingSpeak.
+El ESP32 recibe esta información y puede mostrarla en el Monitor Serie o enviarla mediante WiFi hacia Arduino Cloud.
 
 ---
 
-# 6. Control de un LED desde una página web
+# 6. Visualización de datos en Arduino Cloud
+
+Después de obtener las mediciones del sensor, utilizamos Arduino Cloud para visualizar los datos.
+
+En el Dashboard se pueden mostrar valores como:
+
+```text
+Temperatura: 25.4 °C
+Humedad: 64 %
+Presión atmosférica: 1011 hPa
+```
+
+También se pueden utilizar gráficas para observar cómo cambian las mediciones durante un determinado periodo.
+
+## Explicación sencilla
+
+Arduino Cloud recibe los datos enviados por el ESP32 y los muestra en el Dashboard.
+
+Esto facilita la lectura de los valores y permite revisar la información desde otro dispositivo conectado a Internet.
+
+---
+
+#5 Control de un LED desde una página web
 
 ## ¿Qué hacemos?
 
-En esta actividad el ESP32 crea una pequeña página web.
+En esta actividad utilizamos el ESP32 para crear una página web sencilla que permite controlar un LED.
 
-Desde el navegador podemos presionar botones para controlar un LED.
+Desde el navegador se pueden realizar dos acciones:
 
-El funcionamiento es:
-
-```text
-Celular o computadora
-        ↓
-     Navegador
-        ↓
-       WiFi
-        ↓
-      ESP32
-        ↓
-       LED
-```
-
-Tendremos dos botones:
-
-```text
-ENCENDER
-APAGAR
-```
+- Encender el LED.
+- Apagar el LED.
 
 ## Código
 
@@ -508,29 +317,25 @@ APAGAR
 #include <WiFi.h>
 #include <WebServer.h>
 
-const char* redWifi = "NOMBRE_DE_LA_RED";
-const char* claveWifi = "CONTRASEÑA_DE_LA_RED";
+const char* wifiNombre = "NOMBRE_DE_LA_RED";
+const char* wifiClave = "CONTRASEÑA_DE_LA_RED";
 
-const int led = 23;
+const int pinLed = 23;
 
 WebServer servidor(80);
 
-String paginaWeb() {
+String mostrarPagina() {
 
   String pagina = R"rawliteral(
 
   <!DOCTYPE html>
-
   <html>
 
   <head>
-
     <meta charset="UTF-8">
-
-    <title>Control LED ESP32</title>
+    <title>ESP32 - LED</title>
 
     <style>
-
       body {
         font-family: Arial;
         text-align: center;
@@ -542,7 +347,6 @@ String paginaWeb() {
         margin: 10px;
         font-size: 18px;
       }
-
     </style>
 
   </head>
@@ -551,13 +355,13 @@ String paginaWeb() {
 
     <h1>Control del LED</h1>
 
-    <p>Selecciona una opcion:</p>
+    <p>Elige una opcion</p>
 
-    <a href="/encender">
+    <a href="/on">
       <button>ENCENDER</button>
     </a>
 
-    <a href="/apagar">
+    <a href="/off">
       <button>APAGAR</button>
     </a>
 
@@ -570,59 +374,57 @@ String paginaWeb() {
   return pagina;
 }
 
-void inicio() {
-
-  servidor.send(200, "text/html", paginaWeb());
+void paginaPrincipal() {
+  servidor.send(200, "text/html", mostrarPagina());
 }
 
-void encenderLed() {
+void prenderLed() {
 
-  digitalWrite(led, HIGH);
+  digitalWrite(pinLed, HIGH);
 
   Serial.println("LED encendido");
 
-  servidor.send(200, "text/html", paginaWeb());
+  servidor.send(200, "text/html", mostrarPagina());
 }
 
 void apagarLed() {
 
-  digitalWrite(led, LOW);
+  digitalWrite(pinLed, LOW);
 
   Serial.println("LED apagado");
 
-  servidor.send(200, "text/html", paginaWeb());
+  servidor.send(200, "text/html", mostrarPagina());
 }
 
 void setup() {
 
   Serial.begin(115200);
 
-  pinMode(led, OUTPUT);
+  pinMode(pinLed, OUTPUT);
+  digitalWrite(pinLed, LOW);
 
-  digitalWrite(led, LOW);
+  WiFi.begin(wifiNombre, wifiClave);
 
-  WiFi.begin(redWifi, claveWifi);
-
-  Serial.print("Conectando al WiFi");
+  Serial.print("Conectando");
 
   while (WiFi.status() != WL_CONNECTED) {
-
     Serial.print(".");
     delay(500);
   }
 
   Serial.println();
+  Serial.println("WiFi conectado");
 
-  Serial.print("IP para entrar a la pagina: ");
+  Serial.print("Direccion IP: ");
   Serial.println(WiFi.localIP());
 
-  servidor.on("/", inicio);
-  servidor.on("/encender", encenderLed);
-  servidor.on("/apagar", apagarLed);
+  servidor.on("/", paginaPrincipal);
+  servidor.on("/on", prenderLed);
+  servidor.on("/off", apagarLed);
 
   servidor.begin();
 
-  Serial.println("Pagina web lista");
+  Serial.println("Servidor iniciado");
 }
 
 void loop() {
@@ -633,129 +435,28 @@ void loop() {
 
 ## Explicación sencilla
 
-Primero el ESP32 se conecta al WiFi.
+Primero el ESP32 se conecta a la red WiFi.
 
-Después crea una página web.
+Después inicia un pequeño servidor web y muestra su dirección IP en el Monitor Serie.
 
-En el Monitor Serie aparecerá una IP parecida a:
+Esta dirección IP se escribe en el navegador para abrir la página de control.
 
-```text
-192.168.1.10
-```
+Cuando se presiona **ENCENDER**, el ESP32 activa el LED.
 
-Escribimos esa dirección en el navegador.
-
-Cuando presionamos:
-
-```text
-ENCENDER
-```
-
-el navegador pide:
-
-```text
-/encender
-```
-
-y el ESP32 ejecuta:
-
-```cpp
-digitalWrite(led, HIGH);
-```
-
-Cuando presionamos:
-
-```text
-APAGAR
-```
-
-el ESP32 ejecuta:
-
-```cpp
-digitalWrite(led, LOW);
-```
-
-Así podemos controlar un dispositivo físico desde una página web.
+Cuando se presiona **APAGAR**, el ESP32 lo desactiva.
 
 ---
 
-# 7. Arquitectura general
+# . Conclusiones
 
-Todas las actividades pueden juntarse de esta manera:
+En este taller aprendimos de manera práctica algunas funciones que puede realizar un ESP32 dentro de un sistema IoT.
 
-```text
-                    WiFi
-                      |
-                      v
-                 +---------+
-                 |  ESP32  |
-                 +----+----+
-                      |
-          +-----------+-----------+
-          |                       |
-          v                       v
-   Potenciómetro               HC-SR04
-          |                       |
-          +-----------+-----------+
-                      |
-                      v
-                 ThingSpeak
-                      |
-                      v
-                   Gráficas
+Primero utilizamos un potenciómetro para realizar lecturas analógicas y convertir esos valores a voltaje.
 
+También conectamos el ESP32 a una red WiFi, lo que permitió utilizar servicios por Internet.
 
-Navegador
-    |
-    v
-  WiFi
-    |
-    v
- ESP32
-    |
-    v
-  LED
-```
+Luego utilizamos un sensor ambiental para obtener datos de temperatura, humedad y presión atmosférica. Estos valores pudieron visualizarse mediante Arduino Cloud.
 
-El **ESP32 es el cerebro principal**.
+Finalmente, se realizó el control de un LED mediante una página web creada desde el mismo ESP32.
 
-Puede recibir información de sensores, procesarla, conectarse mediante WiFi, enviar datos a Internet y controlar dispositivos.
-
----
-
-# 8. Resultados
-
-| Actividad | ¿Qué conseguimos? |
-|---|---|
-| Potenciómetro | Leer un valor analógico |
-| ADC | Convertir una lectura a voltaje |
-| WiFi | Conectar el ESP32 a una red |
-| ThingSpeak | Enviar datos a Internet |
-| HC-SR04 | Medir una distancia |
-| Página web | Encender y apagar un LED |
-
----
-
-# 9. Conclusiones
-
-En este taller aprendimos que el **ESP32 puede funcionar como el cerebro de un sistema IoT**.
-
-Primero aprendimos a recibir información usando un potenciómetro. Después convertimos los valores obtenidos a voltaje.
-
-También conectamos el ESP32 a una red WiFi. Gracias a esta conexión pudimos enviar información a **ThingSpeak** y observar los datos mediante gráficas.
-
-Luego utilizamos el sensor **HC-SR04** para medir la distancia de un objeto. El ESP32 recibió la información del sensor, calculó la distancia y pudo enviarla a ThingSpeak.
-
-Finalmente creamos una pequeña página web para controlar un LED. De esta manera comprobamos que el ESP32 no solamente puede recibir información, sino también realizar acciones.
-
-En resumen, un sistema IoT sencillo puede funcionar así:
-
-```text
-Sensor → ESP32 → WiFi → Internet → Información
-```
-
-y también:
-
-```text
-Usuario → Internet/WiFi → ESP32 → Dispositivo
-```
+Estas actividades permitieron comprender cómo el ESP32 puede recibir información de sensores, procesar datos, conectarse a Internet y controlar dispositivos.
