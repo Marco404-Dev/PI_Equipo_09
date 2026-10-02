@@ -177,37 +177,6 @@ void loop() {
 }
 ```
 
-## Explicación sencilla
-
-Esta línea:
-
-```cpp
-WiFi.begin(wifi, clave);
-```
-
-le dice al ESP32:
-
-> Conéctate a esta red usando esta contraseña.
-
-Después:
-
-```cpp
-WiFi.status()
-```
-
-comprueba si ya estamos conectados.
-
-Cuando la conexión está lista:
-
-```cpp
-WiFi.localIP()
-```
-
-nos muestra la dirección IP del ESP32.
-
----
-
-
 
 # 4. Envío de datos a Arduino Cloud
 
@@ -222,6 +191,12 @@ En esta actividad, el ESP32 se conecta a una red WiFi y envía los valores obten
 Primero el ESP32 obtiene la información del sensor. Después se conecta a Internet mediante WiFi y envía los valores a Arduino Cloud.
 
 De esta manera podemos observar las mediciones desde una computadora o celular sin depender únicamente del Monitor Serie.
+
+<img width="1600" height="818" alt="WhatsApp Image 2026-10-01 at 7 26 02 PM" src="https://github.com/user-attachments/assets/0084be35-cf4b-4625-8024-6cfcbce4a4bc" />
+
+<img width="1600" height="829" alt="WhatsApp Image 2026-10-01 at 7 26 03 PM" src="https://github.com/user-attachments/assets/2ecab220-c405-488e-8627-5d0f6d3631b2" />
+
+<img width="1600" height="794" alt="WhatsApp Image 2026-10-01 at 7 26 03 PM (1)" src="https://github.com/user-attachments/assets/0d5656e7-817c-432f-9b7b-51a7823712fe" />
 
 ---
 
@@ -278,23 +253,14 @@ Después de obtener las mediciones del sensor, utilizamos Arduino Cloud para vis
 
 En el Dashboard se pueden mostrar valores como:
 
-```text
-Temperatura: 25.4 °C
-Humedad: 64 %
-Presión atmosférica: 1011 hPa
-```
+<img width="1460" height="730" alt="Screenshot 2026-10-01 205727" src="https://github.com/user-attachments/assets/291c2158-9539-4d92-a0a2-bda80287190e" />
 
 También se pueden utilizar gráficas para observar cómo cambian las mediciones durante un determinado periodo.
 
-## Explicación sencilla
+<img width="1136" height="566" alt="Screenshot 2026-10-01 204909" src="https://github.com/user-attachments/assets/1141b0f2-bb18-4d90-b78c-e482bd20b91e" />
 
-Arduino Cloud recibe los datos enviados por el ESP32 y los muestra en el Dashboard.
 
-Esto facilita la lectura de los valores y permite revisar la información desde otro dispositivo conectado a Internet.
-
----
-
-#5 Control de un LED desde una página web
+# 5 Control de un LED desde una página web
 
 ## ¿Qué hacemos?
 
@@ -427,17 +393,9 @@ void loop() {
 }
 ```
 
-## Explicación sencilla
+<img width="470" height="415" alt="Screenshot 2026-10-01 210016" src="https://github.com/user-attachments/assets/49aee1be-e39f-4fb1-8008-5f7d927baeed" />
 
-Primero el ESP32 se conecta a la red WiFi.
-
-Después inicia un pequeño servidor web y muestra su dirección IP en el Monitor Serie.
-
-Esta dirección IP se escribe en el navegador para abrir la página de control.
-
-Cuando se presiona **ENCENDER**, el ESP32 activa el LED.
-
-Cuando se presiona **APAGAR**, el ESP32 lo desactiva.
+<img width="477" height="338" alt="Screenshot 2026-10-01 210030" src="https://github.com/user-attachments/assets/78a84121-57de-4fca-879e-3bbb403e87a5" />
 
 ---
 
