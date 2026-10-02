@@ -56,3 +56,37 @@ Los datos enviados se agruparon en formato JSON. Por ejemplo:
 
 <img width="1881" height="852" alt="Screenshot 2026-10-01 192714" src="https://github.com/user-attachments/assets/1b1800f2-f87a-4128-bcbc-3c875a04f26b" />
 
+## 3. Configuración en Node-RED
+
+Luego utilizamos **Node-RED** para recibir los datos publicados por el ESP32.
+
+Se creó un nodo MQTT conectado al tópico:
+
+```text
+equipo009/sensor/datos
+```
+Después se utilizaron diferentes nodos para separar cada valor recibido.
+
+Por ejemplo:
+
+- Temperatura.
+- Humedad.
+- Presión atmosférica.
+- Nombre del dispositivo.
+
+Ademas eespués de recibir los datos, diseñamos un **Dashboard** para mostrarlos de una manera más clara.
+
+Utilizamos indicadores tipo **gauge**, parecidos a un velocímetro.
+
+En ellos pudimos visualizar:
+
+```text
+Temperatura: aproximadamente 24.82 °C
+Humedad relativa: aproximadamente 54.5 %
+Presión atmosférica: aproximadamente 1000.63 hPa
+
+<img width="1600" height="674" alt="WhatsApp Image 2026-10-01 at 6 35 45 PM" src="https://github.com/user-attachments/assets/33fb8d7a-82fa-45d1-8bfd-169db4dc7097" />
+
+
+
+
