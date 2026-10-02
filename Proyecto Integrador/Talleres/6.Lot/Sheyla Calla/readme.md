@@ -36,7 +36,6 @@ Para hacerlo fácil de entender, los pasos que seguimos fueron:
 El resultado fue que pudimos ver cómo cambiaban los valores de nuestro sensor en tiempo real y a distancia directamente desde el navegador, demostrando de forma muy visual y práctica cómo funciona el monitoreo remoto en el Internet de las Cosas.
 <img width="1600" height="818" alt="image" src="https://github.com/user-attachments/assets/2896ec65-64e0-4221-a1e1-7d8ad24f3e4a" />
 <img width="1600" height="829" alt="image" src="https://github.com/user-attachments/assets/fe50f4a1-1c8d-45b4-9e73-bbbdb1bf6e6b" />
-<img width="1136" height="566" alt="image" src="https://github.com/user-attachments/assets/c1ca17b5-d9b3-4305-8a74-e40fee28f49e" />
 
 ### Actividad 4: implementación del Protocolo MQTT
 En esta etapa conocimos el protocolo MQTT. Lo interesante de este protocolo es que es muy rápido, ligero e ideal para enviar datos pequeños, como los de nuestros sensores.
