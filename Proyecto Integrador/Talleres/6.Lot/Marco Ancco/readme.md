@@ -50,7 +50,8 @@ void loop() {
   delay(500);
 }
 ```
-![Uploading Screenshot 2026-10-01 202936.png…]()
+<img width="1080" height="627" alt="Screenshot 2026-10-01 202936" src="https://github.com/user-attachments/assets/9fb8b498-10f6-4434-bc6f-947ed9b08f43" />
+
 
 
 ---
