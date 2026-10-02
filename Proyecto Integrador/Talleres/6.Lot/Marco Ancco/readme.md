@@ -396,7 +396,7 @@ void loop() {
 
 <img width="470" height="415" alt="Screenshot 2026-10-01 210016" src="https://github.com/user-attachments/assets/49aee1be-e39f-4fb1-8008-5f7d927baeed" />
 
-<img width="1271" height="622" alt="Screenshot 2026-10-01 210415" src="https://github.com/user-attachments/assets/db1cc23c-2471-40a5-9649-a0269b8fe7dc" />
+<img width="470" height="460" alt="Screenshot 2026-10-01 210105" src="https://github.com/user-attachments/assets/abdea5a5-a05a-432e-b23c-b7586ebd3bc9" />
 
 ---
 
