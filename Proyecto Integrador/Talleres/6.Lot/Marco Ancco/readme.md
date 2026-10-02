@@ -50,6 +50,7 @@ void loop() {
   delay(500);
 }
 ```
+![Uploading Screenshot 2026-10-01 202936.png…]()
 
 
 ---
