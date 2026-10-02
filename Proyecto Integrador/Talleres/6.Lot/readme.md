@@ -89,5 +89,48 @@ Presión atmosférica: aproximadamente 1000.63 hPa
 <img width="1600" height="674" alt="WhatsApp Image 2026-10-01 at 6 35 45 PM" src="https://github.com/user-attachments/assets/33fb8d7a-82fa-45d1-8bfd-169db4dc7097" />
 
 
+## 4. Gráfica de temperatura
 
+Además del valor actual, agregamos una **gráfica** para observar cómo cambia la temperatura con el tiempo.
+
+La gráfica permite guardar visualmente las mediciones recibidas y observar si la temperatura **aumenta, disminuye o permanece estable**.
+
+Durante la prueba se observaron valores cercanos a los **25 °C**.
+
+Esto es diferente al gauge:
+
+- El **gauge** muestra principalmente el valor actual.
+- La **gráfica** permite observar el comportamiento de los valores durante un periodo.
+
+<img width="1901" height="872" alt="Screenshot 2026-10-01 192123" src="https://github.com/user-attachments/assets/99ff52b3-6a4d-4393-9f8d-0a6953e8f33d" />
+
+
+
+## 5. Control del LED
+
+También agregamos un **switch** en el Dashboard de Node-RED.
+
+Este switch permite enviar una orden hacia el ESP32 para:
+
+```text
+ENCENDER LED
+o
+APAGAR LED
+```
+<img width="996" height="686" alt="Screenshot 2026-10-01 192636" src="https://github.com/user-attachments/assets/751bbced-2dde-4f41-a39d-e513c1182cc8" />
+
+
+## 6. ¿Qué aprendimos?
+
+Durante esta práctica aprendimos a integrar varias herramientas utilizadas en **IoT**.
+
+Primero comprobamos cómo obtener información de un sensor utilizando el **ESP32**. Luego aprendimos a enviar esos datos mediante el protocolo **MQTT**.
+
+También entendimos mejor el uso de los **tópicos MQTT**, ya que permiten indicar dónde se publican y reciben los mensajes.
+
+Aprendimos a utilizar **JSON** para agrupar varios datos, como temperatura, humedad y presión, dentro de un mismo mensaje.
+
+Con **Node-RED** aprendimos a recibir estos datos, separarlos y mostrarlos mediante **gauges** y **gráficas**.
+
+Finalmente, comprobamos que **MQTT** no solamente sirve para enviar información desde los sensores, sino también para controlar dispositivos, como en el caso del **LED**.
 
