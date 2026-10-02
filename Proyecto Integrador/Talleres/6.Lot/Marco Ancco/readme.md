@@ -196,7 +196,7 @@ De esta manera podemos observar las mediciones desde una computadora o celular s
 
 <img width="1600" height="829" alt="WhatsApp Image 2026-10-01 at 7 26 03 PM" src="https://github.com/user-attachments/assets/2ecab220-c405-488e-8627-5d0f6d3631b2" />
 
-<img width="1600" height="794" alt="WhatsApp Image 2026-10-01 at 7 26 03 PM (1)" src="https://github.com/user-attachments/assets/0d5656e7-817c-432f-9b7b-51a7823712fe" />
+<img width="1271" height="622" alt="Screenshot 2026-10-01 210415" src="https://github.com/user-attachments/assets/db1cc23c-2471-40a5-9649-a0269b8fe7dc" />
 
 ---
 
