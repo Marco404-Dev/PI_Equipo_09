@@ -52,6 +52,7 @@ Los datos enviados se agruparon en formato JSON. Por ejemplo:
   "humedad": 54.76
 }
 ```
+<img width="738" height="1600" alt="WhatsApp Image 2026-10-01 at 7 04 34 PM" src="https://github.com/user-attachments/assets/ff2e3ea4-43db-4181-aad1-e099a402ad58" />
 
 
 <img width="1881" height="852" alt="Screenshot 2026-10-01 192714" src="https://github.com/user-attachments/assets/1b1800f2-f87a-4128-bcbc-3c875a04f26b" />
