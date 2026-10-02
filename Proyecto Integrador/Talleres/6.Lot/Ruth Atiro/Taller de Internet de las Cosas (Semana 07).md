@@ -1,10 +1,10 @@
-**INTERNET DE LAS COSAS (IoT)**
+## **INTERNET DE LAS COSAS (IoT)**
 
 Es una red masiva de objetos físicos que cuentan con sensores y tecnología para recopilar, enviar e intercambiar datos a través de Internet con otros dispositivos y sistemas.
 
 Durante la práctica, se desarrollaron diversas actividades utilizando un ESP32 para recibir la información de sensores, realizar cálculos (conversión de ADC a voltaje), conectarse a la red WiFi y controlar el dispositivo desde la nube.
 
-**Actividad 01 \- 02: Lectura de un potenciómetro con ESP32 y Scanner WiFi con ESP32**
+# **Actividad 01 \- 02: Lectura de un potenciómetro con ESP32 y Scanner WiFi con ESP32**
 
 En esta actividad se realizó la lectura del valor analogico de un potenciómetro conectado al  ESP32 y este lo muestra cada medio segundo.
 
@@ -14,7 +14,7 @@ Después, se procedió a conectar el microcontrolador a un punto de acceso (Red 
 
 ![][image2]
 
-**Actividad 03 \- 04: Enviando datos en la nube**
+# **Actividad 03 \- 04: Enviando datos en la nube**
 
 El ESP32 toma el valor obtenido del sensor, lo procesa y luego lo envía a través de Internet a una plataforma IoT. En estas plataformas, los datos pueden almacenarse y mostrarse mediante gráficos, indicadores o tablas, permitiendo monitorear las mediciones desde otro dispositivo. Para realizar esta comunicación, se pueden utilizar protocolos como HTTP, que funciona mediante solicitudes, o MQTT, que permite publicar datos de manera eficiente y continua.
 
@@ -24,7 +24,7 @@ El ESP32 toma el valor obtenido del sensor, lo procesa y luego lo envía a trav�
 
 ![][image5]
 
-**Actividad 05: Controlando desde la nube**
+# **Actividad 05: Controlando desde la nube**
 
 En esta actividad se implementó un sistema de control remoto desde la nube, donde la comunicación se realizó desde la plataforma web hacia el ESP32. Un interruptor en la interfaz permite enviar una orden para cambiar el estado del LED, encendiéndose o apagándose.
 
