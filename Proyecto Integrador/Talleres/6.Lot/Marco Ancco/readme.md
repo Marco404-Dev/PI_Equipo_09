@@ -196,6 +196,8 @@ De esta manera podemos observar las mediciones desde una computadora o celular s
 
 <img width="1600" height="829" alt="WhatsApp Image 2026-10-01 at 7 26 03 PM" src="https://github.com/user-attachments/assets/2ecab220-c405-488e-8627-5d0f6d3631b2" />
 
+<img width="1136" height="566" alt="Screenshot 2026-10-01 204909" src="https://github.com/user-attachments/assets/1141b0f2-bb18-4d90-b78c-e482bd20b91e" />
+
 <img width="1271" height="622" alt="Screenshot 2026-10-01 210415" src="https://github.com/user-attachments/assets/db1cc23c-2471-40a5-9649-a0269b8fe7dc" />
 
 ---
@@ -247,7 +249,7 @@ El ESP32 recibe esta información y puede mostrarla en el Monitor Serie o enviar
 
 ---
 
-# 6. Visualización de datos en Arduino Cloud
+#. Visualización de datos en Arduino Cloud
 
 Después de obtener las mediciones del sensor, utilizamos Arduino Cloud para visualizar los datos.
 
@@ -395,7 +397,7 @@ void loop() {
 
 <img width="470" height="415" alt="Screenshot 2026-10-01 210016" src="https://github.com/user-attachments/assets/49aee1be-e39f-4fb1-8008-5f7d927baeed" />
 
-<img width="477" height="338" alt="Screenshot 2026-10-01 210030" src="https://github.com/user-attachments/assets/78a84121-57de-4fca-879e-3bbb403e87a5" />
+<img width="1271" height="622" alt="Screenshot 2026-10-01 210415" src="https://github.com/user-attachments/assets/db1cc23c-2471-40a5-9649-a0269b8fe7dc" />
 
 ---
 
