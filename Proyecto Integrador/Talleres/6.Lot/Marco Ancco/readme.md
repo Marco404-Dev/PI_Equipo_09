@@ -51,15 +51,6 @@ void loop() {
 }
 ```
 
-## Explicación sencilla
-
-`analogRead()` sirve para preguntarle al ESP32 qué valor está llegando al pin.
-
-El valor se guarda en la variable `valor`.
-
-Después usamos `Serial.println()` para mostrar ese número en el Monitor Serie.
-
-El `delay(500)` hace que el ESP32 espere medio segundo antes de volver a medir.
 
 ---
 
@@ -124,6 +115,7 @@ void loop() {
   delay(500);
 }
 ```
+<img width="1600" height="885" alt="WhatsApp Image 2026-10-01 at 7 26 02 PM (1)" src="https://github.com/user-attachments/assets/bdbd8dc7-d7fa-4b84-8247-d234365bc89f" />
 
 
 # 3. Conexión del ESP32 a WiFi
