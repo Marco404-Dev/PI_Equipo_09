@@ -198,7 +198,6 @@ De esta manera podemos observar las mediciones desde una computadora o celular s
 
 <img width="1136" height="566" alt="Screenshot 2026-10-01 204909" src="https://github.com/user-attachments/assets/1141b0f2-bb18-4d90-b78c-e482bd20b91e" />
 
-<img width="1271" height="622" alt="Screenshot 2026-10-01 210415" src="https://github.com/user-attachments/assets/db1cc23c-2471-40a5-9649-a0269b8fe7dc" />
 
 ---
 
@@ -259,7 +258,7 @@ En el Dashboard se pueden mostrar valores como:
 
 También se pueden utilizar gráficas para observar cómo cambian las mediciones durante un determinado periodo.
 
-<img width="1136" height="566" alt="Screenshot 2026-10-01 204909" src="https://github.com/user-attachments/assets/1141b0f2-bb18-4d90-b78c-e482bd20b91e" />
+<img width="1271" height="622" alt="Screenshot 2026-10-01 210415" src="https://github.com/user-attachments/assets/db1cc23c-2471-40a5-9649-a0269b8fe7dc" />
 
 
 # 5 Control de un LED desde una página web
