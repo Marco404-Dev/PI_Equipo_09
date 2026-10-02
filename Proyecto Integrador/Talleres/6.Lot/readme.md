@@ -84,6 +84,7 @@ En ellos pudimos visualizar:
 Temperatura: aproximadamente 24.82 °C
 Humedad relativa: aproximadamente 54.5 %
 Presión atmosférica: aproximadamente 1000.63 hPa
+```
 
 <img width="1600" height="674" alt="WhatsApp Image 2026-10-01 at 6 35 45 PM" src="https://github.com/user-attachments/assets/33fb8d7a-82fa-45d1-8bfd-169db4dc7097" />
 
