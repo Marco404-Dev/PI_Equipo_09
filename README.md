@@ -22,7 +22,7 @@
 
 **YakuToring** propone medir temperatura, pH y conductividad eléctrica del agua, junto con la presión atmosférica, estimar el oxígeno disuelto (OD) y facilitar el seguimiento de las condiciones del manglar. La evolución prevista incorpora almacenamiento en AWS, consulta desde una app y avisos por WhatsApp.
 
-> **Estado:** prototipo en desarrollo y validación experimental en laboratorio. La integración cloud, la app y los avisos son funciones propuestas. El desempeño del sensor virtual deberá comprobarse antes de su uso en campo.
+> **Estado:** prototipo en desarrollo y validación experimental en laboratorio. La integración AWS y los avisos en whatsapp son funciones propuestas.
 
 <p align="center">
   <img src="recursos/imagenes/yakutoring2.gif" alt="Funcionamiento propuesto de YakuToring: boya, LoRa, Heltec receptor (ESP32) con modelo de deep learning, AWS, app y avisos" width="1000">
