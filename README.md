@@ -25,7 +25,7 @@
 > **Estado:** prototipo en desarrollo y validación experimental en laboratorio. La integración cloud, la app y los avisos son funciones propuestas. El desempeño del sensor virtual deberá comprobarse antes de su uso en campo.
 
 <p align="center">
-  <img src="recursos/imagenes/yakutoring.gif" alt="Funcionamiento propuesto de YakuToring: boya, LoRa, Heltec receptor (ESP32) con modelo de deep learning, AWS, app y avisos" width="1000">
+  <img src="recursos/imagenes/yakutoring2.gif" alt="Funcionamiento propuesto de YakuToring: boya, LoRa, Heltec receptor (ESP32) con modelo de deep learning, AWS, app y avisos" width="1000">
 </p>
 
 *Animación conceptual con datos y avisos de ejemplo.*
