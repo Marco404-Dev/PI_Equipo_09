@@ -21,18 +21,13 @@ Abrir un modelo de detección de género en **SenseCraft AI** y realizar una pru
 
 <img width="1852" height="712" alt="modelo1" src="https://github.com/user-attachments/assets/240372b7-6066-4ac5-b480-481fb6e6d492" />
 
-### Captura 2. Apertura 
+### Captura 2. Ejecución del modelo
 
-![Apertura o instalación del modelo](imagenes/02-apertura-modelo.png)
-
-### Captura 3. Ejecución del modelo
-
-![Ejecución del modelo de detección de género](imagenes/03-ejecucion-modelo.png)
+<img width="1498" height="826" alt="ejecutamos1" src="https://github.com/user-attachments/assets/9aafbba3-ffeb-45d4-8711-a48a7c172ed7" />
 
 
 
-![Uploading probarGIPOled.jpg…]()
-
+<img width="899" height="1599" alt="probarGIPOled" src="https://github.com/user-attachments/assets/bb3499df-993a-465c-8b3a-413b5d2bac8c" />
 
 
 
