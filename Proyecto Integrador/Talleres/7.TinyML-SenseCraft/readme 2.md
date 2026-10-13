@@ -21,10 +21,6 @@ Se crearon tres categorías para entrenar el modelo, cada una correspondiente a 
 | PAPEL | Mano abierta |
 | TIJERA | Dos dedos extendidos en forma de V |
 
-**Captura de las tres clases y sus imágenes de entrenamiento:**
-
-<!-- Reemplaza la línea siguiente por la imagen subida a GitHub -->
-![Recolección de imágenes de piedra, papel y tijera](URL_DE_IMAGEN_RECOLECCION)
 
 ## 4. Creación del modelo
 
@@ -36,9 +32,15 @@ Se crearon tres categorías para entrenar el modelo, cada una correspondiente a 
 6. Inicié el entrenamiento para generar el modelo.
 7. Probé el modelo mostrando los gestos frente a la cámara.
 
-**Captura del modelo creado:**
 
-![Modelo de tres clases](URL_DE_IMAGEN_MODELO)
+### Captura 3. Configuración de una condición de activación GPIO
+<img width="899" height="1599" alt="WhatsApp Image 2026-10-13 at 6 47 28 PM" src="https://github.com/user-attachments/assets/f1098c20-1689-409e-8dca-b5c6c3519e65" />
+
+
+### Captura 4. Validación de la condición de activación del LED
+<img width="1600" height="900" alt="WhatsApp Image 2026-10-13 at 6 47 38 PM" src="https://github.com/user-attachments/assets/7dfce3b2-ba1f-4be2-a6e8-15861c3bbe46" />
+
+
 
 ## 5. Pruebas del modelo
 
