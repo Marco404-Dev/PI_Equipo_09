@@ -83,9 +83,15 @@ Registrar las confianzas que aparezcan durante las pruebas:
 
 | Gesto mostrado | Clase predicha | Confianza |
 |---|---|---|
-| Piedra | Pendiente de registrar | — |
-| Papel | Pendiente de registrar | — |
-| Tijera | Pendiente de registrar | — |
+| Piedra | Pendiente de registrar | 25|
+| Papel | Pendiente de registrar | 25 |
+| Tijera | Pendiente de registrar | 25 |
+
+Se estableció un umbral de confianza del **25 %** para las tres clases: piedra, papel y tijera.
+
+Este valor permite realizar pruebas iniciales y detectar los gestos incluso cuando el modelo presenta niveles bajos de confianza.
+
+Se eligió un umbral bajo para evaluar el comportamiento del modelo ante diferentes posiciones de la mano y condiciones de iluminación.
 
 ## 7. Conclusión
 
