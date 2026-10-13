@@ -1,6 +1,3 @@
-<img width="1020" height="497" alt="Screenshot 2026-10-13 174325" src="https://github.com/user-attachments/assets/96dd6e5c-0fa2-4269-adc1-7b77849b35e8" />
-# Prueba de un modelo de detección de género con SenseCraft AI
-
 ## 1. Objetivo
 
 Abrir un modelo de detección de género en **SenseCraft AI** y realizar una prueba con **tres integrantes**, registrando los resultados obtenidos.
