@@ -25,9 +25,13 @@ Abrir un modelo de detección de género en **SenseCraft AI** y realizar una pru
 
 <img width="1498" height="826" alt="ejecutamos1" src="https://github.com/user-attachments/assets/9aafbba3-ffeb-45d4-8711-a48a7c172ed7" />
 
+<img width="1755" height="732" alt="GPIO 1" src="https://github.com/user-attachments/assets/b652bff5-809f-4206-b0af-94bc06368614" />
 
 
 <img width="899" height="1599" alt="probarGIPOled" src="https://github.com/user-attachments/assets/bb3499df-993a-465c-8b3a-413b5d2bac8c" />
+
+
+
 
 
 
