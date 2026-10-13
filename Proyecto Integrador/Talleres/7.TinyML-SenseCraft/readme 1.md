@@ -13,22 +13,15 @@ Abrir un modelo de detección de género en **SenseCraft AI** y realizar una pru
 - **Prueba:** Captura mediante cámara y observación de la predicción del modelo
 - **Participantes previstos:** 3 integrantes
 
-## 3. Procedimiento
 
-1. Ingresar a [SenseCraft AI](https://sensecraft.seeed.cc/ai/model).
-2. Buscar y abrir el modelo de detección de género.
-3. Instalarlo o ejecutarlo siguiendo las indicaciones de la plataforma.
-4. Activar la cámara y colocar a un integrante frente a ella.
-5. Observar el resultado mostrado por el modelo y guardar una captura.
-6. Repetir el procedimiento con los otros dos integrantes.
 
-## 4. Evidencias de la configuración y ejecución
+## 3. Evidencias de la configuración y ejecución
 
 ### Captura 1. Acceso al modelo
 
-![Acceso al modelo de detección de género](imagenes/01-acceso-modelo.png)
+<img width="1852" height="712" alt="modelo1" src="https://github.com/user-attachments/assets/240372b7-6066-4ac5-b480-481fb6e6d492" />
 
-### Captura 2. Apertura o instalación del modelo
+### Captura 2. Apertura 
 
 ![Apertura o instalación del modelo](imagenes/02-apertura-modelo.png)
 
@@ -36,43 +29,34 @@ Abrir un modelo de detección de género en **SenseCraft AI** y realizar una pru
 
 ![Ejecución del modelo de detección de género](imagenes/03-ejecucion-modelo.png)
 
-> Colocar las tres capturas anteriores en la carpeta `imagenes/` con esos nombres. Si prefieres otros nombres, modifica las rutas de las imágenes.
 
-## 5. Pruebas con los integrantes
+
+![Uploading probarGIPOled.jpg…]()
+
+
+
+
+## 4. Pruebas con los integrantes
 
 ### Integrante 1
 
 **Estado:** Primera prueba realizada; pendiente de registrar el resultado observado.
 
-![Resultado de la prueba del integrante 1](imagenes/integrante-1.png)
-
-**Resultado observado:** _Completar con la predicción que aparece en pantalla._
+<img width="1917" height="848" alt="prueba1" src="https://github.com/user-attachments/assets/38c39314-20de-4d8a-a870-39cc5e9e3906" />
 
 ### Integrante 2
 
-**Estado:** Pendiente de prueba.
+**Estado:** Segunda prueba realizada; pendiente de registrar el resultado observado.
+<img width="1498" height="826" alt="ejecutamos1" src="https://github.com/user-attachments/assets/9aafbba3-ffeb-45d4-8711-a48a7c172ed7" />
 
-![Espacio para captura del integrante 2](imagenes/integrante-2.png)
 
-**Resultado observado:** _Pendiente._
 
 ### Integrante 3
 
-**Estado:** Pendiente de prueba.
+**Estado:** Tercera prueba realizada; pendiente de registrar el resultado observado.
 
-![Espacio para captura del integrante 3](imagenes/integrante-3.png)
 
-**Resultado observado:** _Pendiente._
-
-## 6. Registro de resultados
-
-| Integrante | Estado | Predicción mostrada por el modelo | Observaciones |
-|---|---|---|---|
-| 1 | Prueba inicial realizada | Por completar | Por completar |
-| 2 | Pendiente | — | — |
-| 3 | Pendiente | — | — |
-
-## 7. Conclusiones
+## 5. Conclusiones
 
 Se logró abrir y ejecutar el modelo de detección de género en SenseCraft AI y comenzar las pruebas. Una vez registradas las capturas de los tres integrantes, se podrán comparar las predicciones y comentar sus posibles limitaciones.
 
