@@ -40,24 +40,24 @@ Abrir un modelo de detección de género en **SenseCraft AI** y realizar una pru
 
 ## 4. Pruebas con los integrantes
 
-### Integrante 1
+### Marco Ancco
 
 **Estado:** Primera prueba realizada; pendiente de registrar el resultado observado.
 
 <img width="1917" height="848" alt="prueba1" src="https://github.com/user-attachments/assets/38c39314-20de-4d8a-a870-39cc5e9e3906" />
 
-### Integrante 2
+### Ruth Atiro
 
 **Estado:** Segunda prueba realizada; pendiente de registrar el resultado observado.
 <img width="1020" height="497" alt="Screenshot 2026-10-13 174325" src="https://github.com/user-attachments/assets/ca22925f-bfeb-4ba6-8a4f-f9100b5ed973" />
 
 
-### Integrante 3
+### Ivana Gygax
 
 **Estado:** Tercera prueba realizada; pendiente de registrar el resultado observado.
 <img width="1052" height="482" alt="Screenshot 2026-10-13 174339" src="https://github.com/user-attachments/assets/1143f94e-1d28-40d4-8ce9-3018bf27cd80" />
 
-### Integrante 3
+### Sheila Calla
 
 **Estado:** Cuarta prueba realizada; pendiente de registrar el resultado observado.
 <img width="1046" height="468" alt="Screenshot 2026-10-13 174318" src="https://github.com/user-attachments/assets/9f9c7d00-cdfa-4e2a-b9ba-fe23365a4cc4" />
