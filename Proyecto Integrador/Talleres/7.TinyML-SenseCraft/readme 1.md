@@ -25,7 +25,12 @@ Abrir un modelo de detección de género en **SenseCraft AI** y realizar una pru
 
 <img width="1498" height="826" alt="ejecutamos1" src="https://github.com/user-attachments/assets/9aafbba3-ffeb-45d4-8711-a48a7c172ed7" />
 
+
+### Captura 3. Configuración de una condición de activación GPIO
+
 <img width="1755" height="732" alt="GPIO 1" src="https://github.com/user-attachments/assets/b652bff5-809f-4206-b0af-94bc06368614" />
+
+### Captura 4. Validación de la condición de activación del LED
 
 
 <img width="899" height="1599" alt="probarGIPOled" src="https://github.com/user-attachments/assets/bb3499df-993a-465c-8b3a-413b5d2bac8c" />
@@ -49,7 +54,6 @@ Abrir un modelo de detección de género en **SenseCraft AI** y realizar una pru
 <img width="1498" height="826" alt="ejecutamos1" src="https://github.com/user-attachments/assets/9aafbba3-ffeb-45d4-8711-a48a7c172ed7" />
 
 
-
 ### Integrante 3
 
 **Estado:** Tercera prueba realizada; pendiente de registrar el resultado observado.
@@ -59,4 +63,3 @@ Abrir un modelo de detección de género en **SenseCraft AI** y realizar una pru
 
 Se logró abrir y ejecutar el modelo de detección de género en SenseCraft AI y comenzar las pruebas. Una vez registradas las capturas de los tres integrantes, se podrán comparar las predicciones y comentar sus posibles limitaciones.
 
-**Pendiente:** completar las pruebas de los integrantes 2 y 3 y actualizar el registro de resultados.
