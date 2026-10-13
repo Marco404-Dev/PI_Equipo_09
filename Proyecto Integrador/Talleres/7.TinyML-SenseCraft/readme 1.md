@@ -51,7 +51,6 @@ Abrir un modelo de detección de género en **SenseCraft AI** y realizar una pru
 ### Integrante 2
 
 **Estado:** Segunda prueba realizada; pendiente de registrar el resultado observado.
-<img width="1498" height="826" alt="ejecutamos1" src="https://github.com/user-attachments/assets/9aafbba3-ffeb-45d4-8711-a48a7c172ed7" />
 
 
 ### Integrante 3
