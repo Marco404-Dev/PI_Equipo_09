@@ -34,11 +34,22 @@ Abrir un modelo de detección de género en **SenseCraft AI** y realizar una pru
 <img width="899" height="1599" alt="probarGIPOled" src="https://github.com/user-attachments/assets/bb3499df-993a-465c-8b3a-413b5d2bac8c" />
 
 
+## 4. Configuración del umbral de confianza
+
+Se estableció un **umbral de confianza del 25 %** para las predicciones del modelo.
+
+Este valor se seleccionó como un criterio experimental para permitir que el sistema detectara y mostrara predicciones incluso cuando la confianza fuera relativamente baja.
+
+Se eligió el **25 %** porque:
+
+- Permite observar predicciones con distintos niveles de confianza.
+- Facilita realizar pruebas con diferentes integrantes y condiciones de iluminación.
+- Evita descartar detecciones que podrían ser útiles para analizar el comportamiento del modelo.
+
+Además, se configuró una condición **GPIO** para activar un LED cuando la predicción cumpliera el umbral establecido.
 
 
-
-
-## 4. Pruebas con los integrantes
+## 5. Pruebas con los integrantes
 
 ### Marco Ancco
 
@@ -63,7 +74,7 @@ Abrir un modelo de detección de género en **SenseCraft AI** y realizar una pru
 <img width="1046" height="468" alt="Screenshot 2026-10-13 174318" src="https://github.com/user-attachments/assets/9f9c7d00-cdfa-4e2a-b9ba-fe23365a4cc4" />
 
 
-## 5. Conclusiones
+## 6. Conclusiones
 
 Se logró abrir y ejecutar el modelo de detección de género en SenseCraft AI y comenzar las pruebas. Una vez registradas las capturas de los tres integrantes, se podrán comparar las predicciones y comentar sus posibles limitaciones.
 
