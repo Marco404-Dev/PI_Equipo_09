@@ -21,7 +21,8 @@ Se crearon dos categorías en la plataforma y se capturaron **15 imágenes por c
 | CELULAR / Celular | 15 | Teléfono celular |
 | **Total** | **30** | **2 clases** |
 
-![Recolección de muestras para ambas clases](imagenes/tomarfotos.png)
+<img width="1802" height="650" alt="tomarfotos" src="https://github.com/user-attachments/assets/289fa204-64b3-4be7-9826-3e1bd9b55621" />
+
 
 ## 4. Creación del modelo
 
@@ -32,7 +33,6 @@ Se crearon dos categorías en la plataforma y se capturaron **15 imágenes por c
 5. Inicié el proceso de entrenamiento para crear el modelo.
 6. Una vez creado, lo probé con la cámara en tiempo real.
 
-> Nota: esta práctica utiliza un modelo de **clasificación**. A diferencia de uno de detección de objetos, su salida indica a qué clase corresponde la imagen y qué confianza asigna a cada clase.
 
 ## 5. Pruebas del modelo
 
@@ -42,27 +42,19 @@ Se mostraron diferentes objetos frente a la cámara para comprobar cómo respond
 
 En esta prueba se colocó un cable frente a la cámara. El modelo clasificó la imagen como **CABLE** con una confianza de **100 %** en las capturas.
 
-![Resultado de clasificación del cable, primera captura](imagenes/prueba1.2.png)
+<img width="1565" height="857" alt="prueba1 2" src="https://github.com/user-attachments/assets/f8614153-c32c-450b-ac62-7212d47bdaac" />
 
-![Resultado de clasificación del cable, segunda captura](imagenes/prueba1(1).png)
+<img width="1577" height="852" alt="prueba1" src="https://github.com/user-attachments/assets/c0ee3397-8c00-4039-a918-b9368284b63b" />
+
 
 ### Prueba 2: Celular
 
 Se colocó un celular frente a la cámara. El modelo asignó a la clase **CELULAR** confianzas de **91 %** y **96 %**, según la captura.
 
-![Resultado de clasificación del celular con 91 %](imagenes/prueba2.1.png)
+<img width="1550" height="842" alt="prueba2 2" src="https://github.com/user-attachments/assets/ef936357-0104-4dc2-8f0b-ee7e966208ed" />
 
-![Resultado de clasificación del celular con 96 %](imagenes/prueba2.2.png)
+<img width="1587" height="862" alt="prueba2 1" src="https://github.com/user-attachments/assets/6df83140-80d7-42bb-8f41-cbd1bc0779d2" />
 
-### Resumen de los resultados observados
-
-| Objeto presentado | Clase predicha | Confianza observada |
-|---|---|---|
-| Cable | CABLE | 100 % |
-| Celular | CELULAR | 91 % |
-| Celular | CELULAR | 96 % |
-
-> Estos porcentajes indican la **confianza de la predicción en esas capturas**, no la precisión general del modelo. Para medir su precisión harían falta más imágenes de prueba independientes.
 
 ## 6. Configuración de una acción mediante GPIO
 
@@ -75,9 +67,14 @@ Además, en la sección **GPIO** se configuró una regla para el objeto **CELULA
 
 Esta captura documenta la configuración de la regla; por sí sola no demuestra que el LED físico se haya encendido.
 
-![Regla GPIO configurada para la clase CELULAR](imagenes/gpio.png)
+<img width="1748" height="650" alt="gpio" src="https://github.com/user-attachments/assets/77f8ceb5-018c-41e9-9e6a-1c7ac2766f83" />
 
-## 7. Conclusión
+## 7. Validación de la condición de activación del LED
+
+<img width="899" height="1599" alt="validacion" src="https://github.com/user-attachments/assets/57f2b919-eeff-4c56-a3a3-075e2497fc41" />
+
+
+## 8. Conclusión
 
 Se creó un modelo de clasificación de imágenes en SenseCraft AI usando **dos clases y 30 muestras en total**. Durante las pruebas con la cámara, el modelo identificó correctamente el cable y el celular en las capturas registradas, con confianzas de **91 % a 100 %**. También se configuró una condición de salida GPIO asociada a la detección de un celular.
 
