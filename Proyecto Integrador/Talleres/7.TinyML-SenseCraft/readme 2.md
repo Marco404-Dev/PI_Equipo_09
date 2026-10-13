@@ -89,6 +89,3 @@ Registrar las confianzas que aparezcan durante las pruebas:
 
 Se desarrolló una práctica de **clasificación de imágenes** con tres categorías: piedra, papel y tijera, utilizando **SenseCraft AI** y el **XIAO ESP32S3 Sense**. Este ejercicio permite comprender cómo se recopilan imágenes, se entrena un modelo y se realizan predicciones mediante una cámara.
 
-Como mejora, se pueden agregar imágenes de distintas personas, fondos, distancias e iluminaciones para evaluar si el modelo reconoce correctamente los gestos en situaciones diferentes.
-
-> **Nota:** Reemplazar `URL_DE_IMAGEN_...` por los enlaces de las capturas subidas a GitHub y completar la tabla de resultados con los valores observados.
