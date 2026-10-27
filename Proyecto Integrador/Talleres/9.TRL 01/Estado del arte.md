@@ -1,6 +1,8 @@
 
 # *ESTADO DEL ARTE*
 
+
+
 ## 1. Estimación del oxígeno disuelto mediante inteligencia artificial
 
 El oxígeno disuelto (OD) es un parámetro importante para evaluar la calidad del agua, debido a su relación con los procesos biológicos y fisicoquímicos de los ecosistemas acuáticos. Su concentración depende de diversos factores ambientales, entre ellos la temperatura, las condiciones hidrológicas y la actividad biológica. Aunque existen instrumentos específicos para medirlo, su costo puede limitar la implementación de sistemas de monitoreo de bajo presupuesto. Ante esta situación, diferentes investigaciones han explorado el uso de modelos computacionales capaces de estimar su concentración a partir de otras variables ambientales.
@@ -25,6 +27,26 @@ Para el caso del OD, un sensor virtual puede utilizar variables como temperatura
 
 No obstante, la estimación indirecta presenta limitaciones. La relación entre las variables de entrada y el OD puede variar entre ecosistemas, estaciones y condiciones ambientales. Por ello, un modelo entrenado con registros de una región no necesariamente conservará el mismo desempeño cuando se aplique a otro lugar. Además, la estimación computacional debe distinguirse de una medición directa y evaluarse mediante métricas de error apropiadas.
 
+## 3. Análisis de antecedentes patentados
+
+La búsqueda de patentes permite identificar soluciones tecnológicas relacionadas con el desarrollo de sensores virtuales y sistemas de monitoreo de la calidad del agua. Estos documentos son relevantes porque describen dispositivos, métodos de procesamiento de datos y procedimientos técnicos que pueden ser similares a algunos componentes de una propuesta de innovación.
+
+La solicitud estadounidense US20260072716A1, titulada Virtual Sensor Performance Monitoring Device and Method, describe un dispositivo destinado a supervisar el desempeño de un sensor virtual que predice la concentración de OD en instalaciones de acuicultura. La propuesta contempla el uso de sensores ambientales y un modelo de predicción, así como la evaluación de las diferencias entre valores estimados y reales para determinar si es necesario actualizar el modelo [6]. Este antecedente presenta una relación directa con el concepto de sensor virtual de OD y demuestra la importancia de considerar el seguimiento del desempeño del modelo cuando cambian las condiciones ambientales.
+
+Por otro lado, la solicitud estadounidense US20260036602A1, denominada Smart Cluster Sensor System and Apparatus for Water Quality Monitoring, describe un sistema de monitoreo que integra sensores, electrónica de control, procesamiento de datos y comunicación con una plataforma digital. El documento también contempla el uso de relaciones fisicoquímicas y métodos de aprendizaje automático para obtener información adicional sobre la calidad del agua [7]. Aunque su finalidad principal está vinculada al monitoreo de sistemas de filtración, constituye un antecedente pertinente para estudiar la integración entre sensores físicos, procesamiento computacional y visualización de datos.
+
+La existencia de estas solicitudes indica que tanto los sensores virtuales de OD como los sistemas inteligentes de monitoreo del agua cuentan con antecedentes tecnológicos. En consecuencia, la posible novedad de una nueva solución no debe atribuirse únicamente a utilizar deep learning, sino que debe examinarse a partir de sus características técnicas concretas y de las diferencias verificables frente a las invenciones anteriores.
+
+## 4. Brecha tecnológica y aporte propuesto
+
+A partir de los antecedentes revisados, se identifica que la estimación del oxígeno disuelto mediante aprendizaje automático ya ha sido abordada en investigaciones científicas y documentos de patentes. Los estudios consultados exploran diferentes arquitecturas de redes neuronales, métodos híbridos y técnicas de integración de datos ambientales. Asimismo, las solicitudes patentadas muestran que el concepto de sensor virtual de OD y su integración con sistemas de monitoreo ya forman parte del desarrollo tecnológico existente.
+
+Por ello, la oportunidad de innovación del proyecto debe definirse en función de las características específicas de la solución que se pretende desarrollar. En este caso, se propone construir un sistema de estimación de OD basado en deep learning, utilizando registros históricos de NOAA NERRS para el entrenamiento inicial y variables fisicoquímicas obtenidas mediante los sensores disponibles. El sistema se orientará a estimar el OD sin requerir que un sensor físico de este parámetro esté presente durante cada operación.
+
+Como parte del desarrollo, se contempla integrar el modelo con el sistema de monitoreo y evaluar sus estimaciones mediante muestras de agua de Pantanos de Villa, comparando los resultados con mediciones de referencia realizadas con un instrumento Hach en laboratorio. Esta evaluación permitirá estudiar el comportamiento inicial del sistema en muestras locales, teniendo en cuenta que el transporte y la manipulación pueden modificar la concentración de OD.
+
+En consecuencia, el aporte esperado consiste en el desarrollo e integración de una solución tecnológica de menor costo para la estimación del oxígeno disuelto. La contribución específica deberá sustentarse en los resultados experimentales y en una comparación técnica detallada con los antecedentes científicos y patentados. La posible patentabilidad deberá evaluarse mediante una búsqueda más amplia del estado de la técnica y un análisis de los requisitos legales aplicables.
+
 
 ## Referencias:
 
@@ -37,3 +59,8 @@ No obstante, la estimación indirecta presenta limitaciones. La relación entre 
 [4] X. Xu, C. Guo, P. Wan, H. Xu, Y. Yu y J. Fan, “WT-DSE-LSTM: A hybrid model for the multivariate prediction of dissolved oxygen,” Alexandria Engineering Journal, vol. 124, pp. 285–296, 2025, doi: 10.1016/j.aej.2025.03.075.
 
 [5] B. Sadler et al., “Evaluating a process-guided deep learning approach for predicting dissolved oxygen in streams,” Hydrological Processes, vol. 38, no. 9, art. no. e15270, 2024, doi: 10.1002/hyp.15270.
+
+[6] B. Sadler et al., “Evaluating a process-guided deep learning approach for predicting dissolved oxygen in streams,” Hydrological Processes, vol. 38, no. 9, art. no. e15270, 2024, doi: 10.1002/hyp.15270.
+
+[7]	L. Shen, «Data processing method and system based on water area ecological environment monitoring», CN116721000A, 8 de septiembre de 2023
+
