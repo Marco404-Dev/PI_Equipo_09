@@ -1,5 +1,5 @@
 **Estado del Arte**  
 
-<img width="3508" height="2480" alt="Drawing 1" src="https://github.com/user-attachments/assets/89f6cacb-8e0c-45fc-9dbd-4430b5dcf3fa" />
+<img width="848" height="607" alt="image" src="https://github.com/user-attachments/assets/9a666a62-cdff-44e2-a371-804772e7198d" />
 
-<img width="3508" height="2480" alt="Drawing 2" src="https://github.com/user-attachments/assets/962a567e-c7cd-44cf-87bb-58358a1d5316" />
+<img width="847" height="602" alt="image" src="https://github.com/user-attachments/assets/cb10c531-a454-45ac-a639-d4297bf703fc" />
