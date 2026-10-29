@@ -60,7 +60,7 @@ En consecuencia, el aporte esperado consiste en el desarrollo e integración de 
 
 [5] B. Sadler et al., “Evaluating a process-guided deep learning approach for predicting dissolved oxygen in streams,” Hydrological Processes, vol. 38, no. 9, art. no. e15270, 2024, doi: 10.1002/hyp.15270.
 
-[6] B. Sadler et al., “Evaluating a process-guided deep learning approach for predicting dissolved oxygen in streams,” Hydrological Processes, vol. 38, no. 9, art. no. e15270, 2024, doi: 10.1002/hyp.15270.
+[6] H. J. Shin, H. Park, J. Y. Jung y S. K. Jo, “Virtual sensor performance monitoring device and method,” solicitud de patente de EE. UU. US20260072716A1, 12 mar. 2026. [En línea]. Disponible: https://patents.justia.com/patent/20260072716
 
-[7]	L. Shen, «Data processing method and system based on water area ecological environment monitoring», CN116721000A, 8 de septiembre de 2023
+[7] E. M. V. Hoek, M. Fowler, J. Rothkop, Z. Finkelstein, J. Louie y D. Tong, “Smart cluster sensor system and apparatus for water quality monitoring,” solicitud de patente de EE. UU. US20260036602A1, 5 feb. 2026. [En línea]. Disponible: https://patents.google.com/patent/US20260036602A1/en
 
