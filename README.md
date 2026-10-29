@@ -22,7 +22,7 @@
 
 **YakuToring** propone medir temperatura, pH y conductividad eléctrica del agua, junto con la presión atmosférica, estimar el oxígeno disuelto (OD) y facilitar el seguimiento de las condiciones del manglar. La evolución prevista incorpora almacenamiento en AWS, consulta desde una app y avisos por WhatsApp.
 
-> **Estado:** prototipo en desarrollo y validación experimental en laboratorio. La integración AWS y los avisos en whatsapp son funciones propuestas.
+> **Estado (29/10/2026):** prototipo experimental en desarrollo. Ya se realizaron pruebas preliminares de comunicación LoRa entre dos placas Heltec V4 y de visualización en OLED; la integración completa de sensores, el despliegue de la boya, AWS, la app y los avisos por WhatsApp están pendientes.
 
 <p align="center">
   <img src="recursos/imagenes/yakutoring2.gif" alt="Funcionamiento propuesto de YakuToring: boya, LoRa, Heltec receptor (ESP32) con modelo de deep learning, AWS, app y avisos" width="1000">
@@ -108,7 +108,7 @@ flowchart LR
 
 Los bloques de procesamiento, estimación y envío de la estación corresponden al **mismo Heltec receptor (ESP32)**. Su capacidad para ejecutar el modelo deberá verificarse con la placa y la versión del modelo seleccionadas.
 
-Se utilizarán placas **Heltec WiFi LoRa 32**, con un microcontrolador de la familia ESP32 y radio LoRa integrados. La versión y banda de radio quedan por confirmar. Los bloques de procesamiento y radio del diagrama representan funciones de cada placa. Véase la [documentación del fabricante](https://heltec.org/project/wifi-lora-32-v3/).
+Para el prototipo se están utilizando **dos placas Heltec WiFi LoRa 32 V4** (ESP32-S3 con LoRa integrado), configuradas para las pruebas en **915 MHz**. El enlace entre transmisor y receptor se ha probado; el alcance de campo y la integración de todos los sensores siguen en evaluación. El diagrama representa la arquitectura prevista, no un sistema desplegado. La asignación definitiva de pines debe verificarse para la V4 y no copiarse directamente del ESP32 DevKit anterior. Véase la [documentación del fabricante](https://heltec.org/project/wifi-lora-32-v4/).
 
 ### Componentes y funciones
 
@@ -117,8 +117,8 @@ Se utilizarán placas **Heltec WiFi LoRa 32**, con un microcontrolador de la fam
 | Heltec de la boya (ESP32) | Boya | Adquirir y preparar las mediciones. |
 | Sensor DS18B20 | Boya | Medir temperatura del agua. |
 | Sensor de pH | Boya | Medir pH. |
-| Sensor de conductividad | Boya | Medir conductividad eléctrica. |
-| Sensor de presión atmosférica (por definir) | Boya | Medir la presión del aire. |
+| Módulo TDS analógico | Boya | Proporcionar una lectura relacionada con sólidos disueltos; su calibración y correspondencia con conductividad eléctrica siguen pendientes de verificar. |
+| BME280 | Boya | Obtener presión atmosférica; integración y montaje definitivos pendientes. |
 | Radio LoRa integrado en las placas Heltec | Boya y estación | Transportar las mediciones entre ambos extremos. |
 | Heltec receptor (ESP32) | Estación en tierra | Procesar datos, ejecutar el modelo adaptado y enviar resultados por Wi-Fi. |
 | Boya experimental | Manglar / pruebas | Proporcionar soporte físico al sistema. |
@@ -284,7 +284,13 @@ El umbral ambiental de aviso se definirá por separado del criterio de aceptaci�
 
 YakuToring se encuentra en desarrollo y validación experimental.
 
-Las exigencias, tareas y avances del equipo se organizan en nuestro tablero de GitHub Projects:
+- **Hardware probado de forma preliminar:** dos Heltec WiFi LoRa 32 V4, intercambio de datos por LoRa a 915 MHz y salida en pantalla OLED.
+- **Mediciones previstas:** temperatura (DS18B20), pH, módulo TDS y presión atmosférica (BME280). La calibración, el cableado final y la integración simultánea siguen pendientes.
+- **Plan de adquisición:** una sesión de sensores por hora con cinco lecturas, sujeto a ensayos de estabilidad y consumo.
+- **Energía actual para pruebas:** batería externa (*power bank*) de 5 V. Un panel solar USB de 5 W se evalúa como alternativa futura; no se ha validado la autonomía.
+- **Servicios aún no implementados:** AWS, app y notificaciones automáticas por WhatsApp. Tampoco se reporta un porcentaje de batería, porque ese sistema de medición no está implementado.
+
+Los módulos se documentan en [Proyecto](Proyecto/readme.md). Las exigencias, tareas y avances del equipo se organizan en nuestro tablero de GitHub Projects:
 
 **[Consultar el tablero del proyecto →](https://github.com/users/Marco404-Dev/projects/1)**
 
