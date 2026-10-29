@@ -15,3 +15,7 @@
 - Protección del circuito frente a humedad y salinidad antes del montaje en campo.
 
 **No se declara un esquema de conexiones ni firmware definitivo en esta etapa.**
+
+## Fichas técnicas y pruebas pendientes
+
+Consultar [Sensores.md](Sensores.md) para las funciones, limitaciones, pasos de calibración y referencias bibliográficas IEEE de cada sensor. El registro de pruebas se mantiene en [Plan de pruebas](../Plan_de_pruebas.md).
