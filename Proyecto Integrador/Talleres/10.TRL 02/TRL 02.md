@@ -37,7 +37,7 @@ Contará con un segundo ESP32 y un módulo LoRa, cuya función será recibir los
 
 **Figura 1.** Estación de adquisición y Gateway para monitoreo de calidad del agua. Fuente: adaptado de [5].
 
-<img width="208" height="52" alt="image" src="https://github.com/user-attachments/assets/c3ea1199-dec8-407f-aeb2-b6b74390860f" />
+<img width="728" height="414" alt="image" src="https://github.com/user-attachments/assets/db3f1d79-a7e6-4d00-b3d1-2d7e051aa67f" />
 
 ## 4. Procesamiento y estimación de oxígeno disuelto
 
