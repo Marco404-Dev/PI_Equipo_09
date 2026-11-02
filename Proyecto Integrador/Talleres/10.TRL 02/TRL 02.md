@@ -73,8 +73,6 @@ La revisión de estos documentos permite reconocer que existen desarrollos previ
 
 ## 7. Referencias bibliográficas
 
-**Formato IEEE:**
-
 [1] S. V. Moghadam, A. Sharafati, H. Feizi, S. M. S. Marjaie, S. B. H. S. Asadollah, and D. Motta, “An efficient strategy for predicting river dissolved oxygen concentration: Application of deep recurrent neural network model,” *Environmental Monitoring and Assessment*, vol. 193, no. 12, Art. no. 798, 2021, doi: 10.1007/s10661-021-09586-x.
 
 [2] E. Hadjisolomou et al., “Predicting coastal dissolved oxygen values with the use of artificial neural networks: A case study for Cyprus,” *IOP Conference Series: Earth and Environmental Science*, vol. 1123, Art. no. 012083, 2022, doi: 10.1088/1755-1315/1123/1/012083.
