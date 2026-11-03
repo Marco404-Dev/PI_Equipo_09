@@ -90,7 +90,7 @@ Comprobar en laboratorio que los sensores, el enlace LoRa y el modelo de estimac
 |       Volumen del material       | 0.00191362 m³ |
 |          Volumen total           | 0.01223233 m³ |
 
-Según el principio de Arquimides: Empuje = Peso = masa total x gravedad (9.81 m/s^2^)
+Según el principio de Arquimides: Empuje = Peso = masa total x gravedad (9.81 m/s^2$$)
 
 $$\rho_{\text{agua}} \cdot g \cdot V_{\text{desplazado}} = m_{\text{total}} \cdot g$$
 
