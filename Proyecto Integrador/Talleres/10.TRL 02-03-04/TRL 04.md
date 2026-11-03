@@ -2,9 +2,7 @@
 _PROYECTO INTEGRADOR 2026-II_
 ---
 
-======
 # Yakutoring, Informe tecnico
->>>>>>> b9a6445df820f590fe9eceb3848f45dac49ae01b
 
 | **Campo** | **Información** |
 |:---|----|
@@ -15,10 +13,7 @@ _PROYECTO INTEGRADOR 2026-II_
 | Tipo y versión | Informe de planificación y evidencias • Borrador v1 |
 | Fecha de elaboración | 1 de noviembre de 2026 |
 
-# 1. Resumen {#resumen}
-=======
-## 1. Resumen ejecutivo
->>>>>>> b9a6445df820f590fe9eceb3848f45dac49ae01b
+## 1. Resumen
 
 *YakuToring* propone medir temperatura, pH, conductividad y presión atmosférica del agua y su entorno para estimar oxígeno disuelto mediante aprendizaje profundo. Las lecturas se obtienen con sensores conectados a una *Heltec WiFi LoRa V4* y se transmiten a otra placa mediante *LoRa*. El modelo se ejecutará inicialmente en una computadora.
 
@@ -34,33 +29,23 @@ Según la Directiva N.º 001-2022-CONCYTEC-P, el TRL 4 exige integrar componente
 | Resultados de ensayos a nivel laboratorio | Registros fechados de sensores, paquetes *LoRa*, OD de referencia, OD estimado y errores. |
 | Pruebas de baja fidelidad | Ensayo en recipientes con agua de distinta salinidad y condiciones controladas, con fotografías y procedimientos. |
 
-# 3. Objetivos {#objetivos}
+## 3. Objetivos
 
-## 
-
-## 3.1 Objetivo general {#objetivo-general}
+### 3.1 Objetivo general
 
 Comprobar en laboratorio que los sensores, el enlace LoRa y el modelo de estimación de OD funcionan como un sistema integrado.
 
-## 
-
-## 3.2 Objetivos específicos {#objetivos-específicos}
+### 3.2 Objetivos específicos
 
 - Integrar la lectura de temperatura, pH, conductividad/salinidad derivada y presión atmosférica; registrar calibraciones y unidades.
-
 - Verificar la comunicación entre el transmisor y el receptor *LoRa* y documentar la integridad de las mediciones recibidas.
-
 - Conectar la recepción de los datos al modelo y generar predicciones de OD sin introducir manualmente los valores de prueba.
-
 - Comparar estimaciones con un medidor de OD de referencia de la familia *Hach HQ* (modelo por confirmar) en mediciones emparejadas.
-
 - Calcular indicadores de error e identificar el alcance y las limitaciones de la validación experimental.
 
-# 
+## 4. Arquitectura experimental propuesta
 
-# 4. Arquitectura experimental propuesta {#arquitectura-experimental-propuesta}
-
-**4.1 Arquitectura electrónica**
+### **4.1 Arquitectura electrónica**
 
 | **Etapa** | **Componente** | **Función** |
 |:---|----|----|
@@ -72,7 +57,7 @@ Comprobar en laboratorio que los sensores, el enlace LoRa y el modelo de estimac
 
 ![](media/image1.png){width="6.5757567804024495in" height="1.5365212160979878in"}
 
-**4.2 Diseño técnico definitivo de la boya.**
+### **4.2 Diseño técnico definitivo de la boya.**
 
 | **Sección** | **Componente** | **Descripción** |
 |:---|----|----|
@@ -81,7 +66,7 @@ Comprobar en laboratorio que los sensores, el enlace LoRa y el modelo de estimac
 | 3\. Inferior | DS18B20, sonda pH, sensor de conductividad/TDS | Aloja los sensores destinados al monitoreo de las condiciones fisicoquímicas del agua. Esta sección cuenta con dos subsecciones que permiten el contacto directo de los sensores con el medio y, al mismo tiempo, aíslan las secciones superiores para evitar el ingreso de agua y humedad hacia los componentes electrónicos. |
 
 - Características y dimensiones
-
+  
   ![](media/image2.png){width="6.570833333333334in" height="4.513194444444444in"}
 
   ![](media/image3.png){width="6.570833333333334in" height="4.552083333333333in"}
@@ -121,7 +106,7 @@ Además; considerando la geometría exterior de la boya y el volumen de agua req
 
 Finalmente, se estima que el tubo inferior permanezca completamente sumergido, junto con aproximadamente 11.73 cm de la sección cónica, mientras que el cuerpo cilíndrico principal se mantenga sobre la superficie del agua. Esto se podrá confirmar una vez se aplique en laboratorio.
 
-# 5. Estado del desarrollo al inicio del informe {#estado-del-desarrollo-al-inicio-del-informe}
+## 5. Estado del desarrollo al inicio del informe
 
 | **Elemento** | **Estado reportado** | **Brecha para la validación** |
 |:---|----|----|
@@ -135,11 +120,9 @@ Finalmente, se estima que el tubo inferior permanezca completamente sumergido, j
 | PCB y estructura 3D | Diseño/fabricación o impresión aún no disponibles para prueba integrada. | No son requisito inmediato de este prototipo de laboratorio. |
 | Web, base de datos y *WhatsApp* | Diseño y planificación; integración completa no acreditada. | No confundir demostraciones de interfaz con datos medidos. |
 
-# 6. Diseño de las pruebas de baja fidelidad {#diseño-de-las-pruebas-de-baja-fidelidad}
+## 6. Diseño de las pruebas de baja fidelidad
 
-## 
-
-## 6.1 Materiales y entorno {#materiales-y-entorno}
+### 6.1 Materiales y entorno
 
 - *Protoboard*/cableado provisional; 2 placas *Heltec WiFi LoRa V4*; sensores DS18B20, pH, conductividad y BME280; fuente de alimentación.
 
@@ -149,7 +132,7 @@ Finalmente, se estima que el tubo inferior permanezca completamente sumergido, j
 
 - Medidor de OD de referencia Hach HQ y su sonda compatible; verificar modelo, calibración y procedimiento del laboratorio.
 
-## 6.2 Escenarios propuestos {#escenarios-propuestos}
+### 6.2 Escenarios propuestos
 
 | **Escenario** | **Condición** | **Propósito** | **Registro** |
 |:---|----|----|----|
@@ -159,23 +142,16 @@ Finalmente, se estima que el tubo inferior permanezca completamente sumergido, j
 
 Se propone realizar 10 mediciones emparejadas por cada tipo de agua (30 en total), con fecha, hora y condiciones registradas.
 
-## 
-
-## 6.3 Procedimiento de ensayo {#procedimiento-de-ensayo}
+### 6.3 Procedimiento de ensayo
 
 1.  Verificar conexiones, alimentación, identificación y rangos de los sensores.
-
 2.  Calibrar las sondas y registrar los patrones y valores utilizados.
-
 3.  Preparar e identificar la muestra de agua y registrar sus condiciones.
-
 4.  Registrar las lecturas recibidas por LoRa y ejecutar el modelo con esos valores.
-
 5.  Medir el OD con el equipo Hach en el mismo recipiente y comparar ambas lecturas.
-
 6.  Repetir las pruebas, anotar incidencias y calcular los errores de estimación.
 
-# 7. Indicadores y criterios de análisis {#indicadores-y-criterios-de-análisis}
+## 7. Indicadores y criterios de análisis
 
 Se calculará el error absoluto \|OD estimado − OD de referencia\|, el MAE, el RMSE y el porcentaje de valores con error ≤ 0,5 mg/L.
 
@@ -187,9 +163,9 @@ Se calculará el error absoluto \|OD estimado − OD de referencia\|, el MAE, el
 | Error OD | Error absoluto, MAE, RMSE, sesgo y porcentaje dentro de ±0,5 mg/L. | ±0,5 mg/L es la meta indicada para el proyecto, no una exigencia genérica de CONCYTEC. |
 | Reproducibilidad | Bitácora, identificación de escenario, hora y versión del modelo. | Permitir repetir el ensayo y verificar resultados. |
 
-# 8. Plantillas de resultados (por completar) {#plantillas-de-resultados-por-completar}
+## 8. Plantillas de resultados (por completar)
 
-## 8.1 Registro de mediciones emparejadas {#registro-de-mediciones-emparejadas}
+### 8.1 Registro de mediciones emparejadas
 
 | **ID / fecha-hora** | **Escenario** | **T (°C)** | **pH** | **Cond. / sal.** | **P atm.** | **OD Hach (mg/L)** | **OD IA (mg/L)** | **\|Error\|** |
 |:---|----|----|----|----|----|----|----|----|
@@ -198,7 +174,7 @@ Se calculará el error absoluto \|OD estimado − OD de referencia\|, el MAE, el
 | M-003 / pendiente | E2 | --- | --- | --- | --- | --- | --- | --- |
 | M-004 / pendiente | E3 | --- | --- | --- | --- | --- | --- | --- |
 
-## 8.2 Resumen de desempeño {#resumen-de-desempeño}
+### 8.2 Resumen de desempeño
 
 | **Métrica** | **Resultado** | **Observaciones** |
 |:---|----|----|
@@ -209,7 +185,7 @@ Se calculará el error absoluto \|OD estimado − OD de referencia\|, el MAE, el
 | Porcentaje con \|error\| ≤ 0,5 mg/L | Pendiente | Comparar con la meta establecida. |
 | Recepción LoRa (%) | Pendiente | Recibidos / enviados × 100. |
 
-# 9. Matriz de evidencias para la presentación {#matriz-de-evidencias-para-la-presentación}
+## 9. Matriz de evidencias para la presentación
 
 | **Código** | **Evidencia requerida** | **Estado** |
 |:---|----|----|
@@ -222,17 +198,14 @@ Se calculará el error absoluto \|OD estimado − OD de referencia\|, el MAE, el
 | EV-07 | Video breve que muestre el flujo de extremo a extremo sin cortes engañosos. | Por grabar |
 | EV-08 | Bitácora de pruebas, calibraciones y anomalías. | Por elaborar |
 
-# 10. Riesgos y limitaciones declaradas {#riesgos-y-limitaciones-declaradas}
+## 10. Riesgos y limitaciones declaradas
 
 - El R² obtenido con un conjunto de datos externo no demuestra la precisión del modelo en el manglar de Tumbes.
-
 - La sonda de conductividad debe verificarse para el rango salino utilizado.
-
 - El BME280 mide presión atmosférica y no presión del agua.
-
 - La evaluación del modelo debe utilizar datos separados de los empleados para ajustarlo.
 
-# 11. Conclusión provisional y próximos pasos {#conclusión-provisional-y-próximos-pasos}
+## 11. Conclusión provisional y próximos pasos
 
 YakuToring podrá justificar TRL 4 cuando exista una demostración del sistema integrado y resultados de laboratorio documentados. Queda pendiente completar las lecturas conjuntas, transmitirlas por LoRa, ejecutar la inferencia y contrastar las predicciones de OD con el equipo Hach. Después se anexarán los registros y fotografías correspondientes.
 
