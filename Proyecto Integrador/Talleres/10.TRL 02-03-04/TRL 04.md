@@ -1,5 +1,5 @@
 ---
-subtitle: PROYECTO INTEGRADOR 2026-II
+*PROYECTO INTEGRADOR 2026-II*
 ---
 
 Yakutoring, Informe tecnico
