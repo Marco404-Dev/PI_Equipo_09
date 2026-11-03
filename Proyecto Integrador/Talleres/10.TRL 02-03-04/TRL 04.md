@@ -2,6 +2,7 @@
 _PROYECTO INTEGRADOR 2026-II_
 ---
 
+
 # Yakutoring, Informe tecnico
 
 | **Campo** | **Información** |
@@ -13,11 +14,13 @@ _PROYECTO INTEGRADOR 2026-II_
 | Tipo y versión | Informe de planificación y evidencias • Borrador v1 |
 | Fecha de elaboración | 1 de noviembre de 2026 |
 
+
 ## 1. Resumen
 
 *YakuToring* propone medir temperatura, pH, conductividad y presión atmosférica del agua y su entorno para estimar oxígeno disuelto mediante aprendizaje profundo. Las lecturas se obtienen con sensores conectados a una *Heltec WiFi LoRa V4* y se transmiten a otra placa mediante *LoRa*. El modelo se ejecutará inicialmente en una computadora.
 
 En esta etapa se verificará el funcionamiento del conjunto en laboratorio. La instalación en el manglar y la autonomía prolongada se evaluarán posteriormente.
+
 
 ## 2. Fundamento y alcance de TRL 4
 
@@ -28,6 +31,7 @@ Según la Directiva N.º 001-2022-CONCYTEC-P, el TRL 4 exige integrar componente
 | Prototipo funcional con componentes básicos integrados | Montaje de sensores, *Heltec* transmisora, enlace *LoRa*, receptor y ejecución del modelo en computadora. |
 | Resultados de ensayos a nivel laboratorio | Registros fechados de sensores, paquetes *LoRa*, OD de referencia, OD estimado y errores. |
 | Pruebas de baja fidelidad | Ensayo en recipientes con agua de distinta salinidad y condiciones controladas, con fotografías y procedimientos. |
+
 
 ## 3. Objetivos
 
@@ -42,6 +46,7 @@ Comprobar en laboratorio que los sensores, el enlace LoRa y el modelo de estimac
 - Conectar la recepción de los datos al modelo y generar predicciones de OD sin introducir manualmente los valores de prueba.
 - Comparar estimaciones con un medidor de OD de referencia de la familia *Hach HQ* (modelo por confirmar) en mediciones emparejadas.
 - Calcular indicadores de error e identificar el alcance y las limitaciones de la validación experimental.
+
 
 ## 4. Arquitectura experimental propuesta
 
@@ -106,6 +111,7 @@ Además; considerando la geometría exterior de la boya y el volumen de agua req
 
 Finalmente, se estima que el tubo inferior permanezca completamente sumergido, junto con aproximadamente 11.73 cm de la sección cónica, mientras que el cuerpo cilíndrico principal se mantenga sobre la superficie del agua. Esto se podrá confirmar una vez se aplique en laboratorio.
 
+
 ## 5. Estado del desarrollo al inicio del informe
 
 | **Elemento** | **Estado reportado** | **Brecha para la validación** |
@@ -119,6 +125,7 @@ Finalmente, se estima que el tubo inferior permanezca completamente sumergido, j
 | Modelo de *Deep Learning* | Entrenado previamente con datos externos; R² ≈ 0,87 reportado. | Confirmar arquitectura/versión, documentar *dataset* y validar en ensayos propios. |
 | PCB y estructura 3D | Diseño/fabricación o impresión aún no disponibles para prueba integrada. | No son requisito inmediato de este prototipo de laboratorio. |
 | Web, base de datos y *WhatsApp* | Diseño y planificación; integración completa no acreditada. | No confundir demostraciones de interfaz con datos medidos. |
+
 
 ## 6. Diseño de las pruebas de baja fidelidad
 
@@ -151,6 +158,7 @@ Se propone realizar 10 mediciones emparejadas por cada tipo de agua (30 en total
 5.  Medir el OD con el equipo Hach en el mismo recipiente y comparar ambas lecturas.
 6.  Repetir las pruebas, anotar incidencias y calcular los errores de estimación.
 
+
 ## 7. Indicadores y criterios de análisis
 
 Se calculará el error absoluto \|OD estimado − OD de referencia\|, el MAE, el RMSE y el porcentaje de valores con error ≤ 0,5 mg/L.
@@ -162,6 +170,7 @@ Se calculará el error absoluto \|OD estimado − OD de referencia\|, el MAE, el
 | Calidad de datos | Lecturas válidas, calibraciones y fallos. | Sin ocultar mediciones rechazadas o fuera de rango. |
 | Error OD | Error absoluto, MAE, RMSE, sesgo y porcentaje dentro de ±0,5 mg/L. | ±0,5 mg/L es la meta indicada para el proyecto, no una exigencia genérica de CONCYTEC. |
 | Reproducibilidad | Bitácora, identificación de escenario, hora y versión del modelo. | Permitir repetir el ensayo y verificar resultados. |
+
 
 ## 8. Plantillas de resultados (por completar)
 
@@ -185,6 +194,7 @@ Se calculará el error absoluto \|OD estimado − OD de referencia\|, el MAE, el
 | Porcentaje con \|error\| ≤ 0,5 mg/L | Pendiente | Comparar con la meta establecida. |
 | Recepción LoRa (%) | Pendiente | Recibidos / enviados × 100. |
 
+
 ## 9. Matriz de evidencias para la presentación
 
 | **Código** | **Evidencia requerida** | **Estado** |
@@ -198,6 +208,7 @@ Se calculará el error absoluto \|OD estimado − OD de referencia\|, el MAE, el
 | EV-07 | Video breve que muestre el flujo de extremo a extremo sin cortes engañosos. | Por grabar |
 | EV-08 | Bitácora de pruebas, calibraciones y anomalías. | Por elaborar |
 
+
 ## 10. Riesgos y limitaciones declaradas
 
 - El R² obtenido con un conjunto de datos externo no demuestra la precisión del modelo en el manglar de Tumbes.
@@ -205,9 +216,11 @@ Se calculará el error absoluto \|OD estimado − OD de referencia\|, el MAE, el
 - El BME280 mide presión atmosférica y no presión del agua.
 - La evaluación del modelo debe utilizar datos separados de los empleados para ajustarlo.
 
+
 ## 11. Conclusión provisional y próximos pasos
 
 YakuToring podrá justificar TRL 4 cuando exista una demostración del sistema integrado y resultados de laboratorio documentados. Queda pendiente completar las lecturas conjuntas, transmitirlas por LoRa, ejecutar la inferencia y contrastar las predicciones de OD con el equipo Hach. Después se anexarán los registros y fotografías correspondientes.
+
 
 # Referencias
 
