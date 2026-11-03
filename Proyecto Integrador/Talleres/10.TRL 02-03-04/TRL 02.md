@@ -21,13 +21,21 @@ En cuanto al monitoreo mediante dispositivos IoT, Blanco-Gómez et al. [4] desar
 
 ### 3.2. Matriz morfológica y selección de alternativas.
 
-### 3.3. Caja blanca o esquemático del sistema.
+## 4. Diseño conceptual del sistema
+### Bocetos Iniciales:
+Ideas preliminares de la geometría de la boya, distribución de componentes y disposición de sensores.
 
-## 4. Arquitectura conceptual del sistema
+### Modelo tridimensional: 
+Diseño desarrollado en Onshape, dimensiones, compartimentos y distribución de componentes.
 
-La solución tecnológica contempla dos estaciones comunicadas mediante tecnología LoRa:
+## 5. Arquitectura conceptual del sistema
+### 5.1.Esquemático general del sistema
+La arquitectura conceptual del sistema se representa mediante un esquema funcional que muestra la distribución de sus principales componentes y
+la relación entre las etapas de adquisición, transmisión, procesamiento
+y visualización de los datos. Se consideran dos estaciones comunicadas mediante tecnologia LoRa: una boya de monitoreo y una estacion terrestre, vinculadas con una plataforma digital para el almacenamiento y consulta de la
+información.
 
-### 4.1. Boya de monitoreo
+### 5.2. Boya de monitoreo
 
 Consiste en una estructura de geometría circular que incorpora los sensores adquiridos para medir:
 
@@ -38,7 +46,7 @@ Consiste en una estructura de geometría circular que incorpora los sensores adq
 
 Los sensores estarán conectados a un microcontrolador ESP32, encargado de recopilar las mediciones y transmitirlas mediante un módulo de comunicación LoRa. La estructura física considera un cuerpo flotante y una sección inferior destinada a alojar o sostener los componentes que estarán en contacto con el agua.
 
-### 4.2. Estación en tierra
+### 5.3. Estación en tierra
 
 Contará con un segundo ESP32 y un módulo LoRa, cuya función será recibir los datos transmitidos desde la boya y permitir su envío hacia la plataforma digital.
 
@@ -46,7 +54,11 @@ Contará con un segundo ESP32 y un módulo LoRa, cuya función será recibir los
 
 <img width="728" height="414" alt="image" src="https://github.com/user-attachments/assets/db3f1d79-a7e6-4d00-b3d1-2d7e051aa67f" />
 
-## 5. Procesamiento y estimación de oxígeno disuelto
+### 5.4. Procesamiento y comunicación de datos
+
+
+
+## 6. Procesamiento y estimación de oxígeno disuelto
 
 El sistema contempla el desarrollo de un modelo de aprendizaje profundo que será entrenado previamente en una computadora utilizando registros de datos. Una vez entrenado, el modelo se utilizará para estimar la concentración de OD a partir de las variables recopiladas por la boya.
 
@@ -54,23 +66,23 @@ La información recibida en la estación terrestre formará parte del flujo de d
 
 La ubicación definitiva del procesamiento del modelo dentro de esta arquitectura deberá precisarse durante el desarrollo del sistema.
 
-## 6. Alimentación energética
+## 7. Alimentación energética
 
 Se contempla una alternativa de alimentación mediante batería recargable y panel solar. La configuración definitiva deberá considerar la compatibilidad entre ambos elementos, los requerimientos energéticos de los componentes y la autonomía necesaria para el funcionamiento de la boya.
 
-## 7. Antecedentes tecnológicos y análisis preliminar de patentes
+## 8. Antecedentes tecnológicos y análisis preliminar de patentes
 
 Además de la revisión de investigaciones científicas, se consideran antecedentes de propiedad industrial relacionados con el monitoreo multiparamétrico del agua y el uso de sensores virtuales. La revisión permite identificar soluciones tecnológicas existentes y reconocer aspectos similares o diferenciadores respecto a la propuesta.
 
 Entre los antecedentes identificados se encuentran:
 
-### 7.1. Sistema IoT multiparamétrico y monoparamétrico para el monitoreo de la calidad del agua (CO2022004253A1)
+### 8.1. Sistema IoT multiparamétrico y monoparamétrico para el monitoreo de la calidad del agua (CO2022004253A1)
 
 Describe un sistema que integra sensores de variables como turbidez, conductividad eléctrica, temperatura y pH. También contempla módulos alimentados mediante paneles solares y baterías, transmisión de datos a través de una puerta de enlace y almacenamiento en la nube [6].
 
 Este antecedente guarda relación con la arquitectura de monitoreo y transmisión de datos propuesta.
 
-### 7.2. Virtual Sensor Performance Monitoring Device and Method (US20260072716A1)
+### 8.2. Virtual Sensor Performance Monitoring Device and Method (US20260072716A1)
 
 Presenta un sistema de sensor virtual basado en redes neuronales artificiales que utiliza información ambiental de instalaciones acuícolas para predecir la concentración de oxígeno disuelto [7].
 
@@ -78,7 +90,7 @@ Este documento constituye un antecedente especialmente relacionado con el compon
 
 La revisión de estos documentos permite reconocer que existen desarrollos previos tanto en sistemas IoT para el monitoreo de calidad del agua como en modelos de estimación virtual de oxígeno disuelto. Por ello, será necesario analizar las características técnicas, el alcance de las reivindicaciones y las diferencias entre dichas soluciones y la propuesta desarrollada.
 
-## 8. Referencias bibliográficas
+## 9. Referencias bibliográficas
 
 [1] S. V. Moghadam, A. Sharafati, H. Feizi, S. M. S. Marjaie, S. B. H. S. Asadollah, and D. Motta, “An efficient strategy for predicting river dissolved oxygen concentration: Application of deep recurrent neural network model,” *Environmental Monitoring and Assessment*, vol. 193, no. 12, Art. no. 798, 2021, doi: 10.1007/s10661-021-09586-x.
 
