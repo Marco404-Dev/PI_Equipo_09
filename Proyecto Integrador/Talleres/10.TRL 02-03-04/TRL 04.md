@@ -2,7 +2,7 @@
 _PROYECTO INTEGRADOR 2026-II_
 ---
 
-## Yakutoring, Informe tecnico
+# Yakutoring, Informe tecnico
 
 | **Campo** | **Información** |
 |----|----|
@@ -13,13 +13,13 @@ _PROYECTO INTEGRADOR 2026-II_
 | Tipo y versión | Informe de planificación y evidencias • Borrador v1 |
 | Fecha de elaboración | 1 de noviembre de 2026 |
 
-# 1. Resumen ejecutivo {#resumen-ejecutivo}
+## 1. Resumen ejecutivo
 
 YakuToring propone medir temperatura, pH, conductividad y presión atmosférica del agua y su entorno para estimar oxígeno disuelto mediante aprendizaje profundo. Las lecturas se obtienen con sensores conectados a una Heltec WiFi LoRa V4 y se transmiten a otra placa mediante LoRa. El modelo se ejecutará inicialmente en una computadora.
 
 En esta etapa se verificará el funcionamiento del conjunto en laboratorio. La instalación en el manglar y la autonomía prolongada se evaluarán posteriormente.
 
-# 2. Fundamento y alcance de TRL 4 {#fundamento-y-alcance-de-trl-4}
+## 2. Fundamento y alcance de TRL 4
 
 Según la Directiva N.º 001-2022-CONCYTEC-P, el TRL 4 exige integrar componentes básicos y comprobarlos mediante ensayos de baja fidelidad en laboratorio \[1\]. Esta definición coincide con el material de clase de la UPCH \[2\] y la escala de NASA \[3\].
 
