@@ -49,7 +49,7 @@ La ubicación definitiva del procesamiento del modelo dentro de esta arquitectur
 
 ## 5. Alimentación energética
 
-Se contempla una alternativa de alimentación mediante pila y panel solar. La configuración definitiva deberá considerar la compatibilidad entre ambos elementos, los requerimientos energéticos de los componentes y la autonomía necesaria para el funcionamiento de la boya.
+Se contempla una alternativa de alimentación mediante batería recargable y panel solar. La configuración definitiva deberá considerar la compatibilidad entre ambos elementos, los requerimientos energéticos de los componentes y la autonomía necesaria para el funcionamiento de la boya.
 
 ## 6. Antecedentes tecnológicos y análisis preliminar de patentes
 
