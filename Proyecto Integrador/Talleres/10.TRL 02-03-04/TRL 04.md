@@ -67,7 +67,7 @@ Comprobar en laboratorio que los sensores, el enlace LoRa y el modelo de estimac
 
 - Características y dimensiones
   
-  <img width="631" height="433" alt="image" src="https://github.com/user-attachments/assets/02313a49-8e54-41a4-992e-691c55964f27" />
+  <img width="986" height="677" alt="image" src="https://github.com/user-attachments/assets/23a25e52-c5b0-483c-92a1-44c772bbbf81" />
 
   <img width="986" height="683" alt="image" src="https://github.com/user-attachments/assets/b017211d-a6c8-4b4a-8211-829c8142ad59" />
 
