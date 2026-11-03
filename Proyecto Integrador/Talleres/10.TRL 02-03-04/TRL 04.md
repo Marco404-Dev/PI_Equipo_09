@@ -2,7 +2,7 @@
 _PROYECTO INTEGRADOR 2026-II_
 ---
 
-Yakutoring, Informe tecnico
+## Yakutoring, Informe tecnico
 
 | **Campo** | **Información** |
 |----|----|
