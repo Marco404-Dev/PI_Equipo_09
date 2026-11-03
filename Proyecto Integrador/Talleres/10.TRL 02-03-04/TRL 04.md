@@ -55,7 +55,7 @@ Comprobar en laboratorio que los sensores, el enlace LoRa y el modelo de estimac
 | 4\. Inferencia | Computadora y modelo de Deep Learning | Aplicar preprocesamiento idéntico al de entrenamiento y producir OD estimado (mg/L). |
 | 5\. Contraste | Medidor de OD Hach HQ | Obtener medición de referencia en el mismo recipiente y momento aproximado. |
 
-![](media/image1.png){width="6.5757567804024495in" height="1.5365212160979878in"}
+<img width="986" height="230" alt="image" src="https://github.com/user-attachments/assets/7594051f-ac76-4329-bf49-0d7ab47202cb" />
 
 ### **4.2 Diseño técnico definitivo de la boya.**
 
@@ -67,11 +67,11 @@ Comprobar en laboratorio que los sensores, el enlace LoRa y el modelo de estimac
 
 - Características y dimensiones
   
-  ![](media/image2.png){width="6.570833333333334in" height="4.513194444444444in"}
+  <img width="631" height="433" alt="image" src="https://github.com/user-attachments/assets/02313a49-8e54-41a4-992e-691c55964f27" />
 
-  ![](media/image3.png){width="6.570833333333334in" height="4.552083333333333in"}
+  <img width="986" height="683" alt="image" src="https://github.com/user-attachments/assets/b017211d-a6c8-4b4a-8211-829c8142ad59" />
 
-  ![](media/image4.png){width="6.570833333333334in" height="4.53125in"}
+  <img width="986" height="680" alt="image" src="https://github.com/user-attachments/assets/4b68e8a0-f1d0-4a61-8741-465512db5869" />
 
 - Selección de material
 
