@@ -35,13 +35,13 @@ Diseño desarrollado en Onshape, dimensiones, compartimentos y distribución de 
 
 ### 4.3. Diseño de la placa electrónica (PCB): 
 Distribución prevista de componentes, conexiones y organización del circuito electrónico.
-### Esquemático:
+### 4.3.1. Esquemático:
 <img width="1028" height="727" alt="image" src="https://github.com/user-attachments/assets/cf62504f-114d-44ee-90a8-c8ba58e476d2" />
 
-### 2D
+### 4.3.2. 2D
 <img width="734" height="736" alt="image" src="https://github.com/user-attachments/assets/f97872e7-8144-4518-b649-cc531ce1d542" />
 
-### 3D
+### 4.3.3. 3D
 <img width="798" height="742" alt="image" src="https://github.com/user-attachments/assets/8e2f895a-b6b9-4487-8453-e9d909d46e17" />
 
 
