@@ -27,7 +27,7 @@ El análisis funcional mediante la caja negra permite identificar las principale
 </p>
 
 <p align="center">
-  **Figura X. Caja negra del sistema YakuToring.**
+  **Figura 1. Caja negra del sistema YakuToring.**
 </p>
 
 ### 3.2. Matriz morfológica y selección de alternativas
@@ -39,7 +39,7 @@ La matriz morfológica permite identificar distintas alternativas para cumplir l
 </p>
 
 <p align="center">
-  **Figura X. Matriz morfológica y selección de alternativas del sistema.**
+  **Figura 2. Matriz morfológica y selección de alternativas del sistema.**
 </p>
 
 ## 4. Diseño conceptual del sistema
@@ -54,7 +54,7 @@ Se elaboraron bocetos preliminares para explorar distintas configuraciones de la
 </p>
 
 <p align="center">
-  **Figura X. Bocetos preliminares de la estructura de la boya.**
+  **Figura 3 y 4. Bocetos preliminares de la estructura de la boya.**
 </p>
 
 ### 4.2. Modelo tridimensional
@@ -66,7 +66,7 @@ Se desarrolló un modelo tridimensional de la boya mediante el software Onshape,
 </p>
 
 <p align="center">
-  **Figura X. Modelo tridimensional conceptual de la boya desarrollado en Onshape.**
+  **Figura 5. Modelo tridimensional conceptual de la boya desarrollado en Onshape.**
 </p>
 
 ### 4.3. Diseño de la placa electrónica (PCB)
@@ -80,7 +80,7 @@ Se elaboró un diseño preliminar de la placa electrónica (PCB) para organizar 
 </p>
 
 <p align="center">
-  **Figura X. Esquemático del circuito electrónico propuesto.**
+  **Figura 6. Esquemático del circuito electrónico propuesto.**
 </p>
 
 #### 4.3.2. Diseño 2D
@@ -90,7 +90,7 @@ Se elaboró un diseño preliminar de la placa electrónica (PCB) para organizar 
 </p>
 
 <p align="center">
-  **Figura X. Distribución bidimensional de los componentes de la PCB.**
+  **Figura 7. Distribución bidimensional de los componentes de la PCB.**
 </p>
 
 #### 4.3.3. Diseño 3D
@@ -100,7 +100,7 @@ Se elaboró un diseño preliminar de la placa electrónica (PCB) para organizar 
 </p>
 
 <p align="center">
-  **Figura X. Representación tridimensional de la PCB.**
+  **Figura 8. Representación tridimensional de la PCB.**
 </p>
 
 ## 5. Arquitectura conceptual del sistema
@@ -114,7 +114,7 @@ La arquitectura conceptual del sistema se representa mediante un esquema funcion
 </p>
 
 <p align="center">
-  **Figura X. Esquemático general de la arquitectura del sistema YakuToring.**
+  **Figura 9. Esquemático general de la arquitectura del sistema YakuToring.**
 </p>
 
 ### 5.2. Boya de monitoreo
@@ -137,7 +137,7 @@ Contará con un segundo ESP32 y un módulo LoRa, cuya función será recibir los
 </p>
 
 <p align="center">
-  **Figura X. Estación de adquisición y Gateway para monitoreo de calidad del agua.**
+  **Figura 10. Estación de adquisición y Gateway para monitoreo de calidad del agua.**
 </p>
 
 Fuente: Adaptado de [5].
@@ -151,7 +151,7 @@ El flujo de información contempla la adquisición de las variables mediante los
 </p>
 
 <p align="center">
-  **Figura X. Flujo conceptual de procesamiento y comunicación de datos del sistema.**
+  **Figura 11. Flujo conceptual de procesamiento y comunicación de datos del sistema.**
 </p>
 
 ## 6. Diseño conceptual de la aplicación e interacción con el usuario
@@ -168,7 +168,7 @@ Los diagramas representan las principales etapas de navegación e interacción p
 </p>
 
 <p align="center">
-  **Figura X. Diagramas conceptuales de navegación e interacción del usuario con la aplicación.**
+  **Figura 12 y 13. Diagramas conceptuales de navegación e interacción del usuario con la aplicación.**
 </p>
 
 ## 7. Procesamiento y estimación de oxígeno disuelto
