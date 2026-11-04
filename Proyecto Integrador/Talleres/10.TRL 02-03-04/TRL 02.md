@@ -18,15 +18,20 @@ En cuanto al monitoreo mediante dispositivos IoT, Blanco-Gómez et al. [4] desar
 
 ## 3. Análisis funcional y formulación del concepto tecnológico
 ### 3.1. Caja negra del sistema.
+<img width="1443" height="816" alt="image" src="https://github.com/user-attachments/assets/6c32908d-8eb5-4d32-86c1-fea8d096d5f4" />
 
 ### 3.2. Matriz morfológica y selección de alternativas.
+<img width="1365" height="796" alt="image" src="https://github.com/user-attachments/assets/abfcba42-3ab4-46b9-8077-a357fb85b7fb" />
 
 ## 4. Diseño conceptual del sistema
 ### Bocetos Iniciales:
 Ideas preliminares de la geometría de la boya, distribución de componentes y disposición de sensores.
+<img width="668" height="789" alt="image" src="https://github.com/user-attachments/assets/f9a404be-0aaa-4dae-8e39-b0f910220881" />
+<img width="758" height="745" alt="image" src="https://github.com/user-attachments/assets/98fc5416-c04b-4f9a-854b-953cbc7f51b1" />
 
 ### Modelo tridimensional: 
 Diseño desarrollado en Onshape, dimensiones, compartimentos y distribución de componentes.
+<img width="641" height="767" alt="image" src="https://github.com/user-attachments/assets/d1167050-7863-4e87-9d5e-5d5c392036bd" />
 
 ## 5. Arquitectura conceptual del sistema
 ### 5.1.Esquemático general del sistema
@@ -34,6 +39,7 @@ La arquitectura conceptual del sistema se representa mediante un esquema funcion
 la relación entre las etapas de adquisición, transmisión, procesamiento
 y visualización de los datos. Se consideran dos estaciones comunicadas mediante tecnologia LoRa: una boya de monitoreo y una estacion terrestre, vinculadas con una plataforma digital para el almacenamiento y consulta de la
 información.
+<img width="1332" height="792" alt="image" src="https://github.com/user-attachments/assets/a1a6bf46-09bb-4162-9661-20e042b3668f" />
 
 ### 5.2. Boya de monitoreo
 
@@ -56,9 +62,14 @@ Contará con un segundo ESP32 y un módulo LoRa, cuya función será recibir los
 
 ### 5.4. Procesamiento y comunicación de datos
 
+## 6. Diseño conceptual de la aplicación e interacción con el usuario
+Se plantea una aplicación móvil que permitirá al usuario consultar la información recopilada por el sistema de monitoreo. El flujo de interacción contempla el acceso a la plataforma, la visualización de las variables fisicoquímicas medidas, la consulta de las estimaciones de oxígeno disuelto y la revisión de notificaciones sobre posibles situaciones de interés.
 
+### Diagrama de flujo de navegación del usuario.
+<img width="1587" height="1031" alt="image" src="https://github.com/user-attachments/assets/b08218ae-92a1-4f47-a070-6b2118bc4b27" />
+<img width="1352" height="1027" alt="image" src="https://github.com/user-attachments/assets/b97aa8bb-034d-445a-a5cb-3cad2c8a475d" />
 
-## 6. Procesamiento y estimación de oxígeno disuelto
+## 7. Procesamiento y estimación de oxígeno disuelto
 
 El sistema contempla el desarrollo de un modelo de aprendizaje profundo que será entrenado previamente en una computadora utilizando registros de datos. Una vez entrenado, el modelo se utilizará para estimar la concentración de OD a partir de las variables recopiladas por la boya.
 
@@ -66,23 +77,23 @@ La información recibida en la estación terrestre formará parte del flujo de d
 
 La ubicación definitiva del procesamiento del modelo dentro de esta arquitectura deberá precisarse durante el desarrollo del sistema.
 
-## 7. Alimentación energética
+## 8. Alimentación energética
 
 Se contempla una alternativa de alimentación mediante batería recargable y panel solar. La configuración definitiva deberá considerar la compatibilidad entre ambos elementos, los requerimientos energéticos de los componentes y la autonomía necesaria para el funcionamiento de la boya.
 
-## 8. Antecedentes tecnológicos y análisis preliminar de patentes
+## 9. Antecedentes tecnológicos y análisis preliminar de patentes
 
 Además de la revisión de investigaciones científicas, se consideran antecedentes de propiedad industrial relacionados con el monitoreo multiparamétrico del agua y el uso de sensores virtuales. La revisión permite identificar soluciones tecnológicas existentes y reconocer aspectos similares o diferenciadores respecto a la propuesta.
 
 Entre los antecedentes identificados se encuentran:
 
-### 8.1. Sistema IoT multiparamétrico y monoparamétrico para el monitoreo de la calidad del agua (CO2022004253A1)
+### 9.1. Sistema IoT multiparamétrico y monoparamétrico para el monitoreo de la calidad del agua (CO2022004253A1)
 
 Describe un sistema que integra sensores de variables como turbidez, conductividad eléctrica, temperatura y pH. También contempla módulos alimentados mediante paneles solares y baterías, transmisión de datos a través de una puerta de enlace y almacenamiento en la nube [6].
 
 Este antecedente guarda relación con la arquitectura de monitoreo y transmisión de datos propuesta.
 
-### 8.2. Virtual Sensor Performance Monitoring Device and Method (US20260072716A1)
+### 9.2. Virtual Sensor Performance Monitoring Device and Method (US20260072716A1)
 
 Presenta un sistema de sensor virtual basado en redes neuronales artificiales que utiliza información ambiental de instalaciones acuícolas para predecir la concentración de oxígeno disuelto [7].
 
@@ -90,7 +101,7 @@ Este documento constituye un antecedente especialmente relacionado con el compon
 
 La revisión de estos documentos permite reconocer que existen desarrollos previos tanto en sistemas IoT para el monitoreo de calidad del agua como en modelos de estimación virtual de oxígeno disuelto. Por ello, será necesario analizar las características técnicas, el alcance de las reivindicaciones y las diferencias entre dichas soluciones y la propuesta desarrollada.
 
-## 9. Referencias bibliográficas
+## 10. Referencias bibliográficas
 
 [1] S. V. Moghadam, A. Sharafati, H. Feizi, S. M. S. Marjaie, S. B. H. S. Asadollah, and D. Motta, “An efficient strategy for predicting river dissolved oxygen concentration: Application of deep recurrent neural network model,” *Environmental Monitoring and Assessment*, vol. 193, no. 12, Art. no. 798, 2021, doi: 10.1007/s10661-021-09586-x.
 
