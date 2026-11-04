@@ -27,7 +27,7 @@ El análisis funcional mediante la caja negra permite identificar las principale
 </p>
 
 <p align="center">
-  **Figura 1. Caja negra del sistema YakuToring.**
+  ** Figura 1. Caja negra del sistema YakuToring. **
 </p>
 
 ### 3.2. Matriz morfológica y selección de alternativas
