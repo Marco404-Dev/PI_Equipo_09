@@ -61,6 +61,7 @@ Contará con un segundo ESP32 y un módulo LoRa, cuya función será recibir los
 <img width="728" height="414" alt="image" src="https://github.com/user-attachments/assets/db3f1d79-a7e6-4d00-b3d1-2d7e051aa67f" />
 
 ### 5.4. Procesamiento y comunicación de datos
+<img width="1776" height="785" alt="image" src="https://github.com/user-attachments/assets/e9fe87cd-6bb3-4b7f-9e21-1ee6766afa0a" />
 
 ## 6. Diseño conceptual de la aplicación e interacción con el usuario
 Se plantea una aplicación móvil que permitirá al usuario consultar la información recopilada por el sistema de monitoreo. El flujo de interacción contempla el acceso a la plataforma, la visualización de las variables fisicoquímicas medidas, la consulta de las estimaciones de oxígeno disuelto y la revisión de notificaciones sobre posibles situaciones de interés.
