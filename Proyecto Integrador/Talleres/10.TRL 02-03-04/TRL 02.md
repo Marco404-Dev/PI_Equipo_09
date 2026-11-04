@@ -24,14 +24,26 @@ En cuanto al monitoreo mediante dispositivos IoT, Blanco-Gómez et al. [4] desar
 <img width="1365" height="796" alt="image" src="https://github.com/user-attachments/assets/abfcba42-3ab4-46b9-8077-a357fb85b7fb" />
 
 ## 4. Diseño conceptual del sistema
-### Bocetos Iniciales:
+### 4.1. Bocetos Iniciales:
 Ideas preliminares de la geometría de la boya, distribución de componentes y disposición de sensores.
 <img width="668" height="789" alt="image" src="https://github.com/user-attachments/assets/f9a404be-0aaa-4dae-8e39-b0f910220881" />
 <img width="758" height="745" alt="image" src="https://github.com/user-attachments/assets/98fc5416-c04b-4f9a-854b-953cbc7f51b1" />
 
-### Modelo tridimensional: 
+### 4.2. Modelo tridimensional: 
 Diseño desarrollado en Onshape, dimensiones, compartimentos y distribución de componentes.
 <img width="641" height="767" alt="image" src="https://github.com/user-attachments/assets/d1167050-7863-4e87-9d5e-5d5c392036bd" />
+
+### 4.3. Diseño de la placa electrónica (PCB): 
+Distribución prevista de componentes, conexiones y organización del circuito electrónico.
+### Esquemático:
+<img width="1028" height="727" alt="image" src="https://github.com/user-attachments/assets/cf62504f-114d-44ee-90a8-c8ba58e476d2" />
+
+### 2D
+<img width="734" height="736" alt="image" src="https://github.com/user-attachments/assets/f97872e7-8144-4518-b649-cc531ce1d542" />
+
+### 3D
+<img width="798" height="742" alt="image" src="https://github.com/user-attachments/assets/8e2f895a-b6b9-4487-8453-e9d909d46e17" />
+
 
 ## 5. Arquitectura conceptual del sistema
 ### 5.1.Esquemático general del sistema
