@@ -114,9 +114,8 @@ Finalmente, se plantea verificar experimentalmente que el cinturón mantenga la 
 | Presión hidrostática |	Superficie sumergida | Se evaluará los esfuerzos debido a la presión del agua del volumen sumergido. |
 | Tensión del ancla | 	| Se evaluará los esfuerzos transmitidos por el sistema de anclaje en el cinturón y en la unión con la boya. |
 
-Para el cálculo de la fuerza de arrastre se tomó como referencia el artículo de investigación [5], del cual se consideró la siguiente expresión:
-\[\boxed{F_D=\frac{1{2}\rho C_D A U^2}\]
-Asimismo, se adoptó un coeficiente de arrastre (\(C_D\)) de **1,01** para el análisis.
+Para el cálculo de la fuerza de arrastre se tomó como referencia el artículo de investigación [5], del cual se consideró la siguiente expresión: $$F_D = \frac{1}{2} C_d \, \rho \, A \, v^2$$
+Asimismo, se adoptó un coeficiente de arrastre **$C_d$** de **1,01** para el análisis.
 
 
 ### **9. Evaluación de estabilidad y comportamiento esperado**
