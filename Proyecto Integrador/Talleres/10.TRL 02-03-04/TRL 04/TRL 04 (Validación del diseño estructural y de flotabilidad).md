@@ -108,17 +108,21 @@ Finalmente, se plantea verificar experimentalmente que el cinturón mantenga la 
 ### **8.1. Cargas consideradas en el análisis**
 
 | **Tipo de carga** |	**Zona de aplicación** |	**Objetivo** |
-| Fuerza de arrastre |		| Se evaluará los esfuerzos por resistencia al flujo de la superficie expuesta al agua. |
-| Fuerza del oleaje | Superficie de contacto con el agua	| Se evaluará la respuesta estructural ante las acciones de las olas. |
-| Presión hidrostática |	Superficie sumergida | Se evaluará los esfuerzos debido a la presión del agua. |
-| Tensión del ancla |	Zona de unión del cinturón con la boya	| Se evaluará los esfuerzos transmitidos por el sistema de anclaje. |
+|:------------------|------------------------|---------------|
+| Fuerza de arrastre |		| Se evaluará los esfuerzos por resistencia al flujo de la superficie expuesta al aire. |
+| Fuerza del oleaje | 	| Se evaluará la respuesta estructural ante las acciones de las olas de la superficie en contacto con el agua. |
+| Presión hidrostática |	Superficie sumergida | Se evaluará los esfuerzos debido a la presión del agua del volumen sumergido. |
+| Tensión del ancla | 	| Se evaluará los esfuerzos transmitidos por el sistema de anclaje en el cinturón y en la unión con la boya. |
 
-Para el cálculo de la fuerza de arrastre se tomó como referencia el artículo de investigación [1], del cual se consideró la siguiente expresión:
+Para el cálculo de la fuerza de arrastre se tomó como referencia el artículo de investigación [5], del cual se consideró la siguiente expresión:
 \[\boxed{F_D=\frac{1{2}\rho C_D A U^2}\]
 Asimismo, se adoptó un coeficiente de arrastre (\(C_D\)) de **1,01** para el análisis.
 
 
 ### **9. Evaluación de estabilidad y comportamiento esperado**
+
+
+
 Aquí relacionas los resultados de flotabilidad + SimScale y explicas qué indican sobre el comportamiento esperado de la boya.
 
 ### **10. Validación experimental prevista**
