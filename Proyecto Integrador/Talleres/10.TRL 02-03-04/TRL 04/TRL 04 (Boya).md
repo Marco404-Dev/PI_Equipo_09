@@ -19,7 +19,20 @@ En esta etapa se desarrolla y evalúa el diseño físico de la boya, considerand
 
 La validación experimental se realizará inicialmente en laboratorio mediante pruebas de flotabilidad, estabilidad, funcionamiento de los sensores y comunicación LoRa. La instalación en el manglar, la exposición prolongada a las condiciones ambientales y la evaluación de autonomía serán abordadas en etapas posteriores.
 
-### **Diseño técnico definitivo de la boya.**
+### **2. Fundamento y alcance de TRL 4**
+
+Según la Directiva N.º 001-2022-CONCYTEC-P, el TRL 4 exige integrar componentes básicos y comprobarlos mediante ensayos de baja fidelidad en laboratorio [1]. Esta definición coincide con el material de clase de la UPCH [2] y la escala de NASA [3].
+
+| **Indicador TRL 4** | **Evidencia que generará *YakuToring*** |
+|---|---|
+| Diseño integrado del prototipo | Diseño CAD de la boya, distribución de sensores, componentes electrónicos, batería y panel solar. |
+|Integración de componentes básicos	| Integración de sensores, Heltec WiFi LoRa V4, sistema de alimentación y comunicación LoRa. |
+| Evaluación del comportamiento físico | Cálculos teóricos de flotabilidad mediante el principio de Arquímedes y análisis de la geometría de la boya. |
+| Análisis mediante simulación | Simulaciones en *SimScale* para evaluar esfuerzos, desplazamientos y comportamiento de la estructura frente a las cargas consideradas. |
+| Pruebas de baja fidelidad | Pruebas de flotabilidad, estabilidad, funcionamiento de sensores y comunicación en condiciones controladas de laboratorio. |
+| Resultados experimentales | Registros de las pruebas, fotografías, mediciones obtenidas y comparación con los resultados teóricos y de simulación. |
+
+### **3. Diseño técnico definitivo de la boya.**
 
 | **Sección** | **Componente** | **Descripción** |
 |:----|----|----|
@@ -68,3 +81,8 @@ Además; considerando la geometría exterior de la boya y el volumen de agua req
 
 Finalmente, se estima que el tubo inferior permanezca completamente sumergido, junto con aproximadamente 11.73 cm de la sección cónica, mientras que el cuerpo cilíndrico principal se mantenga sobre la superficie del agua. Esto se podrá confirmar una vez se aplique en laboratorio.
 
+## Referencias
+
+[1] CONCYTEC, «Directiva N.º 001-2022-CONCYTEC-P: Uso de la metodología nivel de madurez tecnológica (TRL)», Resolución de Presidencia N.º 020-2022-CONCYTEC-P, Lima, Perú, 2022. Disponible: https://vinculate.concytec.gob.pe/wp-content/files/RP-020-2022-CONCYTEC-P.pdf
+
+[2] G. Espinoza Yauri, «TRL 2, 3 y 4: Investigación aplicada», material de clase, Oficina de Transferencia Tecnológica y Vinculación Empresarial, UPCH, diapositivas 14--16, 2026.
