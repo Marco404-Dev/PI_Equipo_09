@@ -89,7 +89,7 @@ $$\rho_{\text{agua}} \cdot g \cdot V_{\text{desplazado}} = m_{\text{total}} \cdo
 
 $$V_{\text{desplazado}} = \frac{m_{\text{total}}}{\rho_{\text{agua}}}$$
 
-$$V_{\text{desplazado}} = \frac{2.6757242\ kg}{1000\text{~kg/m}^{3}}$$
+$$V_{\text{desplazado}} = \frac{3520.61679\ kg}{1000\text{~kg/m}^{3}}$$
 
 $$V_{\text{desplazado}} = 0.002676\ \text{m}^{3} = 2.676\ L$$
 
