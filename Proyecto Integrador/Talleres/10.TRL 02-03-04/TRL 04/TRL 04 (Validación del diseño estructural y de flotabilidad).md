@@ -77,7 +77,7 @@ Inicialmente, se planteó utilizar polietileno de alta densidad (HDPE) para la f
 |          **Parámetro**           | **Valor**     |
 |:--------------------------------:|---------------|
 |        Masa de estructura        | 3236.91679 g |
-| Masa de los componentes internos | 283.7 g |
+| Masa de los componentes internos |   283.7 g   |
 |            Masa total            | 3520.61679 g |
 |    Volumen del espacio hueco     | 0.01104772 m³ |
 |       Volumen del material       | 0.00259943 m³ |
