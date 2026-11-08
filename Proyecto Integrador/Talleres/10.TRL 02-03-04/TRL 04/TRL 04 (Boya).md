@@ -42,7 +42,6 @@ Desarrollar y realizar una validación preliminar en laboratorio del prototipo d
 - Diseñar la geometría y distribución interna de la boya, considerando la ubicación de los sensores, componentes electrónicos, sistema de alimentación y elementos de comunicación.
 - Determinar las condiciones teóricas de flotabilidad de la boya mediante el principio de Arquímedes, considerando la masa total del prototipo y el volumen desplazado.
 - Evaluar mediante SimScale el comportamiento estructural de la boya frente a las cargas consideradas en el diseño, analizando parámetros como esfuerzos de Von Mises, desplazamientos y factor de seguridad, según los resultados disponibles.
-- Fabricar un prototipo físico de la boya mediante impresión 3D utilizando PLA, considerando las características geométricas definidas en el diseño.
 - Comprobar experimentalmente la flotabilidad y estabilidad del prototipo mediante pruebas controladas en laboratorio.
 - Integrar y verificar el funcionamiento de los sensores de temperatura, pH y conductividad, así como del sensor ambiental, registrando las mediciones obtenidas.
 - Verificar la comunicación entre la unidad transmisora y receptora mediante LoRa, evaluando la recepción e integridad de los datos transmitidos.
