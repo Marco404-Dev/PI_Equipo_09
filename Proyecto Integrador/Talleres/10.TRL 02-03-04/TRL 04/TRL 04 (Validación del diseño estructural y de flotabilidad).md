@@ -91,7 +91,7 @@ $$V_{\text{desplazado}} = \frac{m_{\text{total}}}{\rho_{\text{agua}}}$$
 
 $$V_{\text{desplazado}} = \frac{3520.61679\ kg}{1000\text{~kg/m}^{3}}$$
 
-$$V_{\text{desplazado}} = 0.002676\ \text{m}^{3} = 2.676\ L$$
+$$V_{\text{desplazado}} = 0.00352062\ \text{m}^{3} = 3.52062\ L$$
 
 Al comparar el volumen total con el volumen desplazado, observamos que el volumen de la boya es superior al desplazado. Por tanto, la boya cuenta con condiciones favorables para poder flotar.
 
