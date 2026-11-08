@@ -17,7 +17,7 @@ _PROYECTO INTEGRADOR 2026-II_
 
 En esta etapa se desarrolla y evalúa el diseño físico de la boya, considerando la distribución de los componentes, sus dimensiones, el material del prototipo y las condiciones de flotabilidad y estabilidad. Asimismo, se realizan simulaciones mediante SimScale para analizar el comportamiento estructural de la geometría frente a las cargas consideradas en el diseño.
 
-La validación experimental se realizará inicialmente en laboratorio mediante pruebas de flotabilidad, estabilidad, funcionamiento de los sensores y comunicación LoRa. La instalación en el manglar, la exposición prolongada a las condiciones ambientales y la evaluación de autonomía serán abordadas en etapas posteriores.
+La validación experimental se realizará inicialmente en laboratorio mediante pruebas de flotabilidad, estabilidad, funcionamiento de los sensores y comunicación LoRa. La instalación en el campo de estudio (Pantanos de Villa), la exposición prolongada a las condiciones ambientales y la evaluación de autonomía serán abordadas en etapas posteriores.
 
 ### **2. Fundamento y alcance de TRL 4**
 
@@ -39,6 +39,7 @@ Según la Directiva N.º 001-2022-CONCYTEC-P, el TRL 4 exige integrar componente
 Desarrollar y realizar una validación preliminar en laboratorio del prototipo de boya YakuToring, mediante la evaluación de su diseño físico, flotabilidad, comportamiento estructural, integración de sensores y comunicación LoRa.
 
 ### **3.2 Objetivos específicos**
+
 - Diseñar la geometría y distribución interna de la boya, considerando la ubicación de los sensores, componentes electrónicos, sistema de alimentación y elementos de comunicación.
 - Determinar las condiciones teóricas de flotabilidad de la boya mediante el principio de Arquímedes, considerando la masa total del prototipo y el volumen desplazado.
 - Evaluar mediante SimScale el comportamiento estructural de la boya frente a las cargas consideradas en el diseño, analizando parámetros como esfuerzos de Von Mises, desplazamientos y factor de seguridad, según los resultados disponibles.
@@ -55,7 +56,7 @@ Desarrollar y realizar una validación preliminar en laboratorio del prototipo d
 | Intermedio | BME280, Heltec WiFi LoRa V4, | Contiene la unidad de procesamiento y adquisición de datos, encargada de recibir y organizar las lecturas de los sensores. El módulo BME280 permite registrar la temperatura, humedad y presión atmosférica del entorno. |
 | Inferior | DS18B20, sonda pH, sensor de conductividad/TDS | Aloja los sensores destinados al monitoreo de las condiciones fisicoquímicas del agua. Esta sección cuenta con dos subsecciones que permiten el contacto directo de los sensores con el medio y, al mismo tiempo, aíslan las secciones superiores para evitar el ingreso de agua y humedad hacia los componentes electrónicos. |
 
-- Características y dimensiones
+### **5. Características y dimensiones**
   
   <img width="986" height="677" alt="image" src="https://github.com/user-attachments/assets/23a25e52-c5b0-483c-92a1-44c772bbbf81" />
 
