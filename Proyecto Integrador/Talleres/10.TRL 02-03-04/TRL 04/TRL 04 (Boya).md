@@ -11,7 +11,7 @@ _PROYECTO INTEGRADOR 2026-II_
 | Equipo | Equipo 09 --- Proyecto Integrador |
 | Área de aplicación | Monitoreo de calidad del agua en ecosistemas de manglar de Tumbes, Perú |
 | Nivel objetivo | TRL 4: validación en laboratorio mediante pruebas de baja fidelidad |
-| Tipo y versión | Informe de planificación y evidencias • Borrador v1 |
+| Tipo y versión | Validación del diseño estructural y de flotabilidad • Borrador v1 |
 | Fecha de elaboración | 7 de noviembre de 2026 |
 
 
