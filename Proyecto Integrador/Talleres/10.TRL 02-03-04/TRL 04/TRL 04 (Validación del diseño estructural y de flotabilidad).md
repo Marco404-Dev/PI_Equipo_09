@@ -15,7 +15,7 @@ _PROYECTO INTEGRADOR 2026-II_
 
 ### **1. Resumen**
 
-En esta etapa se desarrolla y evalúa el diseño físico de la boya, considerando la distribución de los componentes, sus dimensiones, el material del prototipo y las condiciones de flotabilidad y estabilidad. Asimismo, se realizan simulaciones mediante SimScale para analizar el comportamiento estructural de la geometría frente a las cargas consideradas en el diseño.
+En esta etapa se desarrolló y evaluó el diseño físico de la boya, considerando la distribución de los componentes, sus dimensiones, el material del prototipo y las condiciones de flotabilidad y estabilidad. Asimismo, se realizaron simulaciones mediante SimScale para analizar el comportamiento estructural de la geometría frente a las cargas consideradas en el diseño.
 
 La validación experimental se realizará inicialmente en laboratorio mediante pruebas de flotabilidad, estabilidad, funcionamiento de los sensores y comunicación LoRa. La instalación en el campo de estudio (Pantanos de Villa), la exposición prolongada a las condiciones ambientales y la evaluación de autonomía serán abordadas en etapas posteriores.
 
@@ -36,7 +36,7 @@ Según la Directiva N.º 001-2022-CONCYTEC-P, el TRL 4 exige integrar componente
 
 ### **3.1 Objetivo general**
 
-Desarrollar y realizar una validación preliminar en laboratorio del prototipo de boya YakuToring, mediante la evaluación de su diseño físico, flotabilidad, comportamiento estructural, integración de sensores y comunicación LoRa.
+Desarrollar y realizar una validación preliminar en laboratorio del prototipo de la boya YakuToring, mediante la evaluación de su diseño físico, flotabilidad, comportamiento estructural, integración de sensores y comunicación LoRa.
 
 ### **3.2 Objetivos específicos**
 
@@ -72,7 +72,7 @@ Inicialmente, se planteó utilizar polietileno de alta densidad (HDPE) para la f
 
 ### **7. Evaluación de flotabilidad y estabilidad**
 
-  La flotabilidad de la boya ManglarLab se evaluó mediante el principio de Arquímedes, el cual establece que todo cuerpo sumergido parcial o totalmente en un fluido experimenta un empuje vertical hacia arriba equivalente al peso del fluido desplazado.
+La flotabilidad de la boya ManglarLab se evaluó mediante el principio de Arquímedes, el cual establece que todo cuerpo sumergido parcial o totalmente en un fluido experimenta un empuje vertical hacia arriba equivalente al peso del fluido desplazado [4].
 
 |          **Parámetro**           | **Valor**     |
 |:--------------------------------:|---------------|
@@ -95,9 +95,35 @@ $$V_{\text{desplazado}} = 0.00352062\ \text{m}^{3} = 3.52062\ L$$
 
 Al comparar el volumen total con el volumen desplazado, observamos que el volumen de la boya es superior al desplazado. Por tanto, la boya cuenta con condiciones favorables para poder flotar.
 
-Además; considerando la geometría exterior de la boya y el volumen de agua requerido para equilibrar su peso, la profundidad de inmersión es de aproximadamente 29.63 cm. Para este cálculo se consideró el desplazamiento generado por el tubo cilíndrico inferior y una parte de la sección cónica.
+### 7.1. Cinturón de sujeción y unión al sistema de anclaje
 
-Finalmente, se estima que el tubo inferior permanezca completamente sumergido, junto con aproximadamente 11.73 cm de la sección cónica, mientras que el cuerpo cilíndrico principal se mantenga sobre la superficie del agua. Esto se podrá confirmar una vez se aplique en laboratorio.
+El diseño de la boya incorpora un cinturón de sujeción en forma de aro, dispuesto alrededor de una sección de la estructura, cuya función principal es establecer la unión entre la boya y el sistema de anclaje. Este elemento permite mantener la boya aproximadamente en una posición determinada, proporcionando libertad de giro relativa entre la boya y el cinturón ante la acción de fuerzas ambientales, como el viento, las corrientes de agua y el oleaje.
+
+Para la evaluación de flotabilidad, el cinturón se considera parte de la masa total del sistema. El cinturón presenta una masa de 0.82017 kg y un volumen de 0.00108464 m³, mientra que el volumen de agua requerido para compensar su peso es de aproximadamente 0.00082017 m³, equivalente al 75.62 % de su volumen. Por tanto, presenta flotabilidad positiva.
+
+Finalmente, se plantea verificar experimentalmente que el cinturón mantenga la conexión con la boya y el sistema de anclaje, además, de permitir el giro de la boya y que no genere interferencias significativas con la flotación o estabilidad del sistema.
+
+### **8. Análisis estructural mediante SimScale**
+
+### **8.1. Cargas consideradas en el análisis**
+
+| **Tipo de carga** |	**Zona de aplicación** |	**Objetivo** |
+| Fuerza de arrastre |		| Se evaluará los esfuerzos por resistencia al flujo de la superficie expuesta al agua. |
+| Fuerza del oleaje | Superficie de contacto con el agua	| Se evaluará la respuesta estructural ante las acciones de las olas. |
+| Presión hidrostática |	Superficie sumergida | Se evaluará los esfuerzos debido a la presión del agua. |
+| Tensión del ancla |	Zona de unión del cinturón con la boya	| Se evaluará los esfuerzos transmitidos por el sistema de anclaje. |
+
+Para el cálculo de la fuerza de arrastre se tomó como referencia el artículo de investigación [1], del cual se consideró la siguiente expresión:
+\[\boxed{F_D=\frac{1{2}\rho C_D A U^2}\]
+Asimismo, se adoptó un coeficiente de arrastre (\(C_D\)) de **1,01** para el análisis.
+
+
+### **9. Evaluación de estabilidad y comportamiento esperado**
+Aquí relacionas los resultados de flotabilidad + SimScale y explicas qué indican sobre el comportamiento esperado de la boya.
+
+### **10. Validación experimental prevista**
+
+Finalmente señalas que los resultados teóricos y computacionales serán contrastados con pruebas físicas del prototipo impreso en PLA.
 
 ## Referencias
 
@@ -106,3 +132,8 @@ Finalmente, se estima que el tubo inferior permanezca completamente sumergido, j
 [2] G. Espinoza Yauri, «TRL 2, 3 y 4: Investigación aplicada», material de clase, Oficina de Transferencia Tecnológica y Vinculación Empresarial, UPCH, diapositivas 14--16, 2026.
 
 [3] Oficina de Ciencias y Tecnología de la Tierra de la NASA, «Niveles de preparación tecnológica (TRL)». Disponible en: https://esto.nasa.gov/trl/ (consulta: 1 nov. 2026).
+
+[4] C. V. Peñaranda Osorio, Mecánica de fluidos. Bogotá: Ecoe Ediciones, 2018. pp. 54-56 [En Línea] Disponible en: https://elibro.net/es/lc/cayetano/titulos/122458
+
+[5] M. Yoshikai et al., «Field Measurement and Prediction of Drag in a Planted Rhizophora Mangrove Forest», Journal of Geophysical Research: Oceans, vol. 127, n.o 11, p. e2021JC018320, 2022, doi: 10.1029/2021JC018320.
+
