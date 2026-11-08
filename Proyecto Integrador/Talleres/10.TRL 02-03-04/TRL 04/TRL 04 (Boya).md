@@ -32,7 +32,23 @@ Según la Directiva N.º 001-2022-CONCYTEC-P, el TRL 4 exige integrar componente
 | Pruebas de baja fidelidad | Pruebas de flotabilidad, estabilidad, funcionamiento de sensores y comunicación en condiciones controladas de laboratorio. |
 | Resultados experimentales | Registros de las pruebas, fotografías, mediciones obtenidas y comparación con los resultados teóricos y de simulación. |
 
-### **3. Diseño técnico definitivo de la boya.**
+### **3. Objetivos**
+
+### **3.1 Objetivo general**
+
+Desarrollar y realizar una validación preliminar en laboratorio del prototipo de boya YakuToring, mediante la evaluación de su diseño físico, flotabilidad, comportamiento estructural, integración de sensores y comunicación LoRa.
+
+### **3.2 Objetivos específicos**
+- Diseñar la geometría y distribución interna de la boya, considerando la ubicación de los sensores, componentes electrónicos, sistema de alimentación y elementos de comunicación.
+- Determinar las condiciones teóricas de flotabilidad de la boya mediante el principio de Arquímedes, considerando la masa total del prototipo y el volumen desplazado.
+- Evaluar mediante SimScale el comportamiento estructural de la boya frente a las cargas consideradas en el diseño, analizando parámetros como esfuerzos de Von Mises, desplazamientos y factor de seguridad, según los resultados disponibles.
+- Fabricar un prototipo físico de la boya mediante impresión 3D utilizando PLA, considerando las características geométricas definidas en el diseño.
+- Comprobar experimentalmente la flotabilidad y estabilidad del prototipo mediante pruebas controladas en laboratorio.
+- Integrar y verificar el funcionamiento de los sensores de temperatura, pH y conductividad, así como del sensor ambiental, registrando las mediciones obtenidas.
+- Verificar la comunicación entre la unidad transmisora y receptora mediante LoRa, evaluando la recepción e integridad de los datos transmitidos.
+- Comparar los resultados obtenidos mediante cálculos teóricos, simulaciones y pruebas físicas para identificar el desempeño, alcance y principales limitaciones del prototipo.
+
+### **4. Diseño técnico definitivo de la boya.**
 
 | **Sección** | **Componente** | **Descripción** |
 |:----|----|----|
@@ -86,3 +102,5 @@ Finalmente, se estima que el tubo inferior permanezca completamente sumergido, j
 [1] CONCYTEC, «Directiva N.º 001-2022-CONCYTEC-P: Uso de la metodología nivel de madurez tecnológica (TRL)», Resolución de Presidencia N.º 020-2022-CONCYTEC-P, Lima, Perú, 2022. Disponible: https://vinculate.concytec.gob.pe/wp-content/files/RP-020-2022-CONCYTEC-P.pdf
 
 [2] G. Espinoza Yauri, «TRL 2, 3 y 4: Investigación aplicada», material de clase, Oficina de Transferencia Tecnológica y Vinculación Empresarial, UPCH, diapositivas 14--16, 2026.
+
+[3] Oficina de Ciencias y Tecnología de la Tierra de la NASA, «Niveles de preparación tecnológica (TRL)». Disponible en: https://esto.nasa.gov/trl/ (consulta: 1 nov. 2026).
