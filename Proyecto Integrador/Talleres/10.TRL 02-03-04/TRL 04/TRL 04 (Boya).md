@@ -13,6 +13,12 @@ _PROYECTO INTEGRADOR 2026-II_
 | Tipo y versión | Validación del diseño estructural y de flotabilidad • Borrador v1 |
 | Fecha de elaboración | 7 de noviembre de 2026 |
 
+### **1. Resumen**
+
+En esta etapa se desarrolla y evalúa el diseño físico de la boya, considerando la distribución de los componentes, sus dimensiones, el material del prototipo y las condiciones de flotabilidad y estabilidad. Asimismo, se realizan simulaciones mediante SimScale para analizar el comportamiento estructural de la geometría frente a las cargas consideradas en el diseño.
+
+La validación experimental se realizará inicialmente en laboratorio mediante pruebas de flotabilidad, estabilidad, funcionamiento de los sensores y comunicación LoRa. La instalación en el manglar, la exposición prolongada a las condiciones ambientales y la evaluación de autonomía serán abordadas en etapas posteriores.
+
 ### **Diseño técnico definitivo de la boya.**
 
 | **Sección** | **Componente** | **Descripción** |
