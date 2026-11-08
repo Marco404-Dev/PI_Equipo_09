@@ -64,6 +64,8 @@ Desarrollar y realizar una validación preliminar en laboratorio del prototipo d
 
   <img width="986" height="680" alt="image" src="https://github.com/user-attachments/assets/4b68e8a0-f1d0-4a61-8741-465512db5869" />
 
+  <img width="3508" height="2480" alt="Cinturón, tuerca y tornillo" src="https://github.com/user-attachments/assets/2ff8c21a-91d7-4dac-a3d7-b364dd965c5d" />
+
 - Selección de material
 
   Inicialmente, se planteó utilizar polietileno de alta densidad (HDPE) para la fabricación definitiva de la boya, considerando las condiciones ambientales a las que estaría expuesta durante su funcionamiento. Sin embargo, debido a que en esta etapa se presentará un prototipo funcional elaborado mediante impresión 3D, se optó por utilizar PLA, facilitando la fabricación y reproducción de la geometría diseñada. Si bien, el HDPE se mantiene como material previsto para el producto final, el PLA se empleará exclusivamente para la elaboración del prototipo.
@@ -74,12 +76,12 @@ Desarrollar y realizar una validación preliminar en laboratorio del prototipo d
 
 |          **Parámetro**           | **Valor**     |
 |:--------------------------------:|---------------|
-|        Masa de estructura        | 2392.0242 g   |
-| Masa de los componentes internos | 283.7 g       |
-|            Masa total            | 2675.7242 g   |
-|    Volumen del espacio hueco     | 0.01031871 m³ |
-|       Volumen del material       | 0.00191362 m³ |
-|          Volumen total           | 0.01223233 m³ |
+|        Masa de estructura        | 3236.91679 g |
+| Masa de los componentes internos | 283.7 g |
+|            Masa total            | 3520.61679 g |
+|    Volumen del espacio hueco     | 0.01104772 m³ |
+|       Volumen del material       | 0.00259943 m³ |
+|          Volumen total           | 0.01364715 m³ |
 
 Según el principio de Arquimides: Empuje = Peso = masa total x gravedad (9.81 m/s^2$$)
 
