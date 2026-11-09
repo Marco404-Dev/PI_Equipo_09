@@ -124,6 +124,9 @@ Asimismo, se adoptó un coeficiente de arrastre **$C_d$** de **1,01** para el an
 
 ### **7.2.2. Fuerza de arrastre**
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f897320e-2172-48bb-96c3-4119f9fcc472" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/56a1df74-d632-42c3-b23a-12199685198d" />
 
 
 
