@@ -19,7 +19,7 @@ Seguido, se sometio a la boya fuerzas de entre 0.62 N y de 6.93 N, los cuales co
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e439354c-5a38-4f46-85cb-7a32f7a516fa" />
   
- - Esfuerzos de desplazamiento: La boya presenta pequeños desplazamientos en la mayor parte de su geometría y las mayores magnitudes se concentran en la parte superior de la boya (tapa). Esto indica que la geometría mantiene una adecuada rigidez frente a la condición de presión analizada en la mayor parte de su sistema, pero la tapa constituye la región con mayor desplazamiento.
+ - Magnitud de desplazamiento: La boya presenta pequeños desplazamientos en la mayor parte de su geometría y las mayores magnitudes se concentran en la parte superior de la boya (tapa). Esto indica que la geometría mantiene una adecuada rigidez frente a la condición de presión analizada en la mayor parte de su sistema, pero la tapa constituye la región con mayor desplazamiento.
 
 ### **Fuerza de arrastre**
 
@@ -29,4 +29,4 @@ Seguido, se sometio a la boya fuerzas de entre 0.62 N y de 6.93 N, los cuales co
 
 
   
-- Esfuerzos de desplazamiento:
+- Magnitud de desplazamiento:
