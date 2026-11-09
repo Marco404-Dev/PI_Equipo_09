@@ -126,9 +126,11 @@ Asimismo, se adoptó un coeficiente de arrastre **$C_d$** de **1,01** para el an
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f897320e-2172-48bb-96c3-4119f9fcc472" />
 
+ - Esfuerzos de Von Mises: Se muestra que, bajo una presión hidrostática de 1.815 kPa, los esfuerzos se mantienen bajos en la mayor parte de la estructura, mientras que las mayores concentraciones de esfuerzo se localizan principalmente en las zonas de cambio de geometría y unión. Estos esfuerzos elevados elevados se concentran en la parte superior, indicando mayor deformidad.
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/56a1df74-d632-42c3-b23a-12199685198d" />
-
-
+  
+ - Esfuerzos de desplazamiento: La boya presenta pequeños desplazamientos en la mayor parte de su geometría y las mayores magnitudes se concentran en la parte superior de la boya (tapa). Esto indica que la geometría mantiene una adecuada rigidez frente a la condición de presión analizada en la mayor parte de su sistema, pero la tapa constituye la región con mayor desplazamiento.
 
 ### **8. Evaluación de estabilidad y comportamiento esperado**
 
