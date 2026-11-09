@@ -126,21 +126,19 @@ Asimismo, se adoptó un coeficiente de arrastre **$C_d$** de **1,01** para el an
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f897320e-2172-48bb-96c3-4119f9fcc472" />
 
- - Esfuerzos de Von Mises: Se muestra que, bajo una presión hidrostática de 1.815 kPa, los esfuerzos se mantienen bajos en la mayor parte de la estructura, mientras que las mayores concentraciones de esfuerzo se localizan principalmente en las zonas de cambio de geometría y unión. Estos esfuerzos elevados elevados se concentran en la parte superior, indicando mayor deformidad.
+ - Esfuerzos de Von Mises: Se observa que ante la fuerza de arrastre, ya sea de 0.62 N o 6.93 N, las deformaciones en la boya son practicamente nulas. No se evidencian valores que indiquen una condición crítica para la integridad estructural del modelo bajo las cargas analizadas, sin embargo, estos resultados corresponden a una simulación y deberán ser confirmadas posteriormente mediante pruebas experimentales en laboratorio.
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/56a1df74-d632-42c3-b23a-12199685198d" />
   
- - Esfuerzos de desplazamiento: La boya presenta pequeños desplazamientos en la mayor parte de su geometría y las mayores magnitudes se concentran en la parte superior de la boya (tapa). Esto indica que la geometría mantiene una adecuada rigidez frente a la condición de presión analizada en la mayor parte de su sistema, pero la tapa constituye la región con mayor desplazamiento.
+ - Esfuerzos de desplazamiento: En la imagen se puede apreciar, como el cinturón de anclaje no presenta desplazamientos, ya que corresponde a la zona de restricción de la estructura. En comparación, todo el cuerpo de la boya presenta dezplazamientos que aumentan gradualmente desde la sujeción hasta la base. Esto evidencia una deformación global por las fuerzas de arrastre dentro del rango previsto para las cargas evaluadas.
 
 ### **8. Evaluación de estabilidad y comportamiento esperado**
 
+Los resultados de flotabilidad indican que la boya posee un volumen suficiente para desplazar el agua necesaria para compensar su peso, por lo que se espera que pueda mantenerse a flote. Asimismo, el cinturón presenta flotabilidad positiva y no debería comprometer la flotación del sistema.
 
+Por otro lado, el análisis mediante SimScale muestra que, ante la presión hidrostática de 1.815 kPa y las fuerzas de arrastre de 0.62 N y 6.93 N, los esfuerzos y desplazamientos se mantienen bajos en la mayor parte de la estructura. Las mayores concentraciones se presentan en zonas de unión y cambios de geometría.
 
-Aquí relacionas los resultados de flotabilidad + SimScale y explicas qué indican sobre el comportamiento esperado de la boya.
-
-### **9. Validación experimental prevista**
-
-Finalmente señalas que los resultados teóricos y computacionales serán contrastados con pruebas físicas del prototipo impreso en PLA.
+En conjunto, los resultados sugieren que la boya podrá mantenerse a flote y conservar su integridad estructural bajo las cargas evaluadas. Sin embargo, su estabilidad y comportamiento real deberán ser verificados mediante pruebas experimentales en laboratorio y posteriormente en campo.
 
 ## Referencias
 
