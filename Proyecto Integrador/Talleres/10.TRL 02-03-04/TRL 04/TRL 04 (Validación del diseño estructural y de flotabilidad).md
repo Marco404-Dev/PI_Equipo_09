@@ -17,7 +17,7 @@ _PROYECTO INTEGRADOR 2026-II_
 
 En esta etapa se desarrolló y evaluó el diseño físico de la boya, considerando la distribución de los componentes, sus dimensiones, el material del prototipo y las condiciones de flotabilidad y estabilidad. Asimismo, se realizaron simulaciones mediante SimScale para analizar el comportamiento estructural de la geometría frente a las cargas consideradas en el diseño.
 
-La validación experimental se realizará inicialmente en laboratorio mediante pruebas de flotabilidad, estabilidad, funcionamiento de los sensores y comunicación LoRa. La instalación en el campo de estudio (Pantanos de Villa), la exposición prolongada a las condiciones ambientales y la evaluación de autonomía serán abordadas en etapas posteriores.
+La validación experimental se realizará inicialmente en laboratorio mediante pruebas de flotabilidad, estabilidad, funcionamiento de los sensores y comunicación LoRa. Las pruebas en el laboratorio y/o en el campo de estudio (Pantanos de Villa), como la exposición prolongada a las condiciones ambientales y la evaluación de autonomía serán abordadas en etapas posteriores.
 
 ### **2. Objetivos**
 
@@ -29,7 +29,7 @@ Desarrollar y realizar una validación preliminar en laboratorio del prototipo d
 
 - Diseñar la geometría y distribución interna de la boya, considerando la ubicación de los sensores, componentes electrónicos, sistema de alimentación y elementos de comunicación.
 - Determinar las condiciones teóricas de flotabilidad de la boya mediante el principio de Arquímedes, considerando la masa total del prototipo y el volumen desplazado.
-- Evaluar mediante SimScale el comportamiento estructural de la boya frente a las cargas consideradas en el diseño, analizando parámetros como esfuerzos de Von Mises, desplazamientos y factor de seguridad, según los resultados disponibles.
+- Evaluar mediante SimScale el comportamiento estructural de la boya frente a las cargas consideradas en el diseño, analizando parámetros como esfuerzos de Von Mises y desplazamientos, según los resultados disponibles.
 - Comprobar experimentalmente la flotabilidad y estabilidad del prototipo mediante pruebas controladas en laboratorio.
 - Integrar y verificar el funcionamiento de los sensores de temperatura, pH y conductividad, así como del sensor ambiental, registrando las mediciones obtenidas.
 - Verificar la comunicación entre la unidad transmisora y receptora mediante LoRa, evaluando la recepción e integridad de los datos transmitidos.
@@ -87,7 +87,7 @@ Al comparar el volumen total con el volumen desplazado, observamos que el volume
 
 El diseño de la boya incorpora un cinturón de sujeción en forma de aro, dispuesto alrededor de una sección de la estructura, cuya función principal es establecer la unión entre la boya y el sistema de anclaje. Este elemento permite mantener la boya aproximadamente en una posición determinada, proporcionando libertad de giro relativa entre la boya y el cinturón ante la acción de fuerzas ambientales, como el viento, las corrientes de agua y el oleaje.
 
-Para la evaluación de flotabilidad, el cinturón se considera parte de la masa total del sistema. El cinturón presenta una masa de 0.82017 kg y un volumen de 0.00108464 m³, mientra que el volumen de agua requerido para compensar su peso es de aproximadamente 0.00082017 m³, equivalente al 75.62 % de su volumen. Por tanto, presenta flotabilidad positiva.
+Para la evaluación de flotabilidad, el cinturón se considera parte de la masa total del sistema. El cinturón presenta una masa de 0.82017 kg y un volumen de 0.00108464 m³, mientras que el volumen de agua requerido para compensar su peso es de aproximadamente 0.00082017 m³, equivalente al 75.62 % de su volumen. Por tanto, presenta flotabilidad positiva.
 
 Finalmente, se plantea verificar experimentalmente que el cinturón mantenga la conexión con la boya y el sistema de anclaje, además, de permitir el giro de la boya y que no genere interferencias significativas con la flotación o estabilidad del sistema.
 
@@ -102,7 +102,7 @@ Finalmente, se plantea verificar experimentalmente que el cinturón mantenga la 
 | Fuerza de arrastre |	0.62 N - 0.6.93 N	| Se evaluará los esfuerzos por resistencia al flujo de la superficie expuesta al agua, considerando diferentes velocidades de corriente. |
 | Presión hidrostática | 1.815 kPa | Se evaluará los esfuerzos producidos por la presión del agua sobre la superficie sumergida de la boya. |
 
-Para el cálculo de la fuerza de arrastre se tomó como referencia el artículo de investigación [5], del cual se consideró la siguiente expresión:
+Para el cálculo de la fuerza de arrastre se tomó como referencia el artículo de investigación [5], del cual se consideró la siguiente fórmula:
 $$F_D = \frac{1}{2} C_d \, \rho \, A \, v^2$$
 Asimismo, se adoptó un coeficiente de arrastre **$C_d$** de **1,01** para el análisis y una velocidad de arrastre **$V$** de entre **0.15-0.5 m/s**. A partir de estos valores, se consideraron las fuerzas de arrastre de 0.62 N y 6.93 N, correspondientes a las condiciones de menor y mayor velocidad, respectivamente.
 
@@ -110,14 +110,18 @@ Asimismo, se adoptó un coeficiente de arrastre **$C_d$** de **1,01** para el an
 
 - Presión hidrostática
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/36b9414b-cef5-44ac-913f-6158e4960cde" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/347f3a8b-5e32-4f7a-8d17-77e55b405f44" />
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4ff4f451-6dfe-443c-a12e-be20b09178b9" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2daf2272-33bb-4a72-a53d-59bf4158088a" />
 
+ - Esfuerzos de Von Mises: Se muestra que, bajo una presión hidrostática de 1.815 kPa, los esfuerzos se mantienen bajos en la mayor parte de la estructura, mientras que las mayores concentraciones de esfuerzo se localizan principalmente en las zonas de cambio de geometría y unión. Estos esfuerzos elevados elevados se concentran en la parte superior, indicando mayor deformidad.
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4a450cdc-c670-43ce-9342-271b84a95c4a" />
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/26563e25-4f8e-49f3-8a9d-3393eb0d401c" />
-
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e439354c-5a38-4f46-85cb-7a32f7a516fa" />
+  
+ - Esfuerzos de desplazamiento: La boya presenta pequeños desplazamientos en la mayor parte de su geometría y las mayores magnitudes se concentran en la parte superior de la boya (tapa). Esto indica que la geometría mantiene una adecuada rigidez frente a la condición de presión analizada en la mayor parte de su sistema, pero la tapa constituye la región con mayor desplazamiento.
+   
 - Fuerza de arrastre
 
 
@@ -144,4 +148,3 @@ Finalmente señalas que los resultados teóricos y computacionales serán contra
 [4] C. V. Peñaranda Osorio, Mecánica de fluidos. Bogotá: Ecoe Ediciones, 2018. pp. 54-56 [En Línea] Disponible en: https://elibro.net/es/lc/cayetano/titulos/122458
 
 [5] M. Yoshikai et al., «Field Measurement and Prediction of Drag in a Planted Rhizophora Mangrove Forest», Journal of Geophysical Research: Oceans, vol. 127, n.o 11, p. e2021JC018320, 2022, doi: 10.1029/2021JC018320.
-
