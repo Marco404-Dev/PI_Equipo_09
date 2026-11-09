@@ -108,7 +108,7 @@ Asimismo, se adoptó un coeficiente de arrastre **$C_d$** de **1,01** para el an
 
 ### **7.2. Resultados: SimScale**
 
-- Presión hidrostática
+### **7.2.1. Presión hidrostática**
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/347f3a8b-5e32-4f7a-8d17-77e55b405f44" />
 
@@ -121,8 +121,8 @@ Asimismo, se adoptó un coeficiente de arrastre **$C_d$** de **1,01** para el an
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e439354c-5a38-4f46-85cb-7a32f7a516fa" />
   
  - Esfuerzos de desplazamiento: La boya presenta pequeños desplazamientos en la mayor parte de su geometría y las mayores magnitudes se concentran en la parte superior de la boya (tapa). Esto indica que la geometría mantiene una adecuada rigidez frente a la condición de presión analizada en la mayor parte de su sistema, pero la tapa constituye la región con mayor desplazamiento.
-   
-- Fuerza de arrastre
+
+### **7.2.2. Fuerza de arrastre**
 
 
 
