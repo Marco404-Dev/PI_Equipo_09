@@ -31,3 +31,7 @@ Posteriormente, se sometió la boya a fuerzas de arrastre de 0,62 N y 6,93 N, co
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/56a1df74-d632-42c3-b23a-12199685198d" />
   
  - Esfuerzos de desplazamiento: En la imagen se puede apreciar, como el cinturón de anclaje no presenta desplazamientos, ya que corresponde a la zona de restricción de la estructura. En comparación, todo el cuerpo de la boya presenta dezplazamientos que aumentan gradualmente desde la sujeción hasta la base. Esto evidencia una deformación global por las fuerzas de arrastre dentro del rango previsto para las cargas evaluadas.
+
+### Referencia:
+
+[1] M. Yoshikai et al., «Field Measurement and Prediction of Drag in a Planted Rhizophora Mangrove Forest», Journal of Geophysical Research: Oceans, vol. 127, n.o 11, p. e2021JC018320, 2022, doi: 10.1029/2021JC018320.
