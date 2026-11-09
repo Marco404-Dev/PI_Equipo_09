@@ -2,10 +2,11 @@
 
 Con el propósito de evaluar el comportamiento estructural de la boya frente a las condiciones de presión y fuerzas a las que estará sometida durante su funcionamiento, se realizaron simulaciones en SimScale.
 
-Se aplicó una presión hidrostática de 1.815 kPa. A partir de esta condición, se analizaron la magnitud del desplazamiento y los esfuerzos de Von Mises, con el fin de identificar las zonas de mayor deformación y concentración de esfuerzos y verificar el comportamiento de la estructura bajo la condición analizada.
+Para determinar la fuerza de arrastre, se tomó como referencia el artículo de investigación [1], empleando la ecuación correspondiente al cálculo de esta fuerza ($$F_D = \frac{1}{2} C_d \, \rho \, A \, v^2$$). Se adoptó un coeficiente de arrastre **$C_d$** de 1,01 y velocidades de corriente (**$V$**) entre 0,15 y 0,5 m/s. A partir de estos valores, se obtuvieron fuerzas de arrastre de 0,62 N y 6,93 N, correspondientes a las condiciones de menor y mayor velocidad, respectivamente.
 
-Seguido, se sometio a la boya fuerzas de entre 0.62 N y de 6.93 N, los cuales corresponden a la fuerza de arrastre, siendo la primera el caso de corriente baja y la ultima de una alta.
+Inicialmente, se aplicó una presión hidrostática de 1,815 kPa. A partir de esta condición, se analizaron los desplazamientos y los esfuerzos de Von Mises, con el fin de identificar las zonas de mayor deformación y concentración de esfuerzos y verificar el comportamiento estructural de la boya.
 
+Posteriormente, se sometió la boya a fuerzas de arrastre de 0,62 N y 6,93 N, correspondientes a condiciones de corriente baja y alta, respectivamente. Con ello, se evaluó la respuesta estructural de la boya ante las fuerzas horizontales generadas por el flujo de agua.
 
 ### **Presión hidrostática**
 
@@ -22,9 +23,6 @@ Seguido, se sometio a la boya fuerzas de entre 0.62 N y de 6.93 N, los cuales co
  - Magnitud de desplazamiento: La boya presenta pequeños desplazamientos en la mayor parte de su geometría y las mayores magnitudes se concentran en la parte superior de la boya (tapa). Esto indica que la geometría mantiene una adecuada rigidez frente a la condición de presión analizada en la mayor parte de su sistema, pero la tapa constituye la región con mayor desplazamiento.
 
 ### **Fuerza de arrastre**
-
-
-### **7.2.2. Fuerza de arrastre**
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f897320e-2172-48bb-96c3-4119f9fcc472" />
 
