@@ -44,8 +44,14 @@ Desarrollar y realizar una validación preliminar en laboratorio del prototipo d
 | Inferior | DS18B20, sonda pH, sensor de conductividad/TDS | Aloja los sensores destinados al monitoreo de las condiciones fisicoquímicas del agua. Esta sección cuenta con dos subsecciones que permiten el contacto directo de los sensores con el medio y, al mismo tiempo, aíslan las secciones superiores para evitar el ingreso de agua y humedad hacia los componentes electrónicos. |
 
 ### **4. Características y dimensiones**
+
+  <img width="3508" height="2480" alt="Parte 01 y 02" src="https://github.com/user-attachments/assets/5c1090f4-e7d0-411e-8fc7-d73005f0b8b2" />
   
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5f78bd72-11d6-4bca-892b-6aeeb2062bb2" />
+  <img width="3508" height="2480" alt="Cinturón, tuerca y tornillo" src="https://github.com/user-attachments/assets/66570f9a-4ee1-4866-a7fe-79d1020e0ad1" />
+  
+  <img width="3508" height="2480" alt="Tapa de la boya" src="https://github.com/user-attachments/assets/6233363c-899e-4b0b-9914-0397cc29d4e6" />
+  
+  <img width="3508" height="2480" alt="Cuerpo de boya" src="https://github.com/user-attachments/assets/15249a89-82c0-4bc8-b2ab-adc58d6397b2" />
 
 
 ### **5. Selección de material**
