@@ -45,13 +45,8 @@ Desarrollar y realizar una validación preliminar en laboratorio del prototipo d
 
 ### **4. Características y dimensiones**
   
-  <img width="986" height="677" alt="image" src="https://github.com/user-attachments/assets/23a25e52-c5b0-483c-92a1-44c772bbbf81" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5f78bd72-11d6-4bca-892b-6aeeb2062bb2" />
 
-  <img width="3508" height="2480" alt="Cuerpo de boya" src="https://github.com/user-attachments/assets/71e2ce09-2ce6-4d0a-a488-f8afb7655858" />
-
-  <img width="986" height="680" alt="image" src="https://github.com/user-attachments/assets/4b68e8a0-f1d0-4a61-8741-465512db5869" />
-
-  <img width="3508" height="2480" alt="Cinturón, tuerca y tornillo" src="https://github.com/user-attachments/assets/2ff8c21a-91d7-4dac-a3d7-b364dd965c5d" />
 
 ### **5. Selección de material**
 
