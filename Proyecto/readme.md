@@ -1,4 +1,4 @@
-# YakuToring — módulos del prototipo
+# YakuToring — Módulos del prototipo
 
 Esta carpeta reúne los archivos de trabajo del prototipo del Equipo 09. La documentación distingue lo probado de lo que aún está en desarrollo.
 
