@@ -24,9 +24,12 @@ Seguido, se sometio a la boya fuerzas de entre 0.62 N y de 6.93 N, los cuales co
 ### **Fuerza de arrastre**
 
 
+### **7.2.2. Fuerza de arrastre**
 
-- Esfuerzos de Von Mises:
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f897320e-2172-48bb-96c3-4119f9fcc472" />
 
+ - Esfuerzos de Von Mises: Se observa que ante la fuerza de arrastre, ya sea de 0.62 N o 6.93 N, las deformaciones en la boya son practicamente nulas. No se evidencian valores que indiquen una condición crítica para la integridad estructural del modelo bajo las cargas analizadas, sin embargo, estos resultados corresponden a una simulación y deberán ser confirmadas posteriormente mediante pruebas experimentales en laboratorio.
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/56a1df74-d632-42c3-b23a-12199685198d" />
   
-- Magnitud de desplazamiento:
+ - Esfuerzos de desplazamiento: En la imagen se puede apreciar, como el cinturón de anclaje no presenta desplazamientos, ya que corresponde a la zona de restricción de la estructura. En comparación, todo el cuerpo de la boya presenta dezplazamientos que aumentan gradualmente desde la sujeción hasta la base. Esto evidencia una deformación global por las fuerzas de arrastre dentro del rango previsto para las cargas evaluadas.
